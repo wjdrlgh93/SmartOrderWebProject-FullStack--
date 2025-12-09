@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
+    
+.boardUpdate {
+  max-width: 780px;
+  margin: 60px auto;
+  padding: 20px;
+}
+
+.boardUpdate > h1 {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 700;
+  color: #333;
+}
+
+/* 컨테이너 */
+.boardUpdate-con {
+  background-image: linear-gradient(to top, aliceBlue, #e0e0e0);
+  backdrop-filter: blur(12px);
+  padding: 35px 40px;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* 소제목 */
+.boardUpdate-con h4 {
+  font-size: 22px;
+  margin-bottom: 25px;
+  font-weight: 600;
+  color: #444;
+}
+
+/* 리스트 정리 */
+.boardUpdate-con ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 각 줄 */
+.boardUpdate-con li {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 22px;
+}
+.boardUpdate-con li input.last {
+  font-size: 16px; 
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 22px;
+  background: #0e2a96 ;
+}
+
+/* 라벨 */
+.boardUpdate-con label {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+/* input + textarea 공통 */
+.boardUpdate-con input[type="text"],
+.boardUpdate-con input[type="file"],
+.boardUpdate-con textarea {
+  font-size: 16px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: 0.2s;
+  background: #fff;
+}
+
+/* 포커스 효과 */
+.boardUpdate-con input:focus,
+.boardUpdate-con textarea:focus {
+  border-color: #6a8bff;
+  box-shadow: 0 0 0 3px rgba(106,139,255,0.2);
+}
+
+/* 파일 input */
+.boardUpdate-con input[type="file"] {
+  padding: 10px;
+}
+
+/* 버튼 + 링크 */
+.boardUpdate-con .last {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 10px;
+  background: #6a8bff;
+  color: #fff !important;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: 0.25s;
+  margin-right: 10px;
+}
+
+/* 버튼 hover */
+.boardUpdate-con .last:hover {
+  background: #5874e8;
+}
+
+/* 반응형 */
+@media (max-width: 540px) {
+  .boardUpdate-con {
+    padding: 25px;
+  }
+
+  .boardUpdate > h1 {
+    font-size: 24px;
+  }
+
+  .boardUpdate-con h4 {
+    font-size: 20px;
+  }
+}

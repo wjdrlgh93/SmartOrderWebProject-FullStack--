@@ -1,0 +1,133 @@
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.slider__wrap {
+
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 30%;
+
+   
+    box-shadow: 0 0 10px #17001d;
+    overflow: hidden;
+
+}
+        
+          
+        
+    
+.slider__img img.active {
+    opacity: 1;
+    transform: scale(1);
+            
+} 
+        .slider__btn a {
+            position: absolute;
+            top: 40%;
+            width: 50px;
+            height: 55px;
+            border-radius: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 52px;
+            color: #00aeff;
+
+            transition: all 300ms ease-in-out;
+            z-index: 99;
+        }
+
+
+        .slider__inner {
+            display: flex;
+        }
+
+.slider__inner > .slider {
+    
+    /* if you want change silder Width size check out here... */
+    display: flex;
+    width: 100%;
+    flex-shrink: 0;
+    height: 100%;
+
+}
+
+.slider__inner > .slider img {
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    vertical-align: top;
+
+}
+.slider__btn a.next {
+    right: 0;
+}
+.slider__btn a:hover {
+    color: #ff0000;      
+}
+
+
+
+/* UI Button */
+.slider__count {
+    
+    position: absolute; 
+    bottom: 10px;        
+    right: 46.2%;         
+    z-index: 15;         
+    
+    padding: 5px 10px;
+    border-radius: 15px;
+
+    
+    background-color: rgba(0, 0, 0, 0.4); 
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.slider__count .current {
+    color: #ffd700; 
+}
+
+.slider__count .separator {
+    margin: 0 3px;
+    opacity: 0.8;
+}
+
+.slider__pagination {
+  
+    position: absolute;
+    bottom: 45px; 
+    left: 52%;
+    transform: translateX(-50%);
+    z-index: 15;
+    
+    display: flex;
+    gap: 10px; 
+}
+
+.slider__dot {
+    top: 10%;
+    display: block; 
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5); 
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.slider__dot.active {
+    background-color: #ffd700;
+    transform: scale(1.2);
+}
+
+.slider__dot:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+

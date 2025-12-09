@@ -1,0 +1,291 @@
+.member-update {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.member-update .member-update-con {
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 40px;
+}
+
+.member-update h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #222;
+  text-align: center;
+}
+
+.member-update form {
+  width: 100%;
+}
+
+.member-update .member-update-right {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* 프로필 섹션 */
+.member-update .profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  gap: 20px;
+}
+
+.member-update .profile-section .profile-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.member-update .profile-image-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.member-update .profile-image-container {
+  position: relative;
+}
+
+.member-update .profile-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.member-update .file-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.member-update .file-input-wrapper input[type="file"] {
+  display: none;
+}
+
+.member-update .file-button-group {
+  display: flex;
+  gap: 10px;
+}
+
+.member-update .file-select-btn {
+  padding: 10px 24px;
+  background: #4a90e2;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.member-update .file-select-btn:hover {
+  background: #357abd;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+.member-update .file-delete-btn {
+  padding: 10px 24px;
+  background: #ffffff;
+  color: #dc2626;
+  border: 1px solid #dc2626;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.member-update .file-delete-btn:hover {
+  background: #dc2626;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.member-update .file-name {
+  font-size: 13px;
+  color: #666;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 정보 섹션 */
+.member-update .info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.member-update .info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.member-update .info-item .info-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.member-update .info-item input {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #333;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.member-update .info-item input:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+.member-update .info-item input::placeholder {
+  color: #999;
+}
+
+.member-update .info-item.readonly {
+  background: #f8f9fa;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.member-update .info-item.readonly .info-label {
+  margin-bottom: 8px;
+}
+
+.member-update .info-item.readonly .info-value {
+  font-size: 15px;
+  color: #555;
+  font-weight: 500;
+}
+
+.member-update .input-hint {
+  font-size: 12px;
+  color: #999;
+  margin: 0;
+  margin-top: 4px;
+}
+
+/* 버튼 그룹 */
+.member-update .button-group {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.member-update .btn-cancel,
+.member-update .btn-edit {
+  min-width: 120px;
+  height: 48px;
+  padding: 0 32px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.member-update .btn-cancel {
+  background: #f8f9fa;
+  color: #666;
+  border: 1px solid #ddd;
+}
+
+.member-update .btn-cancel:hover {
+  background: #e9ecef;
+  border-color: #bbb;
+}
+
+.member-update .btn-edit {
+  background: #4a90e2;
+  color: #ffffff;
+}
+
+.member-update .btn-edit:hover {
+  background: #357abd;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+.member-update .btn-cancel:active,
+.member-update .btn-edit:active {
+  transform: translateY(0);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .member-update {
+    padding: 20px 16px;
+  }
+
+  .member-update .member-update-con {
+    padding: 30px 24px;
+  }
+
+  .member-update h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  .member-update .profile-section {
+    padding: 24px;
+  }
+
+  .member-update .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .member-update .button-group {
+    flex-direction: column;
+  }
+
+  .member-update .btn-cancel,
+  .member-update .btn-edit {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .member-update .member-update-con {
+    padding: 24px 16px;
+  }
+
+  .member-update .info-item input {
+    height: 44px;
+  }
+
+  .member-update .btn-cancel,
+  .member-update .btn-edit {
+    height: 44px;
+  }
+}

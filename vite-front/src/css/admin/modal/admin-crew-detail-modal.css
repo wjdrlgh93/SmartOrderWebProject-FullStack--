@@ -1,0 +1,242 @@
+/* 모달 오버레이 */
+.admin-crewDetail-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+/* 모달 컨테이너 */
+.admin-crewDetail-modal-container {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  max-width: 28rem;
+  width: 100%;
+  max-height: 90vh;
+  overflow: auto;
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 헤더 */
+.admin-crewDetail-modal-header {
+  background-color: #3b82f6;
+  color: white;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.admin-crewDetail-modal-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+  padding-right: 2rem;
+}
+
+button.admin-crewDetail-modal-close {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.25rem;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.admin-crewDetail-modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* 컨텐츠 */
+.admin-crewDetail-modal-content {
+  padding: 1.5rem;
+}
+
+.admin-crewDetail-modal-content .info-dev-con {
+  display: flex;
+  justify-content: center;
+  padding-right: 20px;
+  gap: 2rem;
+}
+
+/* 정보 행 */
+.admin-crewDetail-modal-content .info-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.admin-crewDetail-modal-content .info-img {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 25px;
+}
+
+.admin-crewDetail-modal-content .info-img img {
+  display: block;
+  border-radius: 20px;
+}
+
+.admin-crewDetail-modal-content .info-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+  flex-shrink: 0;
+}
+
+.admin-crewDetail-modal-content .icon-location {
+  background-color: #dbeafe;
+}
+
+.admin-crewDetail-modal-content .icon-status {
+  background-color: #fef3c7;
+}
+
+.admin-crewDetail-modal-content .icon-date {
+  background-color: #f3e8ff;
+}
+
+.admin-crewDetail-modal-content .info-text {
+  flex: 1;
+}
+
+.admin-crewDetail-modal-content .info-label {
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 500;
+  margin: 0 0 0.25rem 0;
+}
+
+.admin-crewDetail-modal-content .info-value {
+  color: #1f2937;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* 메시지 박스 */
+.admin-crewDetail-modal-content .message-box {
+  background-color: #f9fafb;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.admin-crewDetail-modal-content .message-text {
+  color: #374151;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 상태 뱃지 */
+.admin-crewDetail-modal-content .status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.admin-crewDetail-modal-content .status-APPROVED {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.admin-crewDetail-modal-content .status-REJECTED {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.admin-crewDetail-modal-content .status-PENDING {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+/* 버튼 그룹 */
+.admin-crewDetail-modal-content .crew-button-group {
+  display: flex;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.admin-crewDetail-modal-content .btn {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.admin-crewDetail-modal-content .btn:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.admin-crewDetail-modal-content .btn-deleted {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+}
+
+.admin-crewDetail-modal-content .btn-deleted:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+}
+
+/* 반응형 */
+@media (max-width: 640px) {
+  .admin-crewDetail-modal-container {
+    max-width: 100%;
+    margin: 1rem;
+  }
+
+  .admin-crewDetail-modal-title {
+    font-size: 1.25rem;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

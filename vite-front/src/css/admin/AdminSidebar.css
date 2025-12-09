@@ -1,0 +1,51 @@
+.admin-sidebar {
+  width: 200px;
+  background: #ffffff;
+  color: #000000;
+  height: calc(100vh - 64px);
+  padding: 20px 10px;
+  box-sizing: border-box;
+}
+
+.admin-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.admin-sidebar li {
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.admin-sidebar li.hasPendingApproval span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: red;
+  position: absolute; /* 부모 li 기준으로 위치 지정 */
+  top: 0;
+  right: 0;
+}
+
+.admin-sidebar a {
+  text-decoration: none;
+  color: #353535;
+  font-size: 15px;
+  display: block;
+  padding: 8px 10px;
+  border-radius: 4px;
+}
+
+.admin-sidebar a:hover {
+  background: #3a3a3a;
+  color: #fff;
+}
+
+/* NavLink active 스타일 */
+.admin-sidebar a.active {
+  background: #555;
+  color: #fff;
+  font-weight: bold;
+}

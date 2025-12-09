@@ -1,0 +1,186 @@
+/* ==== 전체 화면 기반 but 채팅창은 따로 뜨는 박스 ==== */
+.crewChat {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;  /* 가운데 정렬 */
+  align-items: center;
+  background: #f3f3f3;      /* 뒤 배경 */
+}
+
+.crewChat .crewChat-con {
+  width: 450px;            
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  background: #f0f3f8;    
+  border-radius: 18px;
+  border: 2px solid #000;
+  box-shadow: 0 0 12px rgba(0,0,0,0.25);
+  overflow: hidden;
+}
+
+/* 참여 버튼 영역 */
+.crewChat .crewChat-con .crewChat-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background-color: #eaedf5;
+  border-bottom: 1px solid #eee;
+}
+
+.crewChat .crewChat-con .crewChat-header .chatButton>button {
+  justify-self: start;
+  text-align: center;
+  background-color: #a9b8e4;
+  border: 2px solid #333;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #333;
+  transition: 0.1s all;
+  /* box-shadow: 2px 2px 0 #333; */
+}
+
+.crewChat .crewChat-con .crewChat-header .chatButton>button:hover {
+  background-color: #97a4ca;
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 0 #333;
+}
+
+.crewChat .crewChat-con .crewChat-header .chatButton>button:active {
+  transform: translateY(1px);
+  box-shadow: 1px 1px 0 #333;
+}
+
+
+.crewChat .crewChat-con .crewChat-header>h3 {
+  padding: 10px;
+  display: flex;
+  justify-self: center;
+}
+
+/* ==== 메시지 영역 ==== */
+.crewChat .crewChat-con .recentMessages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ==== 메시지 한 줄 정렬 (카카오톡 방식) ==== */
+.crewChat .crewChat-con .recentMessages .crewMessage {
+  display: flex;
+  width: 100%;
+  gap: 8px;
+  align-items: flex-start; /* 프로필과 말풍선 라인을 일정하게 맞춤 */
+}
+
+/* ==== 내 메시지 (오른쪽 세로 정렬 완벽) ==== */
+.crewChat .crewChat-con .recentMessages .crewMessage.me {
+  flex-direction: row-reverse;
+}
+
+/* 아바타 고정 폭 — 여기서 정렬이 깨지지 않음 */
+.crewChat .crewChat-con .recentMessages .crewMessage .profileArea {
+  width: 40px;          /* 고정 폭 */
+  display: flex;
+  justify-content: center;
+}
+
+.crewChat .crewChat-con .recentMessages .crewMessage .profileArea.hidden {  /* 그룹핑 시 프로필 숨김 */
+  visibility: hidden;  /* 공간은 유지해서 라인 정렬 유지됨 */
+}
+
+.crewChat .crewChat-con .recentMessages .crewMessage .profileArea>img.profileImage,
+.crewChat .crewChat-con .recentMessages .crewMessage .profileArea .replaceProfileEmoji {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 2px solid #000;
+  background: #fff;
+  image-rendering: pixelated;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ==== 말풍선 + 닉네임 영역 ==== */
+.crewChat .crewChat-con .recentMessages .crewMessage .chatWrapper {
+  max-width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.recentMessages .crewMessage.me .chatWrapper>.nickName {
+  font-size: 11px;
+  color: #444;
+  text-align: end;
+}
+.recentMessages .crewMessage.other .chatWrapper>.nickName {
+  font-size: 11px;
+  color: #444;
+  text-align: start;
+}
+
+/* 말풍선 */
+.recentMessages .crewMessage .chatWrapper .amessage {
+  padding: 10px 12px;
+  font-size: 14px;
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 10px;
+  /* box-shadow: 2px 2px 0 #000; */
+  line-height: 1.35;
+}
+
+.recentMessages .crewMessage.me .chatWrapper .amessage {
+  background: #dae5f7;
+}
+
+/* 시간 */
+.recentMessages .crewMessage .time {
+  font-size: 0.5rem;
+  color: #77767673;
+  align-self: flex-end;
+  padding-bottom: 1px;
+}
+
+/* 시스템 메시지 */
+.crewChat .crewChat-con .recentMessages .systemMessage {
+  text-align: center;
+  font-size: 0.65rem;
+  opacity: 0.5;
+  padding: 2px 0;
+  background-color: #e3e6eb;
+}
+
+/* 입력창 */
+.crewChat .crewChat-con .writeMessage {
+  display: flex;
+  padding: 12px;
+  gap: 8px;
+  background: #fff;
+  border-top: 2px solid #000;
+}
+
+.crewChat .crewChat-con .writeMessage input {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #000;
+  border-radius: 8px;
+}
+
+.crewChat .crewChat-con .writeMessage button {
+  padding: 8px 14px;
+  border: 2px solid #000;
+  border-radius: 8px;
+  background: #9fc4ff;
+  font-weight: 600;
+}

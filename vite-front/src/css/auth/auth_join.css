@@ -1,0 +1,297 @@
+.member-join {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background: #f5f5f5;
+}
+
+.member-join .member-join-con {
+  width: 100%;
+  max-width: 500px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 40px;
+}
+
+.member-join h2 {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+.member-join form {
+  width: 100%;
+}
+
+.member-join ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.member-join ul li {
+  margin-bottom: 24px;
+}
+
+.member-join ul li:last-child {
+  margin-bottom: 0;
+}
+
+.member-join label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.member-join input[type="email"],
+.member-join input[type="password"],
+.member-join input[type="text"],
+.member-join input[type="number"],
+.member-join input[type="tel"] {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #333;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.member-join input[type="email"]:focus,
+.member-join input[type="password"]:focus,
+.member-join input[type="text"]:focus,
+.member-join input[type="number"]:focus,
+.member-join input[type="tel"]:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+.member-join input::placeholder {
+  color: #999;
+}
+
+.member-join .input-with-button {
+  display: flex;
+  gap: 8px;
+}
+
+.member-join .input-with-button input {
+  flex: 1;
+}
+
+.member-join .check-duplicate-btn {
+  height: 48px;
+  padding: 0 20px;
+  background: #ffffff;
+  color: #4a90e2;
+  border: 1px solid #4a90e2;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.member-join .check-duplicate-btn:hover {
+  background: #4a90e2;
+  color: #ffffff;
+}
+
+.member-join .check-duplicate-btn:active {
+  transform: scale(0.98);
+}
+
+.member-join .error-message {
+  color: #e74c3c;
+  font-size: 12px;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+.member-join .email-message {
+  color: #3c80e7;
+  font-size: 12px;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+.member-join .profile-image-field {
+  margin-bottom: 28px;
+}
+
+.member-join .file-input-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.member-join .file-input-wrapper input[type="file"] {
+  position: absolute;
+  width: 100%;
+  height: 48px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.member-join .file-input-wrapper .file-label {
+  display: block;
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  line-height: 48px;
+  background: #f8f9fa;
+  border: 1px dashed #ccc;
+  border-radius: 8px;
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.member-join .file-input-wrapper:hover .file-label {
+  background: #e9ecef;
+  border-color: #999;
+}
+
+.member-join .preview-container {
+  position: relative;
+  display: inline-block;
+  margin-top: 16px;
+}
+
+.member-join .preview-image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #e9ecef;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: block;
+}
+
+.member-join .delete-image-btn {
+  position: absolute;
+  top: -8px;
+  right: 0px;
+  width: 32px;
+  height: 32px;
+  background: #e74c3c;
+  color: white;
+  border: 2px solid white;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.member-join .delete-image-btn:hover {
+  background: #c0392b;
+  transform: scale(1.1);
+}
+
+.member-join .member-gender {
+  margin-bottom: 24px;
+}
+
+.member-join .member-gender .genderLabel {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.member-join .member-gender-list {
+  display: flex;
+  gap: 24px;
+}
+
+.member-join .radio-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 400;
+  color: #555;
+}
+
+.member-join .radio-label input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  margin: 0 8px 0 0;
+  cursor: pointer;
+  accent-color: #4a90e2;
+}
+
+.member-join .radio-label span {
+  font-size: 14px;
+}
+
+.member-join .submit-button-wrapper {
+  margin-top: 32px;
+}
+
+.member-join button[type="submit"] {
+  width: 100%;
+  height: 52px;
+  background: #4a90e2;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.member-join button[type="submit"]:hover {
+  background: #357abd;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+.member-join button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 576px) {
+  .member-join .member-join-con {
+    padding: 30px 24px;
+  }
+
+  .member-join h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  .member-join input[type="email"],
+  .member-join input[type="password"],
+  .member-join input[type="text"],
+  .member-join input[type="number"],
+  .member-join input[type="tel"] {
+    height: 44px;
+  }
+
+  .member-join .file-input-wrapper .file-label {
+    height: 44px;
+    line-height: 44px;
+  }
+
+  .member-join button[type="submit"] {
+    height: 48px;
+  }
+}

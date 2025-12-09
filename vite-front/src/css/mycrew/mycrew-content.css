@@ -1,0 +1,330 @@
+/* === MyCrew 전체 레이아웃 === */
+.myCrew {
+    width: 100%;
+    height: 100vh;
+    padding: 24px;
+    background: radial-gradient(circle at top, #e5e7eb, #cbd5f5);
+    box-sizing: border-box;
+    display: flex;
+}
+
+.myCrew .myCrew-con {
+    width: 100%;
+    height: 89vh;
+    margin: 0 auto;
+    background: #f9fafb;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 14px 40px rgba(15, 23, 42, 0.18);
+    padding: 20px 24px 24px;
+    box-sizing: border-box;
+  }
+  
+  /* 상단에 제목 겸 위치 표시용 */
+  .myCrew .myCrew-con > div:first-child {
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #6b7280;
+  }
+  
+  /* ===========================
+     검색 영역
+     =========================== */
+  
+  .myCrew .myCrew-search {
+    margin-bottom: 18px;
+  }
+  
+  .myCrew .myCrew-search ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .myCrew .myCrew-search li {
+    display: flex;
+    align-items: center;
+  }
+  
+  .myCrew .myCrew-search select,
+  .myCrew .myCrew-search input[type="text"] {
+    padding: 6px 10px;
+    font-size: 13px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    box-sizing: border-box;
+    min-width: 120px;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  
+  .myCrew .myCrew-search input[type="text"] {
+    min-width: 180px;
+  }
+  
+  .myCrew .myCrew-search select:focus,
+  .myCrew .myCrew-search input[type="text"]:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.4);
+  }
+  
+  .myCrew .myCrew-search button {
+    padding: 7px 14px;
+    font-size: 13px;
+    border-radius: 6px;
+    border: 1px solid #2563eb;
+    background: #3b82f6;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.1s ease;
+  }
+  
+  .myCrew .myCrew-search button:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+  }
+  
+  /* ===========================
+     크루 멤버 리스트
+     =========================== */
+  
+  .myCrew .myCrew-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .myCrew .myCrew-content > ul:first-of-type li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    align-items: center;
+    /* justify-content: space-between; */
+    box-sizing: border-box;
+  }
+  .myCrew .myCrew-content > ul:last-of-type li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    align-items: center;
+    /* justify-content: space-between; */
+    box-sizing: border-box;
+  }
+  
+  /* 텍스트 정보 영역 */
+  .myCrew .myCrew-content li span {
+    flex: 1;   
+    text-align: center;
+    font-size: 13px;
+    color: #374151;
+    display: inline-block;
+  }
+  
+  /* span들을 한 덩어리로 묶기 (버튼과 분리 느낌) */
+  .myCrew .myCrew-content li span:nth-child(1),
+  .myCrew .myCrew-content li span:nth-child(2),
+  .myCrew .myCrew-content li span:nth-child(3),
+  .myCrew .myCrew-content li span:nth-child(4) {
+    min-width: 120px;
+  }
+  
+  /* 버튼 영역 */
+  .myCrew .myCrew-content li span button {
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    background: #f3f4f6;
+    color: #374151;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+    margin-left: 4px;
+  }
+  
+  /* "자세히 보기" 버튼 (첫 번째 버튼) → 파란색 느낌 */
+  .myCrew .myCrew-content li span:nth-of-type(5) button {
+    border-color: #2563eb;
+    background: #3b82f6;
+    color: #ffffff;
+  }
+  
+  /* "탈퇴" 버튼 (두 번째 버튼) → 빨간 느낌 */
+  .myCrew .myCrew-content li span:nth-of-type(6) button {
+    border-color: #f97373;
+    background: #fee2e2;
+    color: #b91c1c;
+  }
+  
+  .myCrew .myCrew-content li span button:hover {
+    transform: translateY(-1px);
+  }
+  
+  .myCrew .myCrew-content li span:nth-of-type(5) button:hover {
+    background: #2563eb;
+  }
+  
+  .myCrew .myCrew-content li span:nth-of-type(6) button:hover {
+    background: #fecaca;
+  }
+  
+  /* ===========================
+     페이징 영역
+     =========================== */
+  
+  .myCrew .myCrew-paging {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .myCrew .myCrew-paging-con ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .myCrew .myCrew-paging-con li {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 13px;
+    color: #4b5563;
+  }
+  
+  /* 페이징 버튼 공통 */
+  .myCrew .myCrew-paging-con button {
+    min-width: 32px;
+    height: 32px;
+    padding: 0 10px;
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease, color 0.15s ease;
+  }
+  
+  /* 현재 페이지(now) */
+  .myCrew .myCrew-paging-con button.now {
+    background: #3b82f6;
+    border-color: #2563eb;
+    color: #ffffff;
+  }
+  
+  /* 페이지 버튼 hover */
+  .myCrew .myCrew-paging-con button:hover:not(:disabled) {
+    background: #e5e7eb;
+    border-color: #9ca3af;
+    transform: translateY(-1px);
+  }
+  
+  /* disabled 상태 */
+  .myCrew .myCrew-paging-con button:disabled {
+    cursor: default;
+    background: #f9fafb;
+    color: #9ca3af;
+    border-color: #e5e7eb;
+  }
+  
+  
+ /* ============================
+   반응형 - 768px 이하 (태블릿)
+   ============================ */
+@media (max-width: 768px) {
+  .myCrew {
+    padding: 16px;
+    box-sizing: border-box;
+    overflow-x: hidden;        /* 가로 스크롤 방지 */
+  }
+
+  .myCrew .myCrew-con {
+    padding: 16px;
+    box-sizing: border-box;
+    overflow-x: hidden;        /* 혹시 모를 가로 넘침 방지 */
+  }
+  
+
+  /* 상단 위치/제목 살짝 축소 */
+  .myCrew .myCrew-con > div:first-child {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  /* 검색 영역: 여백/폰트 조금 줄이기 */
+  .myCrew .myCrew-search {
+    margin-bottom: 14px;
+  }
+
+  .myCrew .myCrew-search ul {
+    gap: 8px;
+  }
+
+  .myCrew .myCrew-search select,
+  .myCrew .myCrew-search input[type="text"] {
+    padding: 5px 8px;
+    font-size: 12px;
+    min-width: 100px;
+  }
+
+  .myCrew .myCrew-search input[type="text"] {
+    min-width: 150px;
+  }
+
+  .myCrew .myCrew-search button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  /* 리스트 영역: 패딩/갭 줄이기 + 줄바꿈 허용 */
+  .myCrew .myCrew-content > ul:first-of-type li,
+  .myCrew .myCrew-content > ul:last-of-type li {
+    padding: 10px 12px;
+    gap: 6px 12px;
+    flex-wrap: wrap;           /* 옆으로 넘치지 말고 줄바꿈 */
+  }
+
+  .myCrew .myCrew-content li span {
+    font-size: 12px;
+  }
+
+  /* 텍스트 칸 최소 너비 줄이기 */
+  .myCrew .myCrew-content li span:nth-child(1),
+  .myCrew .myCrew-content li span:nth-child(2),
+  .myCrew .myCrew-content li span:nth-child(3),
+  .myCrew .myCrew-content li span:nth-child(4) {
+    min-width: 100px;
+  }
+
+  /* 버튼도 살짝 작게 */
+  .myCrew .myCrew-content li span button {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+
+  /* 페이징: 버튼 크기 축소 */
+  .myCrew .myCrew-paging {
+    margin-top: 14px;
+  }
+
+  .myCrew .myCrew-paging-con button {
+    min-width: 28px;
+    height: 28px;
+    padding: 0 8px;
+    font-size: 11px;
+  }
+}

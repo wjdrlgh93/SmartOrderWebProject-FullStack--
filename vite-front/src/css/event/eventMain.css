@@ -1,0 +1,37 @@
+.event-grid-list {
+    display: grid;
+    /* 한 줄에 2개씩 동일 비율로 배치하도록 명시 */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    /* 항목 간 간격 */
+    padding: 0 40px 80px;
+}
+
+.event-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.event-image-placeholder {
+    width: 100%;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #495057;
+    /* 텍스트 색상 */
+}
+
+/* NO IMAGE 클래스 (회색 배경) */
+.event-image-placeholder.no-image {
+    background-color: #ced4da;
+    /* 밝은 회색 배경 */
+}
+
+.event-image-placeholder.no-image p {
+    font-weight: 600;
+    color: #495057;
+}

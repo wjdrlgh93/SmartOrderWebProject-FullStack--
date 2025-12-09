@@ -1,0 +1,279 @@
+.cartPage {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fdfdfd;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: "Noto Sans KR", sans-serif;
+
+  min-height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 1;
+}
+
+.cartPage h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #333;
+}
+
+.cartSearch {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.cartSearch input {
+  width: 60%;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px 0 0 8px;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.cartSearch input:focus {
+  border-color: #4a90e2;
+}
+
+.cartSearch button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: 1px solid #4a90e2;
+  background-color: #4a90e2;
+  color: #fff;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cartSearch button:hover {
+  background-color: #357ab8;
+}
+
+.cartTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.cartTable th,
+.cartTable td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+.cartTable th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+  color: #555;
+}
+
+.cartTable tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.cartTable button {
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #e74c3c;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cartTable button:hover {
+  background-color: #c0392b;
+}
+
+.cart-item-thumbnail {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.cart-empty-container {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 20px;
+}
+
+/* 실제 메시지 디자인 */
+.cart-empty-message {
+  font-size: 1.4rem;
+  color: #777;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.quantity-control button {
+  width: 30px;
+  height: 30px;
+  font-size: 1.2rem;
+  padding: 0;
+  background-color: #f0f0f0;
+  color: #555;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.quantity-control button:hover {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.quantity-control input {
+  width: 40px;
+  padding: 5px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  -moz-appearance: textfield;
+}
+
+.quantity-control input::-webkit-outer-spin-button,
+.quantity-control input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.price-column {
+  text-align: right;
+}
+
+.cartPage .pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.cartPage .pagination button {
+  padding: 6px 12px;
+  border: 1px solid #4a90e2;
+  background-color: #4a90e2;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cartPage .pagination button:disabled {
+  background-color: #ccc;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #357ab8;
+}
+
+.pagination span {
+  font-weight: 500;
+  color: #333;
+}
+
+.cartSummary {
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin-top: 20px;
+  text-align: right;
+  line-height: 1.8;
+}
+
+.cartSummary p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.cartSummary .finalTotal {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+.bottomLinks {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.bottomLinks button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  background-color: #4a90e2;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  flex-grow: 1;
+}
+
+.bottomLinks button:hover {
+  background-color: #357ab8;
+}
+
+.bottomLinks button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .cartSearch input {
+    width: 50%;
+  }
+
+  .cartTable th,
+  .cartTable td {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+
+  .cart-item-thumbnail {
+    width: 60px;
+    height: 60px;
+  }
+
+  .bottomLinks {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .bottomLinks button {
+    width: 100%;
+  }
+
+  .cartSummary {
+    text-align: center;
+  }
+}

@@ -1,0 +1,279 @@
+/* 게시글 + 댓글 전체 컨테이너 */
+.crewBoardDetail {
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* 요소 간 간격 */
+    width: 100%;
+    max-width: 900px; /* 중앙 영역 폭 제한 */
+    background-color: #fff;
+    /* border: 1px solid #e0e0e0; */
+    border-radius: 12px;
+    padding: 24px; /* 내부 여백 */
+    /* box-shadow: 0 4px 10px rgba(0,0,0,0.05); */
+    align-self: center; /* 상위 flex 컨테이너 안에서 가로 중앙 */
+  }
+  
+.crewBoardDetail .crewBoardDetail-con {
+  padding-top: 15px;
+}
+
+  /* 게시글 제목 */
+.crewBoardDetail .crewBoardDetail-con .crewBoardTitle>h3.crewBoardTitle {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #111;
+    line-height: 1.2;
+  }
+
+.crewBoardDetail .crewBoardDetail-con .crewBoardHeader {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #e0e0e0;    
+    border-top: 1px solid #e0e0e0;
+    padding: 8px 10px;
+    gap: 3px;
+}
+
+  /* 게시글 정보 */
+.crewBoardDetail .crewBoardDetail-con .crewBoardHeader .crewBoardInfo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.crewBoardHeader .crewBoardWriter {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.crewBoardHeader .crewBoardWriter>span.crewBoardWriter2 {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.crewBoardHeader .crewBoardTime {
+    display: flex;
+    align-items: center;
+    font-size: 0.6rem;
+    gap: 5px;
+    color: #777777;
+}
+
+.crewBoardHeader .crewBoardTime>span.crewBoardCreatedTime {
+    display: flex;
+    align-items: center;
+}
+  
+.crewBoardHeader .crewBoardTime .crewBoardUpdatedTime {
+    display: flex;
+    gap: 2px;
+}
+  
+  /* 게시글 내용 */
+.crewBoardDetail-con .crewBoardContent {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 25px;
+    gap: 20px;
+    min-height: 300px;
+}
+  
+.crewBoardDetail-con .crewBoardContent>p.crewBoardContent2 {
+    line-height: 1.6;
+    color: #222;
+    white-space: pre-wrap; /* 줄바꿈 유지 */
+    font-size: 14px;
+}
+  
+  /* 이미지 갤러리 */
+.crewBoardDetail-con .crewBoardImage .crewBoardImages {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+  
+.crewBoardImage .crewBoardImages>img.crewBoardImg {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 3px;
+    object-fit: cover;
+  }
+  
+  /* 게시글 버튼 그룹 */
+.crewBoardBtn {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px 10px;
+}
+  
+.crewBoardBtn button.crewBoardBtnBtn {
+    padding: 6px 10px 6px 8px;
+    border: none;
+    border-radius: 6px;
+    background-color: #538ed1; /* 파란색 포인트 */
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.crewBoardBtn .crewBoardWrite {
+  display: flex;
+  gap: 5px;
+}
+  .crewBoardBtn button.crewBoardBtnBtn:hover {
+    background-color: #3378bd;
+  }
+  
+  /* 댓글 영역 전체 */
+.crewBoardComment .crewBoardComment-con {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    align-items: center; /* 댓글 폼과 리스트 중앙 정렬 */
+  }
+  
+  /* 댓글 작성폼 */
+.crewBoardComment .crewBoardComment-con .writeComment {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    /* max-width: 600px; 댓글 영역 폭 제한 */
+  }
+
+.crewBoardComment .crewBoardComment-con .writeComment>h3.crewComment {
+  display: flex;
+  padding: 2px 5px;
+  font-size: 16px;
+}
+
+.crewBoardComment .crewBoardComment-con .writeComment .writeComment-con {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+  border-bottom: 1px solid #cccccc;
+  border-top: 1px solid #cccccc;
+}
+  
+.writeComment .writeComment-con>textarea {
+    width: 100%;
+    min-height: 90px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    resize: none;
+    font-size: 0.75rem;
+  }
+  
+.writeComment .writeComment-con>textarea::placeholder {
+    font-size: 0.65rem;
+  }
+  
+.writeComment .writeComment-con>button {
+    align-self: flex-end;
+    padding: 6px 10px 6px 8px;
+    border-radius: 5px;
+    border: none;
+    background-color: hsl(212, 67%, 59%);
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .writeComment button:hover {
+    background-color: #3378bd;
+  }
+  
+  /* 댓글 리스트 */
+.crewBoardComment .crewBoardComment-con .commentList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    padding: 8px 10px;
+    /* max-width: 600px; 댓글 영역 폭 제한 */
+}
+  
+  /* 개별 댓글 */
+.crewBoardComment .crewBoardComment-con .commentList .aComment {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 40px 12px 12px; /* 삭제 버튼 공간 확보 */
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+  }
+  
+  /* 댓글 작성자, 시간 */
+.crewBoardComment .crewBoardComment-con .commentList .aComment>span.commentWriter {
+    font-weight: 600;
+    font-size: 0.65rem;
+    color: #111;
+}
+  
+.aComment>span.commentTime {
+    font-size: 0.5rem;
+    color: #888;
+  }
+  
+.aComment .commentContent>p {
+    font-size: 0.75rem;
+    color: #222;
+  }
+  
+  /* 댓글 삭제 버튼 */
+  .commentBtn button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    color: #888; /* 무채색 */
+    font-weight: bold;
+    font-size: 0.85rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    content: "X"; /* 버튼 텍스트 X */
+  }
+  
+  .commentBtn button:hover {
+    color: #555;
+  }
+  
+  /* 페이지네이션 */
+.commentListPagination {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  padding-top: 10px;
+  }
+  
+  .commentListPagination button {
+  padding: 3px 8px;
+  border: 1px solid #81addf;
+  font-size: 0.7rem;
+  border-radius: 6px;
+  background-color: white;
+  color: #1e568a;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  }
+  
+  .commentListPagination>button:hover:not(:disabled) {
+  background-color: #4a7dcf;
+  color: white;
+  }
+  
+  .commentListPagination>button:disabled {
+  cursor: default;
+  opacity: 0.5;
+  }

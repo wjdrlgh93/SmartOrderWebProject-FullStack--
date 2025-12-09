@@ -1,0 +1,102 @@
+.admin-item-detail {
+  padding: 30px;
+}
+
+.admin-item-detail h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.item-detail-con {
+  display: flex;
+  gap: 60px;
+}
+
+/* ----------------------
+    왼쪽 영역 (이미지 1)
+----------------------- */
+.detail-left {
+  flex: 1; /* 1 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  padding-top:150px;
+}
+
+.detail-img {
+  width: 260px;
+  height: 350px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detail-left button {
+  padding: 10px 16px;
+  background: #ff4b4b;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ----------------------
+    오른쪽 입력 영역 3
+----------------------- */
+.detail-right {
+  flex: 3; /* 3 */
+}
+
+.detail-right form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.detail-right label {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.detail-right input,
+.detail-right textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dadada;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.detail-right textarea {
+  height: 130px;
+}
+
+.detail-right button[type="submit"] {
+  padding: 12px;
+  background: #4a6cf7;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.detail-right select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dadada;
+  border-radius: 6px;
+  font-size: 15px;
+}

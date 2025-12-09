@@ -1,0 +1,180 @@
+/* 전체 WRAP */
+.admin-paymentList {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.admin-paymentList-con {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 32px;
+}
+
+/* 제목 */
+.admin-paymentList-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.admin-paymentList-header h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+}
+
+/* 테이블 WRAP */
+.admin-paymentList-tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 16px;
+}
+
+/* 테이블 */
+.admin-paymentList-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-paymentList-table thead {
+  background: #f3f4f6;
+  border-top: 2px solid #e5e7eb;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.admin-paymentList-table thead th {
+  padding: 12px 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  color: #374151;
+  white-space: nowrap;
+}
+
+.admin-paymentList-table tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+  transition: background 0.2s;
+}
+
+.admin-paymentList-table tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.admin-paymentList-table tbody tr:hover {
+  background: #f3f4f6;
+}
+
+.admin-paymentList-table tbody td {
+  padding: 12px 8px;
+  font-size: 14px;
+  color: #1f2937;
+  text-align: center;
+}
+
+/* select 스타일 */
+.admin-paymentList-table select {
+  padding: 6px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: white;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.admin-paymentList-table select:hover {
+  border-color: #9ca3af;
+}
+
+.admin-paymentList-table select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  outline: none;
+}
+
+/* 보기 버튼 */
+.admin-paymentList-table .view-btn {
+  padding: 6px 12px;
+  background: #3b82f6;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.admin-paymentList-table .view-btn:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+}
+
+.pagination {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 6px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pagination button:hover {
+  background: #f3f4f6;
+}
+
+.pagination .active {
+  background: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+/* 반응형 */
+@media (max-width: 1200px) {
+  .admin-paymentList {
+    padding: 32px 16px;
+  }
+  .admin-paymentList-con {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-paymentList {
+    padding: 24px 12px;
+  }
+  .admin-paymentList-con {
+    padding: 20px 16px;
+  }
+  .admin-paymentList-header h2 {
+    font-size: 20px;
+  }
+  .admin-paymentList-table {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-paymentList-header h2 {
+    font-size: 18px;
+  }
+  .admin-paymentList-table th,
+  .admin-paymentList-table td {
+    padding: 8px 4px;
+    font-size: 12px;
+  }
+}

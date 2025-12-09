@@ -1,0 +1,229 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.memberDetail-background {
+  background-color: #f8f9fa;
+}
+
+.memberDetail {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    sans-serif;
+}
+
+.memberDetail > h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  padding: 20px 20px 23px 40px;
+  text-align: left;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background-color: #4a90e2;
+}
+
+.memberDetail .memberDetail-con {
+  display: flex;
+  max-width: 1200px;
+  gap: 30px;
+  min-height: 600px;
+}
+
+/* 왼쪽 사이드바 */
+.memberDetail .memberDetail-left {
+  flex: 0 0 200px;
+  background: white;
+  border-radius: 12px;
+  padding: 20px 0;
+  height: auto;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.memberDetail .memberDetail-left nav ul {
+  list-style: none;
+}
+
+.memberDetail .memberDetail-left nav ul li {
+  padding: 15px 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  color: #555;
+  font-weight: 500;
+}
+
+.memberDetail .memberDetail-left nav ul li:hover {
+  background: #e9ecef;
+  color: #222;
+}
+
+.memberDetail .memberDetail-left nav ul li.active {
+  background: #4a90e2;
+  color: white;
+  border-left: 4px solid #2563eb;
+}
+
+/* 오른쪽 메인 영역 */
+.memberDetail .memberDetail-right {
+  flex: 1;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* 프로필 이미지 섹션 */
+.memberDetail .profile-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #f3f4f6;
+}
+
+.memberDetail .profile-image {
+  text-align: center;
+}
+
+.memberDetail .profile-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #6b7280;
+  margin-bottom: 15px;
+}
+
+.memberDetail .profile-image img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #e5e7eb;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 정보 섹션 */
+.memberDetail .member-detail-info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.memberDetail .member-detail-info-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.memberDetail .member-detail-info-item:last-child {
+  border-bottom: none;
+}
+
+.memberDetail .member-detail-info-label {
+  flex: 0 0 120px;
+  font-weight: 600;
+  color: #374151;
+  font-size: 15px;
+}
+
+.memberDetail .member-detail-info-value {
+  flex: 1;
+  color: #4b5563;
+  font-size: 15px;
+}
+
+/* 버튼 그룹 */
+.memberDetail .button-group {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  padding-top: 30px;
+  border-top: 2px solid #f3f4f6;
+}
+
+.memberDetail .button-group button {
+  padding: 12px 40px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.memberDetail .btn-edit {
+  background: #4a90e2;
+  color: white;
+}
+
+.memberDetail .btn-edit:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+.memberDetail .btn-delete {
+  background: white;
+  color: #dc2626;
+  border: 2px solid #dc2626;
+}
+
+.memberDetail .btn-delete:hover {
+  background: #dc2626;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .memberDetail .memberDetail-con {
+    flex-direction: column;
+  }
+
+  .memberDetail .memberDetail-left {
+    flex: 1;
+  }
+
+  .memberDetail .memberDetail-left nav ul {
+    display: flex;
+    gap: 10px;
+  }
+
+  .memberDetail .memberDetail-left nav ul li {
+    flex: 1;
+    text-align: center;
+    padding: 12px 15px;
+  }
+
+  .memberDetail .memberDetail-right {
+    padding: 25px;
+  }
+
+  .memberDetail .member-detail-info-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .memberDetail .member-detail-info-label {
+    flex: none;
+  }
+
+  .memberDetail .button-group {
+    flex-direction: column;
+  }
+
+  .memberDetail .button-group button {
+    width: 100%;
+  }
+}

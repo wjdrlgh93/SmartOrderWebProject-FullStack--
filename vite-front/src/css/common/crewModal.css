@@ -1,0 +1,97 @@
+
+.modal-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+.modal-container ul>li:hover{
+    transition: all 0.3s ease;
+    transform: scale(1.2);
+}
+.modal-container a:hover{
+    
+    color: #0080bb;
+}
+
+.modal-box-crew {
+    /* 모달 기본 위치: 숨김 상태 */
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+
+
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%); /* 중앙 정렬 */
+
+    /* 디자인 */
+    background-image: linear-gradient(to bottom, aliceblue, #ffffff);
+    color: #333; /* 배경이 밝아졌으므로 텍스트는 어둡게 */
+    padding: 4px 0; /* 내부 ul이 패딩을 갖도록 0으로 설정 */
+    border-radius: 8px;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
+    
+    z-index: 10;
+    white-space: nowrap;
+    min-width: 200px; /* 최소 너비 */
+}
+
+
+.modal-container:hover .modal-box-crew {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.modal-box-crew ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-box-crew ul li {
+    display: block;
+    padding: 5px 15px;
+    line-height: 1.5;
+    transition: background-color 0.2s;
+}
+
+.modal-box-crew ul li:hover {
+    /* background-color: silver;  */
+}
+
+.modal-box-crew ul li a {
+    text-decoration: none;
+    color: #c50000;
+    display: block;
+}
+
+
+.no-crew-message {
+    /* override option */
+    position: static !important; 
+    top: auto !important;       
+    transform: none !important;  
+    opacity: 1 !important;       
+    visibility: visible !important; 
+    
+
+    list-style: none; 
+    text-align: center;
+    color: #555 !important; 
+    padding: 15px 10px; 
+    width: 100%;
+    
+   
+    background: none !important;
+}
+
+.no-crew-message a {
+    text-decoration: none; 
+    color: inherit !important;
+    font-weight: 500;
+}

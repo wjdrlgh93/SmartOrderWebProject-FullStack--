@@ -1,0 +1,209 @@
+.index-title {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  z-index: 2;
+  /* canvas보다 위 */
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+   
+}
+
+.index-con {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  text-align: center;
+}
+
+.title-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* 요소가 움직여서 뷰포트 밖으로 나가는 것을 숨김 */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  /* 자식 요소의 absolute 기준 */
+  background-color: #333;
+  /* bg.png가 보이지 않을 경우 대비 */
+}
+.video-overlay {
+ /* background-repeat: no-repeat;
+  background-size: cover;
+ c */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; 
+
+    background: linear-gradient(to top, #0034af8c, #00415a73);   
+}
+.title-video-container video {
+    /* 비디오를 부모 컨테이너 기준으로 위치시킴 */
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 중앙 정렬 */
+
+    /* 핵심: 비디오의 가로세로 비율을 유지하며 컨테이너를 가득 채우고 초과분은 잘라냅니다. */
+    object-fit: cover; 
+    
+    /* 비디오 크기를 일단 크게 설정하여 cover가 적용되도록 합니다. */
+    width: 100%;
+    height: 100%;
+    /* 혹은 min-width/height를 사용하여 cover를 확실히 합니다. */
+    min-width: 100%;
+    min-height: 100%;
+    
+    z-index: 0; /* 다른 레이어들(overlay, text 등) 아래에 위치 */
+}
+
+.second-colorLayer img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 75%; /* 오른쪽 35%를 비워두기 위해 65% 설정 */
+    height: 100%;
+    z-index: 2; /* 비디오 오버레이(1) 위에, 텍스트(10) 아래에 위치 */
+}
+
+
+.parallax-layer,
+.title-text {
+  position: absolute;
+  /* JS가 transform을 적용할 때 부드럽게 움직이도록 transition 설정 */
+  transition: transform 0.3s ease-out;
+  will-change: transform;
+  /* 애니메이션 성능 최적화 */
+}
+
+.layer-1 {
+  opacity: 0.6;
+  z-index: 10;
+  left: 5%;
+  transform: translateX(-50%);
+  /* 중앙 정렬 */
+}
+
+.layer-2 {
+  height: 150%;
+  z-index: 20;
+  left: 1px;
+}
+
+.layer-4{
+  height: 100%;
+ 
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  z-index: 22;
+}
+.layer-5{
+  position: absolute;
+  /* height: 100%; */
+  width: 150%;
+  left: -10%;
+
+  z-index: 9;
+}
+
+.title-text {
+  z-index: 30;
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 15px rgba(229, 255, 0, 0.455);
+
+
+  /* 마우스 오버 시 강조 효과 (CSS Hover 추가) */
+  transition: transform 0.3s ease-out, text-shadow 0.3s ease;
+}
+
+.title-text:hover {
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.9), 0 0 10px rgb(128, 0, 255);
+}
+
+.title-text h1 {
+  font-size: 3vw;
+  margin: 0;
+  letter-spacing: 5px;
+  color: red;
+
+}
+
+.title-text p {
+  font-size: 1vw;
+  margin-top: 10px;
+}
+
+
+
+/* fixbar */
+.imgfix{
+  position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; 
+}
+.imgfix img {
+    position: absolute;
+
+    height: 100%; 
+    object-fit: contain; 
+    overflow: hidden; 
+}
+
+.imgfix .fixbar1 {
+
+  left: -40px;
+  top: 0;
+
+}
+
+.title-video-container2 {
+  position: absolute;
+  left: 25%;
+  top: 0;
+  width: 100%; /* 부모 컨테이너의 너비에 맞춥니다. */
+  height: 105%;
+  
+ 
+
+}
+.video-overlay2{
+
+
+}
+.title-video-container2 video {
+
+  
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    
+    
+    filter:grayscale(0.7);
+
+    object-fit:cover;
+    
+   
+    width: 10%;
+    height: 100%;
+
+    z-index: 5; 
+}

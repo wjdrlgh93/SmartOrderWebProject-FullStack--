@@ -1,0 +1,231 @@
+.member-delete-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.member-delete-modal .member-delete-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  animation: member-delete-modal-fade-in 0.2s ease-out;
+}
+
+/* 모달 컨테이너 */
+.member-delete-modal .member-delete-modal-container {
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  max-width: 448px;
+  width: 100%;
+  padding: 24px;
+  animation: member-delete-modal-scale-in 0.2s ease-out;
+  z-index: 10000;
+}
+
+/* 경고 아이콘 */
+.member-delete-modal .member-delete-modal-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.member-delete-modal .member-delete-modal-icon-circle {
+  width: 64px;
+  height: 64px;
+  background-color: #fee;
+  border-radius: 50%;
+  display: flex;
+  padding-top: 4px;
+  justify-content: center;
+}
+
+.member-delete-modal .member-delete-modal-icon-emoji {
+  font-size: 36px;
+}
+
+/* 제목 */
+.member-delete-modal .member-delete-modal-title {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  color: #1f2937;
+  margin-bottom: 16px;
+}
+
+/* 경고 메시지 박스 */
+.member-delete-modal .member-delete-modal-warning {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.member-delete-modal .member-delete-modal-warning-text {
+  font-size: 14px;
+  color: #374151;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.member-delete-modal .member-delete-modal-warning-strong {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+/* 주요 안내사항 */
+.member-delete-modal .member-delete-modal-notice {
+  margin-bottom: 24px;
+}
+
+.member-delete-modal .member-delete-modal-notice-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.member-delete-modal .member-delete-modal-notice-item:last-child {
+  margin-bottom: 0;
+}
+
+.member-delete-modal .member-delete-modal-notice-bullet {
+  color: #ef4444;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.member-delete-modal .member-delete-modal-notice-text {
+  font-size: 14px;
+  color: #4b5563;
+}
+
+/* 체크박스 */
+.member-delete-modal .member-delete-modal-checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+
+.member-delete-modal .member-delete-modal-checkbox-input {
+  margin-top: 4px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  flex-shrink: 0;
+  accent-color: #dc2626;
+}
+
+.member-delete-modal .member-delete-modal-checkbox-text {
+  font-size: 14px;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.member-delete-modal
+  .member-delete-modal-checkbox-label:hover
+  .member-delete-modal-checkbox-text {
+  color: #111827;
+}
+
+/* 버튼 그룹 */
+.member-delete-modal .member-delete-modal-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.member-delete-modal .member-delete-modal-button {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* 취소 버튼 */
+.member-delete-modal .member-delete-modal-button-cancel {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.member-delete-modal .member-delete-modal-button-cancel:hover {
+  background-color: #e5e7eb;
+}
+
+/* 탈퇴 버튼 */
+.member-delete-modal .member-delete-modal-button-delete {
+  background-color: #dc2626;
+  color: #ffffff;
+}
+
+.member-delete-modal .member-delete-modal-button-delete:hover:not(:disabled) {
+  background-color: #b91c1c;
+}
+
+.member-delete-modal .member-delete-modal-button-delete:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.member-delete-modal .member-delete-modal-button-delete:disabled {
+  background-color: #e5e7eb;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* 애니메이션 */
+@keyframes member-delete-modal-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes member-delete-modal-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 반응형 */
+@media (max-width: 640px) {
+  .member-delete-modal .member-delete-modal-container {
+    padding: 20px;
+  }
+
+  .member-delete-modal .member-delete-modal-title {
+    font-size: 20px;
+  }
+
+  .member-delete-modal .member-delete-modal-buttons {
+    flex-direction: column;
+  }
+}

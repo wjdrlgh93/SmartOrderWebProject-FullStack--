@@ -1,0 +1,238 @@
+/* 레이아웃 css  */
+.mycrew {
+  width: 100%;
+  height: 93vh;
+  background-color: #fff;
+}
+
+/* 전체 레이아웃 컨테이너 */
+.mycrew .mycrew-con {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* 왼쪽 사이드바 (✅ PC 기본 디자인) */
+.mycrew .mycrew-con .left {
+  width: 200px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: #f8f8f8;
+  border-right: 1px solid #e5e5e5;
+}
+
+/* 오른쪽 컨텐츠 영역 */
+.mycrew .mycrew-con .right {
+  flex: 1;
+  height: 93vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 헤더를 상단에 고정 */
+.mycrew .mycrew-con .right > .Header,
+.mycrew .mycrew-con .right > header,
+.mycrew .mycrew-con .right > div > header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: white;
+  border-bottom: 1px solid #ddd;
+}
+
+.now {
+  color: red;
+}
+
+/* ===================
+       left css
+   ==================== */
+/* 왼쪽 메뉴 컨테이너 전체 (left 안에 들어간다고 가정) */
+.myCrewLeftContainer {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* 안쪽 박스 */
+.myCrewLeftContainer .myCrewLeftContainer-con {
+  padding: 16px 12px;
+  box-sizing: border-box;
+}
+
+/* 메뉴 리스트 기본 설정 */
+.myCrewLeftContainer .myCrewLeftContainer-con ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 각 메뉴 아이템 */
+.myCrewLeftContainer .myCrewLeftContainer-con li {
+  margin-bottom: 6px;
+}
+
+/* 링크 기본 스타일 */
+.myCrewLeftContainer .myCrewLeftContainer-con li a {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-decoration: none;
+  color: #374151;
+  background-color: transparent;
+  transition: background-color 0.15s ease, color 0.15s ease,
+    transform 0.1s ease;
+}
+
+/* 호버 시 */
+.myCrewLeftContainer .myCrewLeftContainer-con li a:hover {
+  background-color: #e5e7eb;
+  color: #111827;
+  transform: translateX(2px);
+}
+
+/* 선택된 메뉴 */
+.myCrewLeftContainer .myCrewLeftContainer-con li a.left-now {
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+
+.myCrewLeftContainer .myCrewLeftContainer-con li a.left-now:hover {
+  background-color: #2563eb;
+}
+
+/* 메뉴 버튼 & 딤드 기본값 (✅ PC에서는 안 보이게) */
+.mycrew-menu-btn {
+  display: none;
+}
+
+.mycrew-left-dim {
+  display: none;
+}
+
+/* ============================
+   반응형 - 768px 이하 (태블릿/모바일)
+   ============================ */
+@media (max-width: 768px) {
+  /* ✅ 모바일에서만 메뉴 버튼 보이게 */
+ 
+
+  .mycrew-menu-btn {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    z-index: 2000;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(209, 213, 219, 0.8); 
+    background: rgba(249, 250, 251, 0.8);       
+    color: #111827;                              
+
+    font-size: 14px;
+    cursor: pointer;
+    margin: 0;
+
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.15);
+    backdrop-filter: blur(4px); /* 옵션: 유리같은 느낌 */
+  }
+
+  .mycrew-menu-btn:hover {
+    background: #e5e7eb;
+  }
+
+  /* ✅ 모바일: left는 오프캔버스(기본은 숨김) */
+  .mycrew .mycrew-con .left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100vh;
+    z-index: 950;
+    background-color: #f8f8f8;
+    border-right: 1px solid #e5e5e5;
+    overflow-y: auto;
+
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+  }
+
+  /* is-open 클래스 붙으면 화면 안으로 */
+  .mycrew .mycrew-con .left.is-open {
+    transform: translateX(0);
+  }
+  .mycrew .mycrew-con {
+    display: block;       /* ✅ 여기! flex 말고 block */
+    width: 100%;
+  }
+
+  /* 오른쪽 컨텐츠는 전체 차지 */
+  .mycrew .mycrew-con .right {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    position: absolute; 
+  }
+
+  /* 딤드 레이어 (배경 흐리게) */
+  .mycrew-left-dim {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.45);
+    z-index: 900;
+    display: none;
+  }
+
+  .mycrew-left-dim.show {
+    display: block;
+  }
+
+  /* 왼쪽 메뉴 여백/폰트 조금 줄이기 */
+  .myCrewLeftContainer .myCrewLeftContainer-con {
+    padding: 12px 10px;
+  }
+
+  .myCrewLeftContainer .myCrewLeftContainer-con li a {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+}
+
+/* ============================
+   반응형 - 450px 이하 (모바일)
+   ============================ */
+@media (max-width: 450px) {
+  .mycrew {
+    min-height: auto;
+  }
+
+  .myCrewLeftContainer .myCrewLeftContainer-con {
+    padding: 10px 8px;
+  }
+
+  .myCrewLeftContainer .myCrewLeftContainer-con li {
+    margin-bottom: 4px;
+  }
+
+  .myCrewLeftContainer .myCrewLeftContainer-con li a {
+    padding: 7px 8px;
+    font-size: 12px;
+  }
+
+  /* 헤더가 너무 두껍지 않게 */
+  .mycrew .mycrew-con .right > .Header,
+  .mycrew .mycrew-con .right > header,
+  .mycrew .mycrew-con .right > div > header {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}

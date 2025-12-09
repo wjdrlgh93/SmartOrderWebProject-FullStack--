@@ -1,0 +1,329 @@
+/* 메인 컨테이너 */
+.payment-detail-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* 헤더 */
+.payment-detail-container .payment-detail-header {
+  display: flex;
+  width: 600px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #e1e8ed;
+}
+
+.payment-detail-container .payment-detail-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.payment-detail-container .back-btn {
+  padding: 10px 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  transition: all 0.3s ease;
+}
+
+.payment-detail-container .back-btn:hover {
+  background-color: #f8f9fa;
+  border-color: #aaa;
+}
+
+/* 컨텐츠 영역 - 2단 레이아웃 */
+.payment-detail-container .payment-detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* 섹션 공통 스타일 */
+.payment-detail-container .section {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.payment-detail-container .section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+/* 상태 섹션 */
+.payment-detail-container .status-section {
+  text-align: center;
+  padding: 24px;
+}
+
+.payment-detail-container .status-badge {
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* 배송지 정보 그리드 */
+.payment-detail-container .delivery-section .info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.payment-detail-container .delivery-section .info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.payment-detail-container .delivery-section .info-item.full-width {
+  grid-column: 1 / -1;
+}
+
+.payment-detail-container .delivery-section .info-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #666;
+}
+
+.payment-detail-container .delivery-section .info-value {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+/* 결제 정보 리스트 (세로) */
+.payment-detail-container .payment-info-section .info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.payment-detail-container .payment-info-section .info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.payment-detail-container .payment-info-section .info-item:last-child {
+  border-bottom: none;
+}
+
+.payment-detail-container .payment-info-section .info-item.highlight {
+  background-color: #f8f9fa;
+  padding: 16px;
+  border-radius: 8px;
+  border-bottom: none;
+  margin-top: 8px;
+}
+
+.payment-detail-container .payment-info-section .info-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #666;
+}
+
+.payment-detail-container .payment-info-section .info-value {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.payment-detail-container .payment-info-section .info-value.price {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1976d2;
+}
+
+/* 상품 목록 */
+.payment-detail-container .product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.payment-detail-container .product-item {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 20px;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.payment-detail-container .product-item:hover {
+  border-color: #1976d2;
+  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.1);
+}
+
+.payment-detail-container .product-image {
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment-detail-container .product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.payment-detail-container .no-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0e0e0;
+  color: #999;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.payment-detail-container .product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.payment-detail-container .product-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.payment-detail-container .product-detail {
+  font-size: 14px;
+  color: #666;
+}
+
+.payment-detail-container .product-price {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1976d2;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* 총 결제 금액 섹션 */
+.payment-detail-container .total-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+}
+
+.payment-detail-container .total-section .section-title {
+  color: #fff;
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+.payment-detail-container .total-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.payment-detail-container .total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.payment-detail-container .divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 8px 0;
+}
+
+.payment-detail-container .total-row.final {
+  padding-top: 16px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.payment-detail-container .final-price {
+  color: #fff;
+  font-size: 24px !important;
+  font-weight: 700;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1024px) {
+  .payment-detail-container .payment-detail-content {
+    grid-template-columns: 1fr;
+  }
+
+  .payment-detail-container .right-section {
+    order: -1;
+  }
+
+  .payment-detail-container .sticky-section {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .payment-detail-container {
+    padding: 16px;
+  }
+
+  .payment-detail-container .payment-detail-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .payment-detail-container .payment-detail-header h1 {
+    font-size: 24px;
+  }
+
+  .payment-detail-container .delivery-section .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .payment-detail-container .section {
+    padding: 16px;
+  }
+
+  .payment-detail-container .section-title {
+    font-size: 16px;
+  }
+
+  .payment-detail-container .product-item {
+    flex-direction: column;
+  }
+
+  .payment-detail-container .product-image {
+    width: 100%;
+    height: 180px;
+  }
+}

@@ -1,0 +1,27 @@
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.admin-header .logo {
+  font-size: 25px;
+  font-weight: bolder;
+  text-decoration: none;
+  color: #000000;
+}
+
+.admin-header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.admin-header-right ul {
+  display: flex;
+  gap: 20px;
+}

@@ -1,0 +1,171 @@
+/* 전체 컨테이너 */
+.admin-notice-update {
+  width: 100%;
+  padding: 40px 20px;
+}
+
+/* 내부 컨테이너 */
+.admin-notice-update__container {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+}
+
+/* 페이지 타이틀 */
+.admin-notice-update__title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 32px 0;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #3b82f6;
+}
+
+/* 폼 컨테이너 */
+.admin-notice-update__form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* 폼 그룹 */
+.admin-notice-update__form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* 라벨 */
+.admin-notice-update__label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+/* 필수 표시 */
+.admin-notice-update__required {
+  color: #ef4444;
+}
+
+/* 입력 필드 공통 스타일 */
+.admin-notice-update__input,
+.admin-notice-update__textarea {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+
+.admin-notice-update__input:focus,
+.admin-notice-update__textarea:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.admin-notice-update__input::placeholder,
+.admin-notice-update__textarea::placeholder {
+  color: #9ca3af;
+}
+
+/* 텍스트 영역 */
+.admin-notice-update__textarea {
+  resize: vertical;
+  font-family: inherit;
+  line-height: 1.6;
+  min-height: 300px;
+}
+
+/* 버튼 그룹 */
+.admin-notice-update__button-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 0 10px;
+}
+
+.admin-notice-update__button-group > a {
+  display: inline-block;
+  padding-top: 5px;
+  color: #3b82f6;
+  transition: all 0.2s ease;
+  text-shadow: 0 0 0 rgba(59, 130, 246, 0);
+}
+
+.admin-notice-update__button-group > a:hover {
+  padding-top: 5px;
+  color: #0062ff;
+  text-decoration: underline solid #0062ff;
+  text-underline-offset: 4px;
+  text-shadow: 0 0 2px rgba(94, 156, 255, 0.192);
+}
+
+/* 버튼 공통 스타일 */
+.admin-notice-update__btn {
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+/* 취소 버튼 */
+.admin-notice-update__btn--cancel {
+  color: #6b7280;
+  background-color: white;
+  border: 1px solid #d1d5db;
+}
+
+.admin-notice-update__btn--cancel:hover {
+  background-color: #f9fafb;
+  border-color: #9ca3af;
+}
+
+/* 등록 버튼 */
+.admin-notice-update__btn--submit {
+  color: white;
+  background-color: #2563eb;
+  padding: 12px 32px;
+}
+
+.admin-notice-update__btn--submit:hover {
+  background-color: #1d4ed8;
+}
+
+.admin-notice-update__btn--submit:active {
+  background-color: #1e40af;
+  transform: translateY(1px);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .admin-notice-update {
+    padding: 20px 16px;
+  }
+
+  .admin-notice-update__container {
+    padding: 24px 20px;
+  }
+
+  .admin-notice-update__title {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  .admin-notice-update__button-group {
+    flex-direction: column-reverse;
+  }
+
+  .admin-notice-update__btn {
+    width: 100%;
+  }
+}

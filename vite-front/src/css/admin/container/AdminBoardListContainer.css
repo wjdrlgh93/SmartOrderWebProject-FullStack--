@@ -1,0 +1,331 @@
+.admin-boardList {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.admin-boardList-con {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 32px;
+}
+
+/* 헤더 영역 */
+.admin-boardList-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  gap: 20px;
+}
+
+.admin-boardList-header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* 검색 영역 */
+.admin-boardList-search {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.admin-boardList-search select {
+  padding: 9px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #1f2937;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 100px;
+}
+
+.admin-boardList-search select:hover {
+  border-color: #9ca3af;
+}
+
+.admin-boardList-search select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.admin-boardList-search input[type="text"] {
+  width: 200px;
+  padding: 9px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #1f2937;
+  transition: all 0.2s ease;
+}
+
+.admin-boardList-search input[type="text"]::placeholder {
+  color: #9ca3af;
+}
+
+.admin-boardList-search input[type="text"]:hover {
+  border-color: #9ca3af;
+}
+
+.admin-boardList-search input[type="text"]:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.admin-boardList-search button {
+  padding: 9px 20px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.admin-boardList-search button:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.admin-boardList-search button:active {
+  transform: translateY(0);
+}
+
+/* 테이블 래퍼 */
+.admin-boardList-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 24px;
+}
+
+/* 테이블 */
+.admin-boardList-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-boardList-table thead {
+  background: #f3f4f6;
+  border-top: 2px solid #e5e7eb;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.admin-boardList-table thead tr th {
+  padding: 12px 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.admin-boardList-table tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+  transition: background 0.2s ease;
+}
+
+.admin-boardList-table tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.admin-boardList-table tbody tr:hover {
+  background: #f3f4f6;
+}
+
+.admin-boardList-table tbody tr td {
+  padding: 14px 8px;
+  font-size: 14px;
+  color: #1f2937;
+  text-align: center;
+}
+
+/* 번호 컬럼 */
+.admin-boardList-table tbody tr td:nth-child(1) {
+  width: 60px;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+/* 이메일 컬럼 */
+.admin-boardList-table tbody tr td:nth-child(2) {
+  color: #6b7280;
+  font-size: 13px;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+.admin-boardList-table tbody tr td:nth-child(3) {
+  width: 150px;
+}
+
+.admin-boardList-table tbody tr td:nth-child(4) {
+  width: 150px;
+}
+
+
+.admin-boardList-table tbody tr td:nth-child(5) {
+  width: 150px;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+
+.admin-boardList-table tbody tr td:nth-child(6) {
+  width: 200px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* 상세 / 삭제 버튼 공통 */
+.admin-boardList-table tbody td button {
+  padding: 6px 12px;
+  background: #3b82f6;
+  /* 파란색 */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* hover 효과 */
+.admin-boardList-table tbody td button:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+/* active */
+.admin-boardList-table tbody td button:active {
+  transform: translateY(0);
+}
+
+/* 삭제 버튼만 빨간색 */
+.admin-boardList-table tbody td button.delete-btn {
+  background: #ef4444;
+}
+
+.admin-boardList-table tbody td button.delete-btn:hover {
+  background: #dc2626;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+/* 페이지네이션 */
+.admin-boardList-con .pagination {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.admin-boardList-con .pagination button {
+  padding: 6px 12px;
+  border: 1px solid #d1d5db;
+  background: #3b82f6;
+  color: #ffffff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.admin-boardList-con .pagination button:hover {
+  background: #064cd6;
+  border-color: #9ca3af;
+}
+
+
+
+/* 반응형 디자인 */
+@media (max-width: 1200px) {
+  .admin-boardList {
+    padding: 32px 16px;
+  }
+
+  .admin-boardList-con {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-boardList {
+    padding: 24px 12px;
+  }
+
+  .admin-boardList-con {
+    padding: 20px 16px;
+  }
+
+  .admin-boardList-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .admin-boardList-header h1 {
+    font-size: 20px;
+  }
+
+  .admin-boardList-search {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .admin-boardList-search select {
+    flex: 1;
+    min-width: 90px;
+  }
+
+  .admin-boardList-search input[type="text"] {
+    flex: 2;
+    min-width: 150px;
+  }
+
+  .admin-boardList-search button {
+    flex: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-boardList-header h1 {
+    font-size: 18px;
+  }
+
+  .admin-boardList-search {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .admin-boardList-search select,
+  .admin-boardList-search input[type="text"],
+  .admin-boardList-search button {
+    width: 100%;
+  }
+
+  .admin-boardList-table {
+    font-size: 12px;
+  }
+
+  .admin-boardList-table thead tr th,
+  .admin-boardList-table tbody tr td {
+    padding: 8px 4px;
+    font-size: 12px;
+  }
+}

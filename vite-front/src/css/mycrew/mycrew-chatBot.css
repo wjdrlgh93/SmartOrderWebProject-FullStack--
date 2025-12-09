@@ -1,0 +1,93 @@
+.myCrewBot {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+}
+.myCrewBot .myCrewBot-con{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+.myCrewBot .myCrewBot-con .myCrewBot-display{
+    flex: 1;                         /* 위쪽 영역을 꽉 채우기 */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;                        /* 메시지 간 간격 */
+    padding: 8px 4px;
+    margin-bottom: 8px;
+  
+    overflow-y: auto;   
+}
+.myCrewBot .myCrewBot-con .myCrewBot-display ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.myCrewBot .myCrewBot-con .myCrewBot-display ul li{
+    max-width: 80%;
+    padding: 8px 12px;
+    border-radius: 16px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    word-break: break-word;
+    white-space: pre-line;
+}
+.myCrewBot .myCrewBot-con .myCrewBot-display ul li.Bot{
+    display: flex;
+    justify-content: flex-start;
+
+    background-color: #f3f4f6;       /* 연한 회색 */
+    color: #111827;
+    border-bottom-left-radius: 4px; 
+}
+.myCrewBot .myCrewBot-con .myCrewBot-display ul li.User{
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+    background-color: #2563eb;       /* 파란색 */
+    color: #ffffff;
+    border-bottom-right-radius: 4px;
+    
+}
+
+.myCrewBot .myCrewBot-con .myCrewBot-input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #e5e5ec;
+  }
+  
+  .myCrewBot .myCrewBot-con .myCrewBot-input input[type="text"] {
+    flex: 1;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    outline: none;
+    font-size: 0.9rem;
+  }
+  
+  .myCrewBot .myCrewBot-con .myCrewBot-input input[type="text"]:focus {
+    border-color: #2563eb;
+  }
+  
+  .myCrewBot .myCrewBot-con .myCrewBot-input button {
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    background-color: #2563eb;
+    color: #ffffff;
+    white-space: nowrap;
+  }
+  
+  .myCrewBot .myCrewBot-con .myCrewBot-input button:hover {
+    opacity: 0.9;
+  }
+  

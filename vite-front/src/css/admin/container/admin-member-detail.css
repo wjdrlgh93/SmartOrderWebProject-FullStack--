@@ -1,0 +1,281 @@
+.admin-memberDetail {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.admin-memberDetail-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 32px;
+  text-align: left;
+}
+
+.admin-memberDetail-container {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  grid-template-rows: auto auto;
+  gap: 40px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px 70px;
+}
+
+/* 왼쪽 영역 */
+.admin-memberDetail-left {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.admin-profile-section {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 24px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.admin-profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #f3f4f6;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.admin-readonly-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.admin-info-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admin-field-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.admin-field-value-readonly {
+  padding: 14px 16px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #6b7280;
+}
+
+/* 오른쪽 영역 */
+.admin-memberDetail-right {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.admin-edit-form {
+  display: flex;
+  width: 400px;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.admin-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admin-field-input {
+  padding: 14px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #1f2937;
+  transition: all 0.2s ease;
+}
+
+.admin-field-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.admin-field-input:hover {
+  border-color: #9ca3af;
+}
+
+/* 하단 버튼 영역 */
+.admin-memberDetail-bottom {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding-top: 32px;
+  border-top: 2px solid #e5e7eb;
+}
+
+.admin-back-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 140px;
+  padding: 10px 20px;
+  background: #f3f4f6;
+  color: #374151;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.admin-back-link:hover {
+  background: #e5e7eb;
+  color: #1f2937;
+  transform: translateY(-2px);
+}
+
+.admin-btn-update,
+.admin-btn-delete {
+  width: 140px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.admin-btn-update {
+  background: #3b82f6;
+  color: white;
+}
+
+.admin-btn-update:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.admin-btn-delete {
+  background: #ef4444;
+  color: white;
+}
+
+.admin-btn-delete:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+.admin-btn-update:active,
+.admin-btn-delete:active,
+.admin-back-link:active {
+  transform: translateY(0);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1024px) {
+  .admin-memberDetail-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 32px;
+  }
+
+  .admin-memberDetail-left {
+    grid-column: 1;
+    grid-row: 1;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .admin-memberDetail-right {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .admin-memberDetail-bottom {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .admin-profile-section {
+    flex: 0 0 auto;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .admin-profile-image {
+    width: 160px;
+    height: 160px;
+  }
+
+  .admin-readonly-info {
+    flex: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-memberDetail {
+    padding: 24px 16px;
+  }
+
+  .admin-memberDetail-title {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  .admin-memberDetail-container {
+    padding: 24px;
+  }
+
+  .admin-memberDetail-left {
+    flex-direction: column;
+  }
+
+  .admin-profile-image {
+    width: 140px;
+    height: 140px;
+  }
+
+  .admin-memberDetail-bottom {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .admin-back-link,
+  .admin-btn-update,
+  .admin-btn-delete {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-memberDetail-container {
+    padding: 20px;
+  }
+
+  .admin-profile-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .admin-field-input {
+    font-size: 14px;
+    padding: 12px 14px;
+  }
+}

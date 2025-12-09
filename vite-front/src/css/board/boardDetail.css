@@ -1,0 +1,306 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Hahmlet:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap");
+
+
+.upper-boardDetail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to top, aliceblue,#dfe9ff);
+  padding-top: 7%;
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-bottom: 20%;
+  
+}
+/* 메인 카드 */
+.boardDetail {
+  width: 80%;
+  background: rgba(250, 244, 255, 0.67);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px) saturate(1.05);
+  -webkit-backdrop-filter: blur(10px) saturate(1.05);
+  padding: 32px;
+  box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+}
+
+/* 게시글 제목 */
+.boardDetail > h4 {
+  margin: 0 0 8px 0;
+  font-size: 22px;
+  font-weight: 600;
+
+  display: flex;
+  flex-direction: row;
+}
+
+/* 게시글 정보 (작성자, 날짜 등) */
+
+.boardDetail-con-info {
+  
+  padding-bottom: 7%;
+  border-bottom: 2px solid #000079;
+}
+.boardDetail-con-info h2{
+
+  font-family: "Gowun Batang", serif;
+  font-weight: bolder;
+  font-style: normal;
+  padding-bottom: 4%;
+ 
+
+}
+
+/* 본문 내용 */
+.boardDetail-content {
+  padding-top: 5%;
+
+  line-height: 1.65;
+  font-size: 16px;
+
+  font-family: "Gowun Batang", serif;
+  font-weight: normal;
+  font-style: normal;
+  padding-bottom: 10%;
+  border-bottom: 2px solid #2313a1;
+  
+}
+
+/* 이미지 섹션 */
+.boardDetail-con-image {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.boardDetail-con-image img {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.45);
+}
+
+/* 댓글 전체 영역 */
+.boardDetail-reply {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.05);
+}
+
+/* 댓글 작성 폼 */
+.boardDetail-reply form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+}
+
+.boardDetail-reply textarea {
+  min-height: 82px;
+  max-height: 220px;
+  padding: 14px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(89, 0, 130, 0.234);
+  background: #ffffff;
+  color: rgba(156, 2, 2, 0.95);
+  font-size: 14px;
+  outline: none;
+  transition: 0.18s;
+
+  
+  font-family: "Gowun Batang", serif;
+  font-weight: bolder;
+  font-style: normal;
+  padding-bottom: 4%;
+}
+
+.boardDetail-reply textarea:focus {
+  box-shadow: 0 6px 20px rgba(8, 12, 24, 0.5);
+  transform: translateY(-1px);
+}
+
+/* 버튼 기본 스타일 */
+/* button {
+  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: 0.18s; 
+} 
+
+button:active {
+  transform: translateY(1px);
+} */
+
+/* 댓글 등록 버튼 */
+.boardDetail-reply form button[type="submit"] {
+  align-self: flex-end;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgb(13, 6, 132);
+  box-shadow: 0 6px 20px rgba(2, 6, 23, 0.45);
+
+  
+  font-family: "Gowun Batang", serif;
+  font-weight: bolder;
+  font-style: normal;
+  padding: 2%;
+  border-radius: 15%;
+  background-color: #6eeeff;
+}
+.boardDetail-reply form button:hover{
+  background-color: #ff72a3;
+  transition: background-color 1s, border-color 0.5s;
+  transform: scale(1.1);
+
+}
+
+
+/* 댓글 목록 */
+.reply-list h5 {
+  margin: 0 0 10px 0;
+  font-size: 15px;
+
+  font-family: "Gowun Batang", serif;
+  font-weight: bolder;
+  font-style: normal;
+  padding-bottom: 4%;
+  border-bottom: 2px solid #2313a1;
+}
+
+/* 개별 댓글 카드 */
+.reply-key {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 10px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 14px rgba(2, 6, 23, 0.35);
+
+  
+  font-family: "Gowun Batang", serif;
+  /* font-weight: ; */
+  font-style: normal;
+  padding-bottom: 4%;
+}
+
+.reply-key-sub {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.reply-key-sub p {
+  margin: 0;
+  font-weight: 600;
+}
+
+.reply-key-createtime {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* 댓글 내용 */
+.reply-key-content {
+  margin: 6px 0 0 0;
+  font-size: 14px;
+}
+
+/* 수정/삭제 버튼 */
+.reply-edit-buttons button{
+  background: silver;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #3200bd;
+}
+.reply-edit-buttons button:hover{
+    background-color: rgb(180, 0, 180);
+    transform: scale(1.1);
+}
+
+
+.reply-actions  button {
+  background: silver;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: rgb(255, 18, 18);
+}
+.reply-actions button:hover{
+  background-color: purple;
+  transform: scale(1.1);
+}
+
+/* 페이지네이션 */
+.page-button-top {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.page-button-top button[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* 게시글 수정/삭제 버튼 영역 */
+.boardDetail-act {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 22px;
+  
+}
+
+.boardDetail-act button {
+  background: #7ad3ffcf;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  color: rgb(255, 0, 0);
+
+  padding: 10px;
+  border-radius: 10px;
+
+
+  
+  font-family: "Gowun Batang", serif;
+  font-weight: bolder;
+  font-style: normal;
+  padding-bottom: 4%;
+}
+.boardDetail-act button:hover{
+  background-color: #000079;
+  transform: scale(1.1);
+}
+
+/* 반응형 */
+@media (max-width: 560px) {
+  body {
+    /* padding: 22px 12px; */
+  }
+
+  .boardDetail {
+    padding: 20px;
+  }
+
+  .boardDetail > h4 {
+    font-size: 18px;
+  }
+
+  .boardDetail-act {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

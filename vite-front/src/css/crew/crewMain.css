@@ -1,0 +1,200 @@
+/* ------------------------------------
+   전체 컨테이너
+------------------------------------ */
+.crewList {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;       /* 항목 간 간격 */
+    padding: 30px;   /* 전체 여백 */
+    width: 100%;
+    align-items: center;
+    background: #ffffff;
+}
+
+/* 지도 */
+.kakaomap {
+    width: 90%;
+    height: 380px;
+    border-radius: 16px;
+    background: #e9ecef;
+}
+
+/* 리스트 컨테이너 */
+.crewList-con {
+    width: 90%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;       /* 리스트 간 간격 */
+}
+
+/* 제목 */
+.crewList-con h1.crewListH1 {
+    font-size: 24px;
+    color: #3d495a;
+    font-weight: 700;
+    padding-left: 4px; /* 왼쪽 여백만 */
+}
+
+.crewList-con .myCrewList {
+    padding-bottom: 50px;
+    border-bottom: 2px solid #cccccc;
+}
+
+.crewList-con .myCrewList,
+.crewList-con .allCrewList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+ /* 검색 영역 */
+ .crewList .crewList-con .allCrewList>form.crewSearch {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+  
+.allCrewList>form.crewSearch>select,
+.allCrewList>form.crewSearch>input {
+    padding: 5px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    outline: none;
+    font-size: 0.8rem;
+  }
+  
+.allCrewList>form.crewSearch>input:focus,
+.allCrewList>form.crewSearch>select:focus {
+    border-color: #8ba8ce;
+    /* box-shadow: 0 0 5px rgba(195, 198, 199, 0.5); */
+  }
+
+.allCrewList>form.crewSearch>button.crewSearchBtn {
+    padding: 8px 16px;
+    background-color: #538ed1;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+form.crewSearch>button.crewSearchBtn:hover {
+    background-color: #3378bd;
+}
+
+
+/* 리스트: 한 줄 하나 + 박스 없음 */
+.crewList-con ul.crewListUl {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 26px;       /* 항목 간격 */
+}
+
+/* ------------------------------------
+   리스트 항목
+------------------------------------ */
+.crewList-con ul.crewListUl>li.crewListLi {
+    display: flex;
+    align-items: center;
+    gap: 24px;      /* 이미지와 텍스트 사이 간격 */
+    padding: 0;
+    background: none;
+}
+
+/* 링크 전체 적용 */
+.crewList-con ul.crewListUl>li.crewListLi>a {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    text-decoration: none;
+    width: 100%;
+    color: #222;
+    border-radius: 12px;
+    transition: background 0.15s ease;
+}
+
+/* hover 시 은은한 효과 */
+.crewList-con ul.crewListUl>li.crewListLi a:hover {
+    background: #f5f8ff;
+}
+
+/* ------------------------------------
+   이미지 (직사각형 + 둥근 모서리)
+------------------------------------ */
+.crewListLeft {
+    width: 250px;      /* 🔥 너비 증가 */
+    height: 115px;     /* 🔥 직사각형 비율 */
+    border-radius: 12px; 
+    overflow: hidden;
+    background: #f3f3f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.crewListLeft .crewImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.crewListLeft .noCrewImage {
+    font-size: 14px;
+}
+
+/* ------------------------------------
+   텍스트
+------------------------------------ */
+.crewListRight {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;       
+    flex: 1;
+}
+
+.crewListRight>h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #476591;
+    padding: 0;
+}
+
+.crewListRight>p {
+    font-size: 14px;
+    color: #555;
+    padding: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.crewListRight .crewDistrictAndMember {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    font-size: 13px;
+    color: #8b8b8b;
+}
+
+.crewList-con>button {
+    padding: 8px 14px;
+    background-color: #8faaec;
+    color: #fff;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.25s;
+    align-self: flex-start;
+}
+
+.crewList-con>button:hover {
+    background-color: #5c6b97;
+    cursor: pointer;
+}

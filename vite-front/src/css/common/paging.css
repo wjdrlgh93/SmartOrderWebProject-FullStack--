@@ -1,0 +1,25 @@
+.paging {
+  display: flex;
+  justify-content: center; /* 가운데 정렬 */
+  gap: 4px; /* 버튼 사이 간격 */
+  margin-top: 10px; /* 필요하면 테이블과 버튼 사이 약간 공간 */
+}
+
+.paging button {
+  padding: 4px 8px;      /* 버튼 크기 */
+  border: 1px solid #ccc; /* 얇은 테두리 */
+  background-color: #f8f8f8;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.paging button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.paging button.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}

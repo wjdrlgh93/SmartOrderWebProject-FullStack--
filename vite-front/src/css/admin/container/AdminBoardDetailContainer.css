@@ -1,0 +1,110 @@
+/* 전체 영역 */
+.admin-board-detail {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* 제목 */
+.admin-board-detail h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 24px;
+}
+
+/* 흰 박스 컨테이너 */
+.admin-board-detail-con {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 32px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+
+  /* 스크롤 방지 */
+  height: auto;
+  overflow: visible;
+}
+
+/* ------------------------------- */
+/* 왼쪽(미리보기 영역) */
+/* ------------------------------- */
+
+.detail-con-right {
+  flex: 1;
+  max-width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.preview-area {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.preview-img {
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  object-fit: cover;
+}
+
+/* ------------------------------- */
+/* 오른쪽(게시물 정보) */
+/* ------------------------------- */
+
+.detail-con-left {
+  flex: 1;
+  max-width: 55%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.detail-con-left > div {
+  font-size: 15px;
+  color: #1f2937;
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.detail-con-left > div:last-child {
+  border-bottom: none;
+}
+
+/* 삭제 버튼 */
+.detail-con-left button {
+  width: 120px;
+  margin-top: 16px;
+  padding: 10px 20px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.detail-con-left button:hover {
+  background: #dc2626;
+}
+
+/* 반응형 */
+@media (max-width: 900px) {
+  .admin-board-detail-con {
+    flex-direction: column;
+  }
+
+  .detail-con-right,
+  .detail-con-left {
+    max-width: 100%;
+  }
+}

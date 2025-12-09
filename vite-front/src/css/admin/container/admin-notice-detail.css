@@ -1,0 +1,112 @@
+.admin-notice-detail {
+  width: 100%;
+  padding: 50px;
+}
+
+.admin-notice-detail-con {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 30px 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.admin-notice-detail-con .admin-notice-detail-content-title {
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #3b82f6;
+}
+
+.admin-notice-detail-con .admin-notice-detail-content-title h1 {
+  font-size: 24px;
+  color: #1f2937;
+  margin: 0;
+  word-break: break-all;
+}
+
+.admin-notice-detail-con .admin-notice-detail-content-title span {
+  display: block;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+.admin-notice-detail-con .admin-notice-detail-content {
+  min-height: 350px;
+  padding: 20px 0;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #374151;
+  white-space: pre-wrap;
+}
+
+.admin-notice-detail-content-time {
+  display: flex;
+  gap: 20px;
+}
+
+.admin-notice-detail-links {
+  display: flex;
+  gap: 30px;
+}
+.admin-notice-detail-con .admin-notice-detail-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  border-top: 1px dashed #e0e0e0;
+  margin-top: 20px;
+}
+
+.admin-notice-detail-con .admin-notice-detail-bottom a {
+  display: inline-block;
+  padding-top: 5px;
+  color: #3b82f6;
+  transition: all 0.2s ease;
+  text-shadow: 0 0 0 rgba(59, 130, 246, 0);
+}
+
+.admin-notice-detail-con .admin-notice-detail-bottom a:hover {
+  padding-top: 5px;
+  color: #0062ff;
+  text-decoration: underline solid #0062ff;
+  text-underline-offset: 4px;
+  text-shadow: 0 0 2px rgba(94, 156, 255, 0.192);
+}
+
+.admin-notice-detail-btn {
+  display: flex;
+  gap: 10px;
+}
+
+.admin-notice-detail-con .admin-notice-detail-bottom button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.admin-notice-detail-con .admin-notice-detail-bottom .admin-notice-edit-btn {
+  background-color: #60a5fa;
+  color: white;
+}
+
+.admin-notice-detail-con
+  .admin-notice-detail-bottom
+  .admin-notice-edit-btn:hover {
+  background-color: #3b82f6;
+}
+
+.admin-notice-detail-con .admin-notice-detail-bottom .admin-notice-delete-btn {
+  background-color: #fca5a5;
+  color: white;
+}
+
+.admin-notice-detail-con
+  .admin-notice-detail-bottom
+  .admin-notice-delete-btn:hover {
+  background-color: #ef4444;
+}

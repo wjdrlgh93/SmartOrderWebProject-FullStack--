@@ -1,0 +1,361 @@
+.auth-my-payment {
+  flex: 1;
+}
+
+.my-payment-no-show {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.my-payment-no-show-con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  height: 700px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 40px;
+}
+
+.my-payment-no-show-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.my-payment-no-show-title img {
+  display: block;
+  width: 300px;
+}
+
+.my-payment-no-show-title h1 {
+  font-size: 26px;
+}
+
+.my-payment-no-show-title button {
+  background-color: #3b82f6;
+  color: #fff;
+  border: 0;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 5px;
+  /* margin-top: 10px; */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.my-payment-no-show-title button:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.auth-my-payment-search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px 10px 30px;
+}
+
+.auth-my-payment-search-con {
+  display: flex;
+  gap: 10px;
+}
+
+.auth-my-payment-search-con input[type="text"] {
+  width: 270px;
+  padding: 9px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #1f2937;
+  transition: all 0.2s ease;
+}
+
+.auth-my-payment-search-con input[type="text"]::placeholder {
+  color: #9ca3af;
+}
+
+.auth-my-payment-search-con input[type="text"]:hover {
+  border-color: #9ca3af;
+}
+
+.auth-my-payment-search-con input[type="text"]:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.auth-my-payment-search-con button {
+  padding: 9px 20px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.auth-my-payment-search-con > button:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.auth-my-payment-search-con > button:active {
+  transform: translateY(0);
+}
+
+.auth-my-payment > h1 {
+  padding: 20px 20px 30px 30px;
+  font-size: 28px;
+  font-weight: 00;
+}
+
+.auth-my-payment-con {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.my-payment-detail-all {
+  margin-bottom: 40px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.my-payment-detail-all .my-payment-status-con {
+  margin: 0;
+  padding: 20px 30px;
+  color: #333;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.my-payment-detail-all .my-payment-status-con h2 {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.my-payment-detail-all .my-payment-status-con span {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.my-payment-content {
+  display: flex;
+  gap: 70px;
+  padding: 30px;
+}
+
+.my-payment-left {
+  flex: 0 0 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.my-payment-right {
+  flex: 0 0 400px;
+}
+
+.my-payment-address h4,
+.my-payment-type h4,
+.my-payment-right > h4 {
+  margin: 0 0 15px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #333;
+}
+
+.my-payment-address-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.my-payment-address-detail > span {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.my-payment-type-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.my-payment-status-con {
+  display: flex;
+  justify-content: space-between;
+}
+
+.my-payment-status-detail {
+  display: flex;
+  gap: 6px;
+}
+
+.my-payment-type-detail-top,
+.my-payment-type-detail-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.my-payment-status-con {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.my-payment-type-detail h5 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+}
+
+.my-payment-type-detail span {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.my-payment-type-detail-bottom > span {
+  font-size: 14px;
+  font-weight: 400;
+}
+.my-payment-items-wrapper {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.my-payment-items-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.my-payment-items-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.my-payment-items-wrapper::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.my-payment-items-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.my-payment-item {
+  padding: 15px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.my-payment-item:first-child {
+  padding-top: 0;
+}
+
+.my-payment-item:last-child {
+  border-bottom: none;
+}
+
+.my-payment-item-title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.my-payment-item-img {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+
+.my-payment-item-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.my-payment-item-title h4 {
+  flex: 1;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+}
+
+.my-payment-item-title span {
+  font-size: 14px;
+  color: #666;
+  margin-left: 10px;
+}
+
+.my-payment-item-title span:last-child {
+  font-weight: 600;
+  color: #000;
+}
+
+@media (max-width: 968px) {
+  .my-payment-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .my-payment-left {
+    flex: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .auth-my-payment-con {
+    padding: 10px;
+  }
+
+  .my-payment-detail-all > h2 {
+    padding: 15px 20px;
+    font-size: 16px;
+  }
+
+  .my-payment-content {
+    padding: 20px;
+  }
+
+  .my-payment-item-title {
+    flex-wrap: wrap;
+  }
+
+  .my-payment-item-img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .my-payment-item-title h4 {
+    flex-basis: calc(100% - 75px);
+  }
+
+  .my-payment-right {
+    flex: 1 0 170px;
+  }
+}

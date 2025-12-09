@@ -1,0 +1,118 @@
+
+.createRequest {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    font-family: "Noto Sans KR", sans-serif;
+    background: #f5f8ff;
+    min-height: 100vh;
+  }
+  
+.createRequest .createRequest-con {
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    padding: 40px 35px;
+    border-radius: 6px;
+    /* box-shadow: 0 6px 20px rgba(0, 90, 255, 0.08); */
+  }
+  
+.createRequest .createRequest-con>h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: center;
+    padding-bottom: 30px;
+    color: #000000;
+  }
+  
+.createRequest .createRequest-con>form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  
+  /* Input wrapper */
+.createRequest-con>form .crewInfo, 
+.createRequest-con>form .requestMessage, 
+.createRequest-con>form .district {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  /* Labels */
+.crewInfo>label.crewName,
+.requestMessage>label.createMessage,
+.district>label.crewDistrict {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000000;
+  }
+  
+  /* Text input */
+.createRequest-con>form .crewInfo>input[type="text"],
+.createRequest-con>form .district>select,
+.createRequest-con>form .requestMessage>textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #7e8696;
+    border-radius: 6px;
+    background: #ffffff;
+    font-size: 0.9rem;
+    transition: 0.2s ease;
+  }
+
+.createRequest-con>form .crewInfo>input[type="text"]:focus,
+.createRequest-con>form .district>select:focus,
+.createRequest-con>form .requestMessage>textarea:focus {
+    border: 1px solid #c3cde0;
+    border-color: #c3cde0;
+  }
+  
+.createRequest-con>form .crewInfo>input[type="text"]::placeholder,
+.createRequest-con>form .requestMessage>textarea::placeholder {
+    font-size: 0.8rem;
+}
+
+  /* Textarea */
+.createRequest-con>form .requestMessage>textarea {
+    min-height: 400px;
+    resize: none;
+  }
+  
+  /* Selected district text */
+.createRequest-con>form .district>p {
+    color: #7a7c80;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  
+  /* Submit button */
+.createRequest-con>form .createRequestBtn {
+    display: flex;
+    justify-content: flex-end;
+}
+.createRequest-con>form .createRequestBtn>button.submitBtn {
+    padding: 5px;
+    border: none;
+    background: #538ed1;
+    color: white;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+  
+.createRequest-con>form .createRequestBtn>button.submitBtn:hover {
+    background: #3378bd;
+  }
+  
+  /* Response message */
+.createRequest-con>p.responseMsg {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    color: #003f9a;
+  }
+  

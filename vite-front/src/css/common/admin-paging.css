@@ -1,0 +1,26 @@
+.admin-paging {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 4px;
+}
+
+.admin-paging > button {
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  background-color: #f8f8f8;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.admin-paging > button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.admin-paging > button.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}

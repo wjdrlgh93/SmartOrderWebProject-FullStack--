@@ -1,0 +1,425 @@
+.myCrewMain {
+  width: 100%;
+  height: 100vh;
+  padding: 24px;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  background: radial-gradient(circle at top, #e5e7eb, #cbd5f5);
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui,
+    "Segoe UI", sans-serif;
+}
+
+/* 카드 컨테이너 */
+.myCrewMain .myCrewMain-con {
+  width: 100%;
+  height: 89vh;
+  margin: 0 auto;
+
+  background: #f9fafb;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.18);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* ===== 상단 타이틀 ===== */
+.myCrewMain .myCrewMain-con .myCrewMain-title {
+  padding: 18px 24px 14px;
+  border-bottom: 1px solid #e5e7eb;
+  background: linear-gradient(to right, #eef2ff, #f9fafb);
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: space-between; /* <-- 요청한 부분 */
+  align-items: center;
+  gap: 16px;
+}
+
+/* 왼쪽: 이름 + 지역 */
+.myCrewMain-title-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.myCrewMain-title-left .crew-name {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.myCrewMain-title-left .crew-district {
+  margin: 0;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+/* 오른쪽: 배지 형식 (창단/크루원 수) */
+.myCrewMain-title-right {
+  display: flex;
+  gap: 10px;
+}
+
+.myCrewMain-title-right .title-badge {
+  min-width: 90px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #eef2ff;
+  border: 1px solid #e0e7ff;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 11px;
+  color: #4b5563;
+}
+
+.myCrewMain-title-right .title-badge .badge-label {
+  opacity: 0.8;
+}
+
+.myCrewMain-title-right .title-badge .badge-value {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1d4ed8;
+}
+
+.myCrewMain-inner {
+  /* margin-top: 24px; */
+  height: 88vh;
+  padding: 24px;
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* 왼쪽 : 크루 챗봇 영역 */
+.myCrewMain-inner-left {
+  height: 70vh;
+  flex: 0.8;                /* 반반 비율 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.myCrewMain-inner-left .chat-bot {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e5e5ec;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+}
+
+/* 챗봇 안에 나중에 리스트/입력창 넣었을 때 대충 맞게 보이도록 */
+.chat-bot-header {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.chat-bot-body {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 12px;
+}
+
+.chat-bot-input {
+  display: flex;
+  gap: 8px;
+}
+
+.chat-bot-input input {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.chat-bot-input button {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  background: #4b7bec;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* 오른쪽 : 크루 정보 영역 */
+.myCrewMain-inner-right {
+  
+  height: 70vh;
+  flex: 1.2;                /* 반반 비율 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.myCrewMain-inner-right .top {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e5e5ec;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.myCrewMain-inner-right .myCrewMainImage .crewImage {
+  width: 500px;
+  height: 300px;
+
+  /* object-fit: cover; */
+  display: block;
+  border-radius: 12px;
+  max-width: 600px;
+}
+
+/* 아래 정보 리스트 카드 */
+.myCrewMain-inner-right .bottom {
+  width: 90%;
+  flex: 1;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e5e5ec;
+}
+
+.myCrewMain-inner-right .bottom ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.myCrewMain-inner-right .myCrewMain-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f1f1f3;
+}
+
+.myCrewMain-inner-right .myCrewMain-row:last-child {
+  border-bottom: none;
+}
+
+.myCrewMain-inner-right .myCrewMain-row .row-label {
+  font-weight: 600;
+  color: #555;
+}
+
+.myCrewMain-inner-right .myCrewMain-row .row-value {
+  flex: 1;
+  text-align: right;
+  color: #333;
+}
+
+/* 수정 버튼 영역 */
+.myCrewMain-inner-right .myCrewMain-row-btn {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.myCrewMain-inner-right .myCrewMain-editBtn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  background: #4b7bec;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.myCrewMain-inner-right .myCrewMain-editBtn:hover {
+  transform: translateX(2px);
+}
+
+/* ============================
+   반응형 - 768px 이하 (태블릿)
+   ============================ */
+   @media (max-width: 768px) {
+    .myCrewMain {
+      height: auto;
+      padding: 16px;
+      align-items: stretch;
+    }
+  
+    .myCrewMain .myCrewMain-con {
+      height: auto;
+    }
+  
+    /* 타이틀 영역: 레이아웃 조금 압축 */
+    .myCrewMain .myCrewMain-con .myCrewMain-title {
+      padding: 14px 16px 10px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  
+    .myCrewMain-title-left .crew-name {
+      font-size: 20px;
+    }
+  
+    .myCrewMain-title-left .crew-district {
+      font-size: 12px;
+    }
+  
+    .myCrewMain-title-right {
+      width: 100%;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+  
+    .myCrewMain-title-right .title-badge {
+      min-width: 0;
+      padding: 6px 8px;
+      font-size: 10px;
+    }
+  
+    /* 안쪽 레이아웃: 위아래 간격 줄이기 */
+    .myCrewMain-inner {
+      height: auto;
+      padding: 16px;
+      gap: 16px;
+    }
+  
+    /* 챗봇 / 정보 영역 비율 동일하게 */
+    .myCrewMain-inner-left,
+    .myCrewMain-inner-right {
+      height: auto;
+      flex: 1;
+    }
+  
+    .myCrewMain-inner-right .myCrewMainImage .crewImage {
+      width: 100%;
+      height: auto;
+      max-height: 260px;
+      object-fit: cover;
+    }
+  
+    .myCrewMain-inner-right .top,
+    .myCrewMain-inner-right .bottom {
+      width: 100%;
+    }
+  }
+  
+  /* ============================
+     반응형 - 450px 이하 (모바일)
+     ============================ */
+  @media (max-width: 450px) {
+    .myCrewMain {
+      padding: 12px 8px;
+      background: #e5e7eb; /* 살짝 단순하게 */
+    }
+  
+    .myCrewMain .myCrewMain-con {
+      border-radius: 10px;
+    }
+  
+    /* 타이틀: 가운데 정렬 + 글씨 조금 더 축소 */
+    .myCrewMain .myCrewMain-con .myCrewMain-title {
+      padding: 12px 12px 8px;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .myCrewMain-title-left {
+      align-items: center;
+    }
+  
+    .myCrewMain-title-left .crew-name {
+      font-size: 18px;
+    }
+  
+    .myCrewMain-title-left .crew-district {
+      font-size: 11px;
+    }
+  
+    .myCrewMain-title-right {
+      justify-content: center;
+    }
+  
+    .myCrewMain-title-right .title-badge {
+      padding: 4px 8px;
+      font-size: 9px;
+    }
+  
+    /* 안쪽은 완전 세로 스택 */
+    .myCrewMain-inner {
+      flex-direction: column;
+      padding: 12px;
+      gap: 12px;
+    }
+  
+    .myCrewMain-inner-left,
+    .myCrewMain-inner-right {
+      width: 100%;
+      align-items: stretch;
+    }
+  
+    .myCrewMain-inner-left .chat-bot {
+      padding: 12px;
+    }
+  
+    .chat-bot-input {
+      gap: 6px;
+    }
+  
+    .chat-bot-input input {
+      padding: 7px 8px;
+      font-size: 12px;
+    }
+  
+    .chat-bot-input button {
+      padding: 7px 8px;
+      font-size: 12px;
+    }
+  
+    .myCrewMain-inner-right .top,
+    .myCrewMain-inner-right .bottom {
+      padding: 12px;
+    }
+  
+    .myCrewMain-inner-right .myCrewMain-row {
+      font-size: 12px;
+    }
+  
+    .myCrewMain-inner-right .myCrewMain-row .row-label {
+      flex: 0.8;
+    }
+  
+    .myCrewMain-inner-right .myCrewMain-row .row-value {
+      flex: 1.2;
+    }
+  
+    .myCrewMain-inner-right .myCrewMain-editBtn {
+      padding: 6px 10px;
+      font-size: 0.8rem;
+    }
+  
+    .myCrewMain-inner-right .myCrewMainImage .crewImage {
+      max-height: 220px;
+    }
+  }
+  

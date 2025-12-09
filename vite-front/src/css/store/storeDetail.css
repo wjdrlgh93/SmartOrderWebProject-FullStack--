@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Hahmlet:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&family=Hahmlet:wght@100..900&display=swap');
+
+.itemDetail {
+    padding: 10vh;
+    /* max-width: 1200px; */
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    background-image: linear-gradient(to top, #ffffff,#ffffff,#ffffff,#d0e5ffbf);
+}
+
+.itemDetail-con {
+    padding: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    border: 3px solid #aae4ff;
+   background-image: linear-gradient(to top, #ffffff,#f4f3ff);
+    border-radius: 40px;
+}
+
+
+.itemDetail-con-image {
+    flex: 1 1 400px;
+    max-width: 100%;
+    border: 1px solid #eee;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+}
+
+.itemDetail-con-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    object-fit: contain;
+    border: 2px solid #20aab658;
+    border-radius: 10px;
+
+}
+
+
+.itemDetail-con-info {
+    flex: 1 1 400px;
+    padding: 20px;
+    border: 1px solid #eee;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.itemDetail-con-info h4 {
+    font-size: 1.8em;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+    border-bottom: 2px solid silver;
+    padding-bottom: 10px;
+     font-family: "Gowun Batang", serif;
+  font-style: normal;
+}
+
+.itemDetail-con-info span {
+    display: block;
+    line-height: 1.8;
+    color: #555;
+    font-size: 0.95em;
+    font-family: "Gowun Batang", serif;
+    font-style:normal;
+    font-weight:bolder;
+    
+}
+
+.itemDetail-con-info span strong {
+    font-weight: bold;
+    color: #333;
+     font-family: "Gowun Batang", serif;
+  font-weight: 400;
+  font-style: normal;
+    
+}
+
+/* 장바구니 추가 버튼 및 수량 입력 영역 */
+.item-add-cart {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    gap: 10px;
+    
+}
+
+.add-cart-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.add-cart-btn:hover {
+    background-color: #0056b3;
+}
+
+.item-add-cart input[type="number"] {
+    width: 60px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1em;
+}
+
+/* --- 댓글 입력 폼 및 댓글 목록 영역 --- */
+
+.itemDetail-con-reply,
+.replyList {
+    flex: 1 1 100%;
+    /* 전체 너비 사용 */
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #4950da; 
+    border-radius: 15px;
+    background-image: linear-gradient(to top, #ffffff,#c0d5ff41);
+    font-family: "Gowun Batang", serif;
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+/* 댓글 입력 폼 */
+.itemDetail-con-reply form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+   
+}
+
+.itemDetail-con-reply textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+    box-sizing: border-box;
+    font-size: 0.95em;
+    font-family: "Gowun Batang", serif;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.itemDetail-con-reply button[type='submit'] {
+    align-self: flex-end;
+    /* 오른쪽 정렬 */
+    padding: 8px 15px;
+    background-color: #4537e5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 0.95em;
+    font-family: "Gowun Batang", serif;
+    /* font-weight: bold; */
+    font-style: normal;
+    
+}
+
+.itemDetail-con-reply button[type='submit']:hover {
+    background-color: #1e7e34;
+    
+}
+
+/* 댓글 목록 */
+.replyList h5 {
+    font-size: 1.2em;
+    color: #333;
+    border-bottom: 2px solid #f2f2f2;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.replyList>div {
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+}
+
+.replyList>div:last-child {
+    border-bottom: none;
+}
+
+.replyList .tab {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.replyList .tab strong {
+    color: #007bff;
+    font-size: 1em;
+}
+
+.replyList .reply-createTime {
+    font-size: 0.85em;
+    color: #999;
+}
+
+.replyList .reply-key-content {
+    margin: 5px 0 10px 0;
+    white-space: pre-wrap;
+    /* 줄 바꿈 유지 */
+    color: #333;
+}
+
+.replyList .reply-key-content-none {
+    text-align: center;
+    color: #777;
+    padding: 20px;
+}
+
+/* 댓글 수정 및 삭제 버튼 */
+.reply-actions {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.reply-actions button {
+    margin-left: 5px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 0.9em;
+    font-size: 0.95em;
+    font-family: "Gowun Batang", serif;
+    font-style: normal;
+}
+
+.reply-actions button:hover {
+    background-color: #e9e9e9;
+}
+
+/* 댓글 수정 폼 */
+.reply-edit-form {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #fafafa;
+    border-radius: 5px;
+}
+
+.reply-edit-form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    resize: vertical;
+    box-sizing: border-box;
+    font-size: 0.9em;
+}
+
+.reply-edit-buttons {
+    text-align: right;
+    margin-top: 5px;
+}
+
+.reply-edit-buttons button {
+    margin-left: 5px;
+    padding: 5px 10px;
+    background-color: #ffc107;
+    color: #333;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.reply-edit-buttons button:last-child {
+    background-color: #6c757d;
+    color: white;
+}
+
+.reply-edit-buttons button:hover:last-child {
+    background-color: #5a6268;
+}
+
+/* 미디어 쿼리: 모바일 환경 대응 (너비 768px 이하) */
+@media (max-width: 768px) {
+    .itemDetail-con {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .itemDetail-con-image,
+    .itemDetail-con-info {
+        flex: 1 1 100%;
+        /* 모바일에서는 전체 너비 사용 */
+        max-width: 100%;
+    }
+
+    .itemDetail-con-info h4 {
+        font-size: 1.5em;
+    }
+
+    .item-add-cart {
+        justify-content: space-between;
+    }
+
+    .add-cart-btn {
+        flex-grow: 1;
+         font-size: 0.95em;
+        font-family: "Gowun Batang", serif;
+        font-weight: bold;
+        font-style: normal;
+    }
+}

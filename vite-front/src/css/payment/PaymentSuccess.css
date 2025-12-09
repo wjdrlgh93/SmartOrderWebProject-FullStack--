@@ -1,0 +1,36 @@
+.paymentSuccess {
+  max-width: 500px;
+  margin: 250px auto;
+  padding: 30px;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.paymentSuccess h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #4caf50;
+}
+
+.paymentSuccess p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.paymentSuccess .btnPaymentList {
+  padding: 12px 20px;
+  font-size: 1rem;
+  background-color: #ffeb00;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.paymentSuccess .btnPaymentList:hover {
+  background-color: #ffd700;
+  transform: translateY(-2px);
+}
