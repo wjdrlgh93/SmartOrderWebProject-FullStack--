@@ -16,10 +16,16 @@
 
 <br>
 
-📢 활용방안 <br>
+📢 활용방안 및 기대효과 <br>
+- 간접적인 치안증대 효과
+- 커뮤니티 활동으로 스토어 매출증대 기대
+<br>
 
-- 방안1
-  > 구체적 기술 <br>
+
+✨ 활용방안
+  > 크루활동 데이터 활용가능으로 맟춤상품 분석 또는 이벤트 개최 가능 <br>
+  > 스토어+커뮤니티 조합으로 편리한 UX 제공 <br>
+  > 크루활동 데이터 활용가능으로 맟춤상품 분석 또는 이벤트 개최 가능
   
 
    
@@ -77,27 +83,63 @@
   
 ## 🛠 주요기능
 
-| 주요기능 | 설명 |
-|--------|------|
-| 🔑인증/인가 | 가상 토큰방식으로 JSON 가상 DB 를 이용한 로그인/회원가입 구현 |
-| 🛒상품 | 상품목록 비동기 로딩, 상품 카테고리/검색 필터링 가능 |
-| 🛠상태관리 | ⚛ Redux 를 활용한 전역상태 관리 및 장바구니 상태 동기화 |
-| 💰결제/주문 | ⚛ Slice 를 활용한 가상결제 기능 구현 |
+| 프로젝트<br> 주요기능 | 설명 |
+|-----------|-----------|
+| 🔑인증/인가  | JWT를 이용한 로그인/로그아웃 및 로그인정보 인가 구현 |
+| 🛒상품 | 카카오페이를 이용한 가상결제 구현 |
+| 🛠 상태관리 | ⚛ Redux 를 활용한 전역상태 관리 및 장바구니 상태 동기화 |
+| 💰결제/주문 | Order 테이블과 연동된 Delivery테이블에서 배송상태를 조회 후 카드 형식으로 UI 구현 |
 | 🎨UI/UX | Media Query 를 사용한 반응형 웹 구현, 사용자 경험을 위한 커스텀 Hook 활용 및 헤더/푸터 네이게이션 바 구현 |
   
 
 
-## 🐕‍🦺 팀원/담당 역할 
+## 🏃‍♂️🏃‍♂️ 팀원/담당 역할 🏃‍♂️🏃‍♂️ 
 
 <details>
    <summary> 🍍 정기호 </summary>
   <div>
     <br>
-    - 게시판 CRUD <br>
-    - 아이템 Read 기능 , 로그인 Three.js 구현  <br>
-    - 라우터 설계 <br>
-    - 깃허브 관리  <br>
-    - CICD 설계&배포 <br>
+
+- 🎞시연영상
+ 
+> 인덱스페이지 & 상점메인페이지
+![2차2 (1)](https://github.com/user-attachments/assets/ab1fbe61-44f7-40b0-a95a-d886eca0e531)
+
+> BOARD CRUD <br>
+![2차1](https://github.com/user-attachments/assets/876923ba-ba8b-4c80-aea5-9d3cfe881fac)
+
+> CICD <br>
+![2차3](https://github.com/user-attachments/assets/6af77dc5-c2b9-4533-a7fb-a3b894bc2c9c)
+
+
+
+- Swagger 도입
+    <img width="1280" height="720" alt="슬라이드48" src="https://github.com/user-attachments/assets/34f090b8-a7f1-4b59-a981-48f69c27dee8" />
+
+- 게시판 CRUD 
+    <img width="1280" height="720" alt="슬라이드34" src="https://github.com/user-attachments/assets/71d15427-2cba-491e-8582-13f8a098a820" />
+    <img width="1280" height="720" alt="슬라이드35" src="https://github.com/user-attachments/assets/3bab2e31-9879-41a9-a6ba-5adb5c538eda" />
+    
+
+- 아이템 Read 기능 , 로그인 Three.js 구현  <br>
+<img width="1280" height="720" alt="슬라이드33" src="https://github.com/user-attachments/assets/837a3f89-a18f-4b60-8d93-89b89d001d8f" /><br>
+
+- 라우터 설계 <br>
+<img width="1280" height="720" alt="슬라이드31" src="https://github.com/user-attachments/assets/ac3ede9e-a73e-4df0-8bf3-54fe29cada81" />
+<img width="1280" height="720" alt="슬라이드32" src="https://github.com/user-attachments/assets/ba6150b4-a710-4e1d-a0d2-0ccdf3a36b2c" /><br>
+- 깃허브 관리  <br>
+<img width="1280" height="720" alt="슬라이드44" src="https://github.com/user-attachments/assets/8b4d956e-16f5-4d4a-8f4c-6085ff24b853" />
+<img width="1280" height="720" alt="슬라이드45" src="https://github.com/user-attachments/assets/b32e8b78-c18c-4361-8e1f-796f25bfbde8" />
+<img width="1280" height="720" alt="슬라이드46" src="https://github.com/user-attachments/assets/97d1c58d-2b40-4a0b-a996-705eb63e8ce0" />
+<img width="1280" height="720" alt="슬라이드47" src="https://github.com/user-attachments/assets/2797e653-7252-4535-a741-7de78e12afd3" />
+
+- CICD 설계&배포 <br>
+<img width="1280" height="720" alt="슬라이드40" src="https://github.com/user-attachments/assets/46401c85-95b3-4291-b492-a9f33d0a0908" />
+<img width="1280" height="720" alt="슬라이드41" src="https://github.com/user-attachments/assets/b9b0ea68-73aa-4cb6-aee2-612dc4b5fc79" />
+<img width="1280" height="720" alt="슬라이드42" src="https://github.com/user-attachments/assets/dfd933e9-ca9c-4b09-8053-23de97cfe1cc" />
+<img width="2005" height="1130" alt="image" src="https://github.com/user-attachments/assets/4539c7bd-287e-4938-ae07-1ae1355bf15a" />
+
+
 </div>
 </details>
 
