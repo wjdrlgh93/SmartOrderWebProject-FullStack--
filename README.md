@@ -90,64 +90,64 @@
 ## 🐕‍🦺 팀원/담당 역할 
 
 <details>
-   <summary> 😎 정기호 </summary>
+   <summary> 🍍 정기호 </summary>
   <div>
     <br>
-  - 구현영상 시현 ( 인덱스&관리자 페이지)  <br>
-  - 깃허브관리 <br>
-  - 레이아웃, 라우터 설계  <br>
+    - 게시판 CRUD <br>
+    - 아이템 Read 기능 , 로그인 Three.js 구현  <br>
+    - 라우터 설계 <br>
+    - 깃허브 관리  <br>
+    - CICD 설계&배포 <br>
 </div>
 </details>
 
 <details>
-   <summary> 🤩 유연준 </summary>
+   <summary> 🥕 유연준 </summary>
   <div>
    <br>
-  - 컨테이너 페이지 구현 <br>
-  - 장바구니 시스템 구현 <br>
-  - 상품 리스트 구현 <br>
-  - 상품 JSON DB 구현 <br><br>
+    - 크루 CRUD <br>
+    - 크루게시판 CRUD <br>
+    - 크루 채팅 <br>
+    - Websocket <br>
   </div>
 </details>
 
 <details>
-   <summary> 🤩 박한나 </summary>
+   <summary> 🍒 박한나 </summary>
   <div>
    <br>
-  - 컨테이너 페이지 구현 <br>
-  - 장바구니 시스템 구현 <br>
-  - 상품 리스트 구현 <br>
-  - 상품 JSON DB 구현 <br><br>
+    - JWT  <br>
+    - 스프링 시큐리티  <br>
+    - Member OAuth2  <br>
   </div>
 </details>
 <details>
-   <summary> 🤩 이승준 </summary>
+   <summary> 🍋 이승준 </summary>
   <div>
    <br>
-  - 컨테이너 페이지 구현 <br>
-  - 장바구니 시스템 구현 <br>
-  - 상품 리스트 구현 <br>
-  - 상품 JSON DB 구현 <br><br>
+    - 어드민 CRUD  <br>
+    - 권한기반기능 제한  <br>
+    - 관리자 대시보드 구현  <br>
   </div>
 </details>
 
 <details>
-   <summary>  😏 천승우 </summary>
+   <summary>  🍎 천승우 </summary>
   <div>
  <br>
-  - 컨테이너 헤더 구현 <br>
-  - 컨테이너 푸터 구현 <br>
-  - 댓글 리뷰 시스템 구현 <br><br>
+    - 장바구니 기능 구현  <br>
+    - 결제기능 구현  <br>
+    - OpenAPI <br>
+    
   </div>
 </details>
 <details>
-   <summary> 🤩 허린 </summary>
+   <summary> 🥝 허린 </summary>
   <div>
    <br>
-  - 컨테이너 페이지 구현 <br>
-  - 장바구니 시스템 구현 <br>
-  - 상품 리스트 구현 <br>
-  - 상품 JSON DB 구현 <br><br>
+    - DB설계   <br>
+    - RabbitMQ  <br>
+    - 크루가입, 메인화면, 챗봇, 회원, 일정  <br>
   </div>
 </details>
 
