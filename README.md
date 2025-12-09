@@ -1,15 +1,19 @@
 ## 🏃‍♀️🏃‍♂️ 러닝크루 커뮤니티 & 숍 풀스택 프로젝트 🏃‍♀️🏃‍♂️
-> EVERYTHING ABOUT PET 은 최근 증대하는 반려동물 시장의 니즈에 맞추어 \
-> 무인숍의 위치부터 결제 & 회원관리까지 한번에 \
-> 처리가능한 스마트오더 시스템 반려동물 상품 판매 플랫폼입니다 
+
+> 이번 러닝크류 커뮤니티 & 숍 풀스택 프로젝트는, <br>
+> 최근 유행하고 있는 러닝크루의 인기와, 또한 장비의 소비증가에 따라 <br>
+> 그 니즈에 맞춰 더 편리하고 접근성 좋은 정보를 제공하기 위해 제작되엇습니다.
 
 
-## 💝기획의도 및 활용방안
+## 🏃‍♂️🏃‍♂️🏃‍♂️ 기획의도 및 활용방안 🏃‍♀️🏃‍♀️🏃‍♀️
 
 📈 기획의도 <br>
- - 펫용품은 반복 구매가 많아 정기 배송이나 간편한 주문이 가능한 온라인 쇼핑몰의 장점이 잘 드러남.
- - 반려동물을 키우는 가구가 지속적으로 증가하고 있으며, 펫용품에 대한 수요도 함께 늘어나고 있기때문에 펫샵으로 결정.
- - CURD, 회원관리, 장바구니, 카테고리, 정기배송 후기등록 등.. 웹 개발의 전형적인 전 과정을 경험할 수 있어 학습 측면에서 효과적이라 판단.
+- 요즘 러닝이 유행하면서 러닝 관련 장비들의 인기가 상승, 또 혼자가 아닌 그룹으로 달리는 문화가 형성되고,
+- 러닝 장비 구매와 그룹 활동을 한 곳에서 함께 제공하는 플랫폼이 있다면, 사용자들은 더 편리하고 풍부한 러닝 경험을 누릴 수 있을 것이라고 판단
+
+
+
+
 <br>
 
 📢 활용방안 <br>
@@ -22,21 +26,53 @@
 <!-- <img src="https://img.shields.io/badge/표시할이름-색상?style=for-the-badge&logo=기술스택아이콘&logoColor=white"> -->
 ## ⚙ 기술 스택 (Tech Stack)
 <div align ="left">
+<img src="https://img.shields.io/badge/intellijidea-000000?style=for-the-badge&logo=intellijidea&logoColor=white">
+<img src="https://img.shields.io/badge/vsCode-226dab?style=for-the-badge&logo=vscode&logoColor=white">
+<img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white">
+<br>
 <img src="https://img.shields.io/badge/java-C00000?style=for-the-badge&logo=coffeescript&logoColor=white">
+<img src="https://img.shields.io/badge/gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white">
+<img src="https://img.shields.io/badge/spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white">
+<img src="https://img.shields.io/badge/springboot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white">
+<img src="https://img.shields.io/badge/springsecurity-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white">
+<img src="https://img.shields.io/badge/swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=white">
+<br>
+<!--front-->
 <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
 <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css&logoColor=white"> 
 <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+<img src="https://img.shields.io/badge/vite-646CFF?style=for-the-badge&logo=vite&logoColor=black">
   <br>
+  <!-- react -->
 <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black">
 <img src="https://img.shields.io/badge/redux-764ABC?style=for-the-badge&logo=redux&logoColor=white">
 <img src="https://img.shields.io/badge/axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white">
+<img src="https://img.shields.io/badge/reactrouter-CA4245?style=for-the-badge&logo=reactrouter&logoColor=white">
+<br>
+<!-- Server CICD -->
+<img src="https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=docker&logoColor=black">
+<img src="https://img.shields.io/badge/nginx-009639?style=for-the-badge&logo=nginx&logoColor=black">
+<img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
+
+<br>
+<!-- API -->
 <img src="https://img.shields.io/badge/kakaoMap-FFCD00?style=for-the-badge&logo=kakao&logoColor=white">
-  <br>
-<img src="https://img.shields.io/badge/notion-000000?style=for-the-badge&logo=notion&logoColor=white">
+<img src="https://img.shields.io/badge/three.js-000000?style=for-the-badge&logo=threedotjs&logoColor=white">
+<img src="https://img.shields.io/badge/jsonwebtokens-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white">
+<br>
+<!-- git -->
 <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
 <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
+
+<br>
 <img src="https://img.shields.io/badge/figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white">
-<img src="https://img.shields.io/badge/notion-000000?style=for-the-badge&logo=notion&logoColor=white">
+<img src="https://img.shields.io/badge/notion-000000?style=for-the-badge&logo=notion&logoColor=white"> <br>
+
+<img width="150" height="79" alt="다운로드 (3)" src="https://github.com/user-attachments/assets/d743a263-cad7-41ee-ad69-7bee391694c2">
+<img width="150" height="79" alt="amazon-s3-960x504" src="https://github.com/user-attachments/assets/0b836ff6-decd-499b-bc37-91cbc6934181" />
+<img width="150" height="79" alt="다운로드 (2)" src="https://github.com/user-attachments/assets/3324ed90-67c6-4483-addf-8002a0a87027" />
+
+
   </div>
   
 ## 🛠 주요기능
@@ -58,22 +94,10 @@
   <div>
     <br>
   - 구현영상 시현 ( 인덱스&관리자 페이지)  <br>
-
-
   - 깃허브관리 <br>
-
   - 레이아웃, 라우터 설계  <br>
-  
-
-  - 인덱스 메인엔트리 페이지 구현 <br>
-
-
-  - 로그인페이지 구현  <br>
-
- 
 </div>
 </details>
-
 
 <details>
    <summary> 🤩 유연준 </summary>
@@ -83,7 +107,27 @@
   - 장바구니 시스템 구현 <br>
   - 상품 리스트 구현 <br>
   - 상품 JSON DB 구현 <br><br>
-    
+  </div>
+</details>
+
+<details>
+   <summary> 🤩 박한나 </summary>
+  <div>
+   <br>
+  - 컨테이너 페이지 구현 <br>
+  - 장바구니 시스템 구현 <br>
+  - 상품 리스트 구현 <br>
+  - 상품 JSON DB 구현 <br><br>
+  </div>
+</details>
+<details>
+   <summary> 🤩 이승준 </summary>
+  <div>
+   <br>
+  - 컨테이너 페이지 구현 <br>
+  - 장바구니 시스템 구현 <br>
+  - 상품 리스트 구현 <br>
+  - 상품 JSON DB 구현 <br><br>
   </div>
 </details>
 
@@ -94,6 +138,16 @@
   - 컨테이너 헤더 구현 <br>
   - 컨테이너 푸터 구현 <br>
   - 댓글 리뷰 시스템 구현 <br><br>
+  </div>
+</details>
+<details>
+   <summary> 🤩 허린 </summary>
+  <div>
+   <br>
+  - 컨테이너 페이지 구현 <br>
+  - 장바구니 시스템 구현 <br>
+  - 상품 리스트 구현 <br>
+  - 상품 JSON DB 구현 <br><br>
   </div>
 </details>
 
