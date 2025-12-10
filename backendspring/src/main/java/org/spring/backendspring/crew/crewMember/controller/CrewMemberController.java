@@ -21,7 +21,7 @@ public class CrewMemberController {
 
     private final CrewMemberService crewMemberService;
 
-    //크루원 리스트
+
     @GetMapping({"","/"})
     public ResponseEntity<?> CrewMemberList(@PathVariable("crewId") Long crewId,
             @PageableDefault(page = 0, size = 8, sort = "id")Pageable pageable,
@@ -46,7 +46,7 @@ public class CrewMemberController {
         return ResponseEntity.status(HttpStatus.OK).body(crewMemberListMap);
     }
 
-    //크루원 상세보기
+
     @GetMapping("detail/{crewMemberId}")
     public ResponseEntity<?> crewMemberDetails(@PathVariable("crewId") Long crewId,
                                                @PathVariable("crewMemberId") Long crewMemberId){
@@ -56,7 +56,7 @@ public class CrewMemberController {
         return ResponseEntity.status(HttpStatus.OK).body(crewMemberDetail);
     }
 
-    //크루원 삭제 (탈퇴?)
+
     @GetMapping("delete/{crewMemberTbId}")
     public ResponseEntity<?> crewMemberDelete(@PathVariable("crewId") Long crewId,
                                                @PathVariable("crewMemberTbId") Long crewMemberTbId){

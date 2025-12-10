@@ -8,7 +8,7 @@ export const loginFn = async (username, password) => {
   form.append("username", username);
   form.append("password", password);
 
-  // header 요청 -> form으로
+
   const header = {
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
   };

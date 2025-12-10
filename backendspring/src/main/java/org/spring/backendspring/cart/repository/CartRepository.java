@@ -11,7 +11,7 @@ import java.util.Optional;
 public interface CartRepository extends JpaRepository<CartEntity, Long> {
     Optional<CartEntity> findByMemberId(Long memberId);
 
-    // CartRepository.java
+
     @Query("SELECT c FROM CartEntity c JOIN FETCH c.cartItemEntities WHERE c.memberId = :memberId")
     Optional<CartEntity> findByMemberIdWithItems(@Param("memberId") Long memberId);
 

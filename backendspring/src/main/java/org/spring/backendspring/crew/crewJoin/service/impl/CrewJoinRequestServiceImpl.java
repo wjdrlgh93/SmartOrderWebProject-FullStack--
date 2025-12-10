@@ -45,15 +45,15 @@ public class CrewJoinRequestServiceImpl implements CrewJoinRequestService {
         Long crewId = joinDto.getCrewRequestId();
         Long memberId = joinDto.getMemberRequestId();
 
-        // 회원 맞냐?
+
         MemberEntity memberEntity = memberRepository.findById(memberId)
                 .orElseThrow(() -> new CustomException(ErrorCode.USER_NOT_FOUND));
 
-        // 크루 있냐?
+
         CrewEntity crewEntity = crewRepository.findById(crewId)
                 .orElseThrow(() -> new CustomException(ErrorCode.CREW_NOT_FOUND));
 
-        // 이미 크루멤버냐?
+
         Optional<CrewMemberEntity> optionalCrewMember =
                 crewMemberRepository.findByCrewEntityIdAndMemberEntityId(crewId, memberId);
 
@@ -61,7 +61,7 @@ public class CrewJoinRequestServiceImpl implements CrewJoinRequestService {
             throw new CustomException(ErrorCode.CREW_JOIN_ALREADY_MEMBER);
         }
 
-        // 이미 신청했냐?
+
         Optional<CrewJoinRequestEntity> optionalCrewJoinRequestEntity =
                 crewJoinRequestRepository.findByCrewEntityIdAndMemberEntityId(crewId, memberId);
 
@@ -114,13 +114,13 @@ public class CrewJoinRequestServiceImpl implements CrewJoinRequestService {
         return crewJoinRequestList.map(CrewJoinRequestDto::crewJoinRequestDto);
     }
 
-    // 가입 승인
+
     @Override
     public void crewJoinRequestApproved(CrewJoinRequestDto joinDto, Long leaderId) {
         Long crewId = joinDto.getCrewRequestId();
         Long memberId = joinDto.getMemberRequestId();
 
-        // 로그인 사용자의 crewRole을 가져옵니다.
+
         String crewRole = CrewRoleCheck.crewRoleCheckFn(leaderId, crewId, crewRepository);
 
         if (!"LEADER".equals(crewRole)) {
@@ -135,14 +135,14 @@ public class CrewJoinRequestServiceImpl implements CrewJoinRequestService {
             throw new CustomException(ErrorCode.CREW_JOIN_REQUEST_ALREADY_PROCESSED);
         }
 
-        // 승인으로 변경
+
         crewJoinRequestRepository.save(CrewJoinRequestEntity.updateCrewJoinApproved(request));
 
-        // 크루 멤버 저장
+
         crewMemberRepository.save(CrewMemberEntity.insertCrewMember(request));
     }
 
-    // 가입 거절
+
     @Override
     public void crewJoinRequestRejected(CrewJoinRequestDto joinDto, Long leaderId) {
         Long crewId = joinDto.getCrewRequestId();
@@ -162,7 +162,7 @@ public class CrewJoinRequestServiceImpl implements CrewJoinRequestService {
             throw new CustomException(ErrorCode.CREW_JOIN_REQUEST_ALREADY_PROCESSED);
         }
 
-        // 거절로 변경
+
         crewJoinRequestRepository.save(CrewJoinRequestEntity.updateCrewJoinRejected(request));
     }
 

@@ -105,22 +105,22 @@ public class CrewBoardServiceImpl implements CrewBoardService {
                     savedImages.add(savedImage);
                     }
             }
-            // for (MultipartFile boardFile : crewBoardFile) {
-            //     if (boardFile != null && !boardFile.isEmpty()) {
-            //         UUID uuid = UUID.randomUUID();
-            //         String originalFileName = boardFile.getOriginalFilename();
-            //         String newFileName = uuid + "_" + originalFileName;
 
-            //         String filePath = "E:/full/upload/" + newFileName;
-            //         File file = new File(filePath);
 
-            //         boardFile.transferTo(file);
+
+
+
+
+
+
+
+
                     
-            //         CrewBoardImageEntity boardImageEntity = CrewBoardImageEntity.toCrewBoardImageEntity(crewBoardEntity, originalFileName, newFileName);
-            //         CrewBoardImageEntity savedImage = crewBoardImageRepository.save(boardImageEntity);
-            //         savedImages.add(savedImage);
-            //     }
-            // }
+
+
+
+
+
             
         }
         crewBoardEntity.setCrewBoardImageEntities(savedImages);
@@ -156,17 +156,17 @@ public class CrewBoardServiceImpl implements CrewBoardService {
         CrewBoardEntity crewBoardEntity = crewBoardRepository.findByCrewEntity_IdAndId(crewId, id)
                 .orElseThrow(() -> new NullPointerException("존재하지 않는 게시글"));
         
-        // 제목, 내용 수정
+
         crewBoardEntity.setTitle(crewBoardDto.getTitle());
         crewBoardEntity.setContent(crewBoardDto.getContent());
 
-        // 수정 후 이미지
+
         List<CrewBoardImageEntity> updatedImages = new ArrayList<>();
 
-        // 기존 이미지
+
         List<CrewBoardImageEntity> currentImages = crewBoardImageRepository.findByCrewBoardEntity(crewBoardEntity);
 
-        // 삭제할 이미지 삭제
+
         if (deleteImageName != null && !deleteImageName.isEmpty()) {
             for (String imageName : deleteImageName) {
                 CrewBoardImageEntity imageEntity = crewBoardImageRepository.findByCrewBoardEntity_IdAndNewName(id, imageName)
@@ -177,10 +177,10 @@ public class CrewBoardServiceImpl implements CrewBoardService {
             }
         }
 
-        // 삭제 후 조회
+
         updatedImages = crewBoardImageRepository.findByCrewBoardEntity(crewBoardEntity);
 
-        // 새로운 이미지 추가
+
         if (newImages != null && !newImages.isEmpty()) {
             for (MultipartFile image : newImages) {
                 if (!image.isEmpty()) {
@@ -191,18 +191,18 @@ public class CrewBoardServiceImpl implements CrewBoardService {
                     CrewBoardImageEntity savedImage = crewBoardImageRepository.save(boardImageEntity);
                     updatedImages.add(savedImage);
 
-                    // UUID uuid = UUID.randomUUID();
-                    // String originalFileName = image.getOriginalFilename();
-                    // String newFileName = uuid + "_" + originalFileName;
 
-                    // String filePath = "E:/full/upload/" + newFileName;
-                    // File file = new File(filePath);
 
-                    // image.transferTo(file);
 
-                    // CrewBoardImageEntity boardImageEntity = CrewBoardImageEntity.toCrewBoardImageEntity(crewBoardEntity, originalFileName, newFileName);
-                    // CrewBoardImageEntity savedImage = crewBoardImageRepository.save(boardImageEntity);
-                    // updatedImages.add(savedImage);
+
+
+
+
+
+
+
+
+
                 }
             }
         }

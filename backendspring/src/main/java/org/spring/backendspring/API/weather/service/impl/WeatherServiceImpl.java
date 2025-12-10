@@ -24,14 +24,14 @@ public class WeatherServiceImpl implements WeatherService {
     @Override
     public void insertWeather(String responseBody) {
         try {
-            // JSON → Java 객체 변환
+
             WeatherApiDto weatherApiDto = objectMapper.readValue(responseBody, WeatherApiDto.class);
 
             log.info("API 응답 파싱 완료: {}", weatherApiDto);
 
-            // 1. 기존 저장 여부 확인 (이름 기준)
+
             Optional<WeatherEntity> weatherEntity = weatherRepository.findByName(weatherApiDto.getName());
-            // 2.중복 체크: lat, lon, country, name 등을 기준으로 중복 체크
+
 
             if (!weatherEntity.isPresent()) {
                 WeatherEntity newEntity = WeatherEntity.builder()
@@ -48,7 +48,7 @@ public class WeatherServiceImpl implements WeatherService {
                 log.info("새로운 날씨 정보 저장 완료: {}", newEntity);
             } else {
                 log.info("이미 저장된 날씨 정보 존재 - 업데이트 또는 무시 가능");
-                // TODO: 필요 시 업데이트 로직 추가
+
             }
 
         } catch (Exception e) {

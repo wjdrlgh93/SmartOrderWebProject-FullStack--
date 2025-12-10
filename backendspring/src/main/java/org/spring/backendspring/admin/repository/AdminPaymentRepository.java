@@ -13,7 +13,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 public interface AdminPaymentRepository extends JpaRepository<PaymentEntity, Long> {
-    // search 용도
+  
     Page<PaymentEntity> findByPaymentIdContainingIgnoreCase(
             String paymentIdKeyword,
             Pageable pageable);
@@ -29,8 +29,7 @@ public interface AdminPaymentRepository extends JpaRepository<PaymentEntity, Lon
 
     @Query("SELECT COALESCE(SUM(p.productPrice), 0) FROM PaymentEntity p WHERE DATE(p.createTime) = CURRENT_DATE")
     Long todaySales();
-    // paymentId로 결제 상품들 조회
-    // List<PaymentItemEntity> findPaymentItemsByPaymentId(Long paymentId);
+
 
     @Query("""
         SELECT COALESCE(SUM(COALESCE(p.productPrice, 0)), 0)

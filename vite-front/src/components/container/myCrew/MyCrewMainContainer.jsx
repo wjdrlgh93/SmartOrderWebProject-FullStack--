@@ -30,7 +30,7 @@ const MyCrewMainContainer = () => {
 
       } catch (error) {
         if (error.response) {
-          // console.log("백엔드 응답:", error.response.data)
+
       
           
           const data = error.response.data
@@ -45,7 +45,7 @@ const MyCrewMainContainer = () => {
     myCrewMain();
   }, [])
 
-  //안하면 데이터 오기전에 있어서 에러남
+
   const CrewcreatedDate = myCrew.createTime
   ? myCrew.createTime.split("T")[0]
   : "";
@@ -54,7 +54,7 @@ const MyCrewMainContainer = () => {
   ? myCrew.crewMemberEntities.length
   : "";
 
-  // console.log(myCrew.memberId)
+
   return (
     <div className="myCrewMain">
       <div className="myCrewMain-con">
@@ -99,9 +99,9 @@ const MyCrewMainContainer = () => {
               {myCrew.newFileName && myCrew.newFileName.length > 0 && (
                 <div className="myCrewMainImage">
                   <img
-                    // src={`http://localhost:8088/upload/${myCrew.newFileName[0]}`}
+
                     src={myCrew.fileUrl[0]}
-                    // src={`${IMAGES_S3_URL}${myCrew.newFileName[0]}`}
+
                     alt={`${myCrew.name} 이미지`}
                     className="crewImage"
                   />

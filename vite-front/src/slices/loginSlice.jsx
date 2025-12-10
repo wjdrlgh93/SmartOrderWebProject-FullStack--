@@ -10,7 +10,7 @@ const initState = {
   isInitialized: false,
 };
 
-// setInitialized -> (새로고침 후 로그인 정보가 들어와야 페이지를 로드해줍니다.)
+
 
 const loginSlice = createSlice({
   name: "LoginSlice",

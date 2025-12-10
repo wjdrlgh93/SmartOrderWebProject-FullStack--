@@ -37,7 +37,7 @@ public class ItemReplyEntity extends BasicTime {
     private String content;
 
 
-    // N:1 
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private MemberEntity memberEntity;

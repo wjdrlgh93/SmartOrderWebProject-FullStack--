@@ -22,7 +22,7 @@ const AdminItemDetailContainer = () => {
 
   const [file, setFile] = useState(null);
 
-  // 상세 불러오기
+
   const fetchItemDetail = async () => {
     try {
       const res = await jwtAxios.get(
@@ -42,7 +42,7 @@ const AdminItemDetailContainer = () => {
     fetchItemDetail();
   }, []);
 
-  // 수정 처리
+
   const handleUpdate = async (e) => {
     e.preventDefault();
 

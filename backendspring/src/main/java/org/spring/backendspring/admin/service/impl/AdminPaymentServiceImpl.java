@@ -82,7 +82,7 @@ public class AdminPaymentServiceImpl implements AdminPaymentService {
         PaymentEntity payment = adminPaymentRepository.findById(paymentId)
                 .orElseThrow(() -> new IllegalArgumentException("결제 정보 찾을 수 없음"));
 
-        // String → Enum 변환
+
         PaymentStatus newStatus = PaymentStatus.valueOf(status);
 
         payment.setPaymentStatus(newStatus);
@@ -101,7 +101,7 @@ public WeeklySalesDto getWeeklySales() {
     long[] thisWeek = new long[7];
     long[] lastWeek = new long[7];
 
-    // 이번주
+
     for (int i = 0; i < 7; i++) {
         LocalDate day = thisWeekStart.plusDays(i);
         LocalDateTime start = day.atStartOfDay();
@@ -111,7 +111,7 @@ public WeeklySalesDto getWeeklySales() {
         thisWeek[i] = (sum != null) ? sum : 0L;
     }
 
-    // 지난주
+
     for (int i = 0; i < 7; i++) {
         LocalDate day = lastWeekStart.plusDays(i);
         LocalDateTime start = day.atStartOfDay();

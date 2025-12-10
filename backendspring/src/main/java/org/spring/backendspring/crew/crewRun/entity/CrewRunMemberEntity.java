@@ -26,8 +26,8 @@ public class CrewRunMemberEntity extends BasicTime {
     private MemberEntity memberEntity; // 누가 참석?
 
 
-    // @Enumerated(EnumType.STRING)
-    // private AttendeeStatus status; // YES / NO
+
+
 
     public static CrewRunMemberEntity insertCrewRun(CrewRunMemberEntity crewRunMemberEntity){
         return CrewRunMemberEntity.builder()

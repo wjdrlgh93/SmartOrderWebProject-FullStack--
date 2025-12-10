@@ -1,7 +1,7 @@
 import React from 'react'
 
 const MyCrewMemberDetailModal = ({detail, onClose, onDelete}) => {
-    //크루원 속에 데이터가 비었다면?
+
     if (!detail) return <div>🤔 왜 데이터가 없지?</div>
 
 const crewMemberCreateTime = detail.createTime ? detail.createTime.split("T")[0] :  "";

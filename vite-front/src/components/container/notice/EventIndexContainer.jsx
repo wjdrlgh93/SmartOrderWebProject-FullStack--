@@ -2,7 +2,7 @@ import React from 'react'
 
 import "../../../css/event/eventMain.css"
 
-// Dummy
+
 const events = [
   { id: 1, title: '봄맞이 러닝 축제 2025', date: '2025.04.20', location: '서울숲' },
   { id: 2, title: '도심 속 요가 & 명상 클래스', date: '2025.04.25', location: '남산 공원' },

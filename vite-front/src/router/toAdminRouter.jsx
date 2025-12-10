@@ -77,7 +77,7 @@ const toAdminRouter = () => {
       ),
     },
 
-    // Member
+
     {
       path: "memberList",
       element: (
@@ -95,7 +95,7 @@ const toAdminRouter = () => {
       ),
     },
 
-    // Crew
+
     {
       path: "crewlist",
       element: (
@@ -121,7 +121,7 @@ const toAdminRouter = () => {
       ),
     },
 
-    // Payment
+
     {
       path: "paymentlist",
       element: (
@@ -139,7 +139,7 @@ const toAdminRouter = () => {
       ),
     },
 
-    // Item
+
     {
       path: "addItem",
       element: (
@@ -165,7 +165,7 @@ const toAdminRouter = () => {
       ),
     },
 
-    // Board
+
     {
       path: "boardlist",
       element: (
@@ -183,7 +183,7 @@ const toAdminRouter = () => {
       ),
     },
 
-    // Event
+
     {
       path: "addNotice",
       element: (

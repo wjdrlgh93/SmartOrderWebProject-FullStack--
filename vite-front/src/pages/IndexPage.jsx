@@ -23,7 +23,7 @@ const IndexPage = () => {
 
     useEffect(() => {
         const handleMouseMove = (event) => {
-            // get viewPort Size
+
             const centerX = window.innerWidth / 2;
             const centerY = window.innerHeight / 2;
 
@@ -32,10 +32,10 @@ const IndexPage = () => {
             setMousePosition({ x: relativeX, y: relativeY });
 
         };
-        // widnow -> add MouseMoveListner
+
         window.addEventListener('mousemove', handleMouseMove);
 
-        // when component disapper -> removeListener
+
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);
         };

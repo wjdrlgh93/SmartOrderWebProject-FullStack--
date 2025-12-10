@@ -48,7 +48,7 @@ public class MemberDto {
 
     private MemberRole role = MemberRole.MEMBER;
 
-//    @NotBlank(message = "성별은 필수 입력 값입니다.")
+
     private Gender gender;
 
     @NotNull(message = "나이는 필수 입력 값입니다.")

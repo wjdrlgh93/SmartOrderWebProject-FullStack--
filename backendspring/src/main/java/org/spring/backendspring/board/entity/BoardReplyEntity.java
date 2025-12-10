@@ -43,17 +43,13 @@ public class BoardReplyEntity extends BasicTime {
     private String content;
 
 
-    // createTime 
-    // updateTime 
 
-    // N:1 
     @ManyToOne
     @Fetch(FetchMode.JOIN)
     @JoinColumn(name = "board_id")
     @JsonIgnore
     private BoardEntity boardEntity;
 
-    // N:1
     @ManyToOne
     @JoinColumn(name = "member_id")
     @JsonIgnore
@@ -71,7 +67,6 @@ public class BoardReplyEntity extends BasicTime {
     }
 
 
-    // DTO is Empty? if Fill content-> then Update
     public void updateFromDto(BoardReplyDto dto) {
        if (dto.getContent() != null) {
         this.content = dto.getContent();

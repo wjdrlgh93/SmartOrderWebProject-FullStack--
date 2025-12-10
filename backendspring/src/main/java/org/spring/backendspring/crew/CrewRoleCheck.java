@@ -7,7 +7,7 @@ import org.spring.backendspring.crew.crewMember.entity.CrewMemberEntity;
 
 public class CrewRoleCheck {
 
-    // 크루 권한을 추출하는 메서드입니다. (회원 id, 가입한 크루 id, crewRepository)
+
     public static String crewRoleCheckFn(Long memberId,
                                          Long crewId,
                                          CrewRepository crewRepository) {

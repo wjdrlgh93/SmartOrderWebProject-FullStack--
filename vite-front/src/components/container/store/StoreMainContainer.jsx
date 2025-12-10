@@ -34,7 +34,7 @@ const ShopMainContainer = () => {
       if (data && data.content) {
         setItems(data.content || []);
 
-        // 페이지 정보 계산 및 업데이트
+
         const totalPages = data.totalPages;
         const pageNum = data.number;
         const displayPageNum = 5;
@@ -57,7 +57,7 @@ const ShopMainContainer = () => {
     }
   };
 
-  // this one for recently bring 2items
+
   const fetchRecentData = async () => {
     try {
       const response = await axios.get("http://localhost:8088/api/shop/recent");
@@ -77,7 +77,7 @@ const ShopMainContainer = () => {
     pageNumbers.push(i);
   }
   const handlePageClick = (page) => {
-    // When PageChange -> scroll is move to Top = UI Improvment
+
     window.scrollTo({ top: 0, behavior: "smooth" });
     setCurrentPage(page);
   };

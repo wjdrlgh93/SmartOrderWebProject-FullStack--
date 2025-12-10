@@ -19,7 +19,6 @@ const BoardListContainer = () => {
 
   const API_BASE_URL = 'http://localhost:8088/api/board';
 
-     // JWT
     const accessToken = useSelector(state => state.jwtSlice.accessToken);
     const memberId = useSelector(state => state.loginSlice.id);
     const nickName = useSelector(state => state.loginSlice.nickName);
@@ -47,9 +46,7 @@ const BoardListContainer = () => {
 
      console.log(`[LOG] 페이지 ${page + 1}의 데이터를 요청합니다. 검색 조건: ${subject} / ${search}`);
 
-    // this code for BackEnd Controller
-    // const response = await axios.get("http://localhost:8088/api/board");
-    // parameter init
+
     let params = { 
         page: page,
 
@@ -57,9 +54,7 @@ const BoardListContainer = () => {
         search: search ? search.trim() : null
     };
     try {
-      // REQUEST Page Query Parameter :: URL
-      
-      // const response = await jwtAxios.get(`${API_BASE_URL}?page=${page}`, 
+
       const response = await jwtAxios.get(API_BASE_URL , 
                {
                     params: params,
@@ -69,9 +64,8 @@ const BoardListContainer = () => {
 
       const data = response.data;
 
-      // data Update
       setBoards(data.content || []);
-      // Page Calculate & update 
+
       const totalPages = data.totalPages;
       const pageNum = data.number;
       const displayPageNum = 5;
@@ -113,19 +107,17 @@ const BoardListContainer = () => {
   }
 
   useEffect(() => {
-        // if compoent loading DONE ... URL has searchWord -> do search
         if (initialSearchTerm) {
             fetchSearchResults(initialSubject, initialSearchTerm, initialPage);
         }
-    }, []); // 최초 1회만 실행
+    }, []); 
 
 
 
-  // search Section /// 
 
-  
+
   const handleSearch = (e) => {
-        e.preventDefault(); // 기본 폼 제출 동작 방지
+        e.preventDefault(); 
         
         if (!searchTerm.trim()) {
             alert("검색어를 입력해 주세요.");
@@ -142,14 +134,13 @@ const BoardListContainer = () => {
     }, []);
 
 
-  // return
+
 
   return (
     <div className="boardList">
        <div className="boardList-banner">
         <br /><br />
-        {/* <img src="/images/store/swiper/header3.jpg" alt="header" /> */}
-        
+
       </div>
       <br />
       <div className="boardList-con">
@@ -160,13 +151,12 @@ const BoardListContainer = () => {
           <form onSubmit={handleSearch} className="board-search-form">
             <select name="subject" className="subject-select"value={subject} 
                 onChange={handleSubjectChange} >
-                {/* option value must Math BackEndxcode.... */}
                 <option value="title">제목</option>
                 <option value="content">내용</option>
                 <option value="nickName">닉네임</option>
             </select>
             <input type="text" name="search" value={searchTerm}
-                onChange={handleSearchTermChange} // 변경 시 상태 업데이트
+                onChange={handleSearchTermChange} 
                 placeholder="검색어를 입력하세요.." 
                 className="search-input"/>
             <button type="submit" className="search-button">검색</button>
@@ -190,7 +180,7 @@ const BoardListContainer = () => {
             {boards.map(list => (
               <tr key={list.id}>
                 <td>{list.id}</td>
-                {/* <td>{list.fileUrl}</td> */}
+
                 <td><img src={list.fileUrl} alt={list.newFileName} style={{ width: '40px', height: '40px', objectFit: 'cover' }}/></td>
                 <td> <Link to={`/board/detail/${list.id}`} className='board-link'>
                   {list.title}
@@ -205,7 +195,7 @@ const BoardListContainer = () => {
         </table>
 
         <div className="pagenation">
-          {/* PREV Page Button*/}
+
           {pageInfo.startPage > 0 && (
             <li style={{ margin: '0 5px' }}>
               <button
@@ -217,12 +207,12 @@ const BoardListContainer = () => {
             </li>
           )}
 
-          {/* Page */}
+
           {pageNumbers.map(page => (
             <li key={page} style={{ margin: '0 5px' }}>
               <button
                 onClick={() => handlePageClick(page)}
-                // 현재 페이지일 경우 배경색을 회색으로 표시 (뼈대 스타일)
+
                 style={{
                   padding: '5px 10px',
                   cursor: 'pointer',
@@ -230,12 +220,12 @@ const BoardListContainer = () => {
                   backgroundColor: page === pageInfo.currentPage ? '#eee' : 'white'
                 }}
               >
-                {page + 1} {/* 사용자에게는 1부터 시작하는 페이지 번호를 보여줌 */}
+                {page + 1} 
               </button>
             </li>
           ))}
 
-          {/* 다음 (Next) 버튼: 현재 블록의 끝 페이지(endPage)의 다음 페이지로 이동 */}
+
           {pageInfo.endPage < pageInfo.totalPages - 1 && (
             <li style={{ margin: '0 5px' }}>
               <button
@@ -247,29 +237,15 @@ const BoardListContainer = () => {
             </li>
           )}
 
-          {/* EOF Pagenation */}
+     
 
           <br />
         </div>
         <div className="boardList-post">
-          {/* this section is temp */}
+
           <Link to="/board/newPost">
             <h3>글쓰기</h3>
           </Link>
-          {/* { when Loggin 
-            <>
-              <Link to="/board/newPost">
-                <h3>글쓰기</h3>
-              </Link>
-            </>
-            :
-            <>
-              <Link to="/auth">
-                <h3>로그인하세요...</h3>
-              </Link>
-            </>
-          } */}
-
         </div>
         <br /><br /><br />
       </div>

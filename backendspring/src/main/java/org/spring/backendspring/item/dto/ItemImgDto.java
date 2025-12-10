@@ -25,9 +25,9 @@ import lombok.ToString;
 @AllArgsConstructor
 public class ItemImgDto {
 
-    // this is Img PK
+
     private Long id;
-    // itemEntityId -> other Table
+
     private Long itemId;
 
     private String oldName;
@@ -39,7 +39,7 @@ public class ItemImgDto {
     private LocalDateTime updateTime;
     
 
-    // N:1
+
     @JsonIgnore
     private ItemEntity itemEntity;
 

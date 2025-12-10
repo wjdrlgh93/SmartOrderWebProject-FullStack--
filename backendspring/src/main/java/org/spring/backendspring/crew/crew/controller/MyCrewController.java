@@ -32,7 +32,7 @@ public class MyCrewController {
         return ResponseEntity.status(HttpStatus.OK).body(myCrewList);
     }
 
-    //내 크루 접속 시 기본
+
     @GetMapping({"/{crewId}"})
     public ResponseEntity<?> myCrew(@PathVariable("crewId") Long crewId,
                                     @AuthenticationPrincipal MyUserDetails myUserDetails){

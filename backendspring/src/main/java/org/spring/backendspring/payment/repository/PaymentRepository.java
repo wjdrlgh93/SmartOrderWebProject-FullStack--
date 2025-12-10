@@ -20,23 +20,23 @@ public interface PaymentRepository extends JpaRepository<PaymentEntity, Long> {
     @Query("SELECT p FROM PaymentEntity p JOIN FETCH p.paymentItemEntities WHERE p.paymentId = :paymentId")
     Optional<PaymentEntity> findByIdWithItems(@Param("paymentId") Long paymentId);
 
-    // pgToken 업데이트
+
     @Modifying
     @Transactional
     @Query("UPDATE PaymentEntity p SET p.pgToken = :pgToken WHERE p.paymentId = :paymentId")
     void updatePgToken(@Param("paymentId") Long paymentId, @Param("pgToken") String pgToken); // ⭐️ @Param 추가
 
-    // 결제 성공 여부 업데이트 (isSucceeded 같은 컬럼)
+
     @Modifying
     @Transactional
     @Query("UPDATE PaymentEntity p SET p.isSucceeded = :status WHERE p.paymentId = :paymentId")
     void updateIsSucced(@Param("paymentId") Long paymentId, @Param("status") int status); // ⭐️ @Param 추가
 
-    // ⭐️ [추가] Payment 목록 조회 시 PaymentItemEntity를 EAGER 로딩 (N+1 해결)
+
     @Query(value = "SELECT p FROM PaymentEntity p JOIN FETCH p.paymentItemEntities", countQuery = "SELECT COUNT(p) FROM PaymentEntity p")
     Page<PaymentEntity> findAllWithItems(Pageable pageable);
 
-    // ⭐️ [추가] 검색어 포함 시 PaymentItemEntity를 EAGER 로딩 (N+1 해결)
+
     @Query(value = "SELECT p FROM PaymentEntity p JOIN FETCH p.paymentItemEntities WHERE LOWER(p.paymentType) LIKE LOWER(CONCAT('%', :keyword, '%')) OR LOWER(p.paymentPost) LIKE LOWER(CONCAT('%', :keyword, '%'))", countQuery = "SELECT COUNT(p) FROM PaymentEntity p WHERE LOWER(p.paymentType) LIKE LOWER(CONCAT('%', :keyword, '%')) OR LOWER(p.paymentPost) LIKE LOWER(CONCAT('%', :keyword, '%'))")
     Page<PaymentEntity> findByKeywordWithItems(@Param("keyword") String keyword, Pageable pageable);
 

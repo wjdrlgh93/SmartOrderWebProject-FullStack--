@@ -26,16 +26,16 @@ public class MarathonServiceImpl implements MarathonService {
 
     private final MarathonRepository marathonRepository;
     
-    // 설정 파일(application.properties)에서 API 키를 주입받음
+
     @Value("${marathon.api.key}")
     private String API_KEY; 
 
     @PostConstruct
     @Transactional
     public void loadData() {
-        // ... (API 데이터 로드 로직 유지)
+
         try {
-             // API_KEY를 필드에서 가져와 사용
+
              String apiUrl = "https://api.odcloud.kr/api/15138980/v1/uddi:eedc77c5-a56b-4e77-9c1d-9396fa9cc1d3?page=1&perPage=50&serviceKey=" + API_KEY;
 
              URL url = new URL(apiUrl);
@@ -76,7 +76,7 @@ public class MarathonServiceImpl implements MarathonService {
         return marathonRepository.findAll();
     }
 
-    // 검색 및 페이징 로직 구현
+
     @Override
     public Page<Marathon> findMarathons(String searchTerm, Pageable pageable) {
         if (searchTerm != null && !searchTerm.trim().isEmpty()) {
@@ -84,7 +84,7 @@ public class MarathonServiceImpl implements MarathonService {
             
             return marathonRepository.findByNameContainingOrLocationContaining(trimmedSearchTerm, trimmedSearchTerm, pageable);
         }
-        // 검색어가 없으면 전체 리스트 페이징
+
         return marathonRepository.findAll(pageable);
     }
 }

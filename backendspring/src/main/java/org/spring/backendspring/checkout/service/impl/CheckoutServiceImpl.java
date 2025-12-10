@@ -25,11 +25,11 @@ public class CheckoutServiceImpl implements CheckoutService {
 
     @Override
     public PaymentEntity checkoutCart(Long cartId, String paymentAddr, String paymentMethod) {
-        // 1️⃣ 장바구니 조회: Fetch Join 메서드 사용 (N+1 방지)
+
         CartEntity cart = cartRepository.findByIdWithItems(cartId)
                 .orElseThrow(() -> new RuntimeException("장바구니를 찾을 수 없습니다."));
 
-        // 2️⃣ 결제 정보 생성
+
         PaymentEntity payment = PaymentEntity.builder()
                 .memberId(cart.getMemberId())
                 .paymentAddr(paymentAddr)
@@ -40,7 +40,7 @@ public class CheckoutServiceImpl implements CheckoutService {
 
         PaymentEntity savedPayment = paymentRepository.save(payment);
 
-        // 3️⃣ 장바구니 상품 → 결제상품으로 변환
+
         for (CartItemEntity cartItem : cart.getCartItemEntities()) {
             PaymentItemEntity paymentItem = PaymentItemEntity.builder()
                     .payment(savedPayment)
@@ -55,7 +55,7 @@ public class CheckoutServiceImpl implements CheckoutService {
                     .updateTime(LocalDateTime.now())
                     .build();
 
-            // ⭐️ 수정: Payment 엔티티에 Item을 추가하여 양방향 관계의 무결성 유지
+
             savedPayment.getPaymentItemEntities().add(paymentItem); 
 
             paymentItemRepository.save(paymentItem);

@@ -22,44 +22,44 @@ public class AwsS3Service {
     @Value("${spring.cloud.aws.s3.bucket}")
     private String bucketName;
 
-    // return S3 SaveFile URL 
-    // public String uploadFile(MultipartFile multipartFile, String path) throws IOException {
 
-    //     String originalFileName = multipartFile.getOriginalFilename();
-    //     String uuid = UUID.randomUUID().toString();
-    //     String uniqueFileName = path + uuid + "_" + originalFileName;
 
-    //     // upload S3 
-    //     InputStream inputStream = multipartFile.getInputStream();
 
-    //     // Use S3Template Upload -=> Using bucketName, FileName, Data 
-    //     s3Template.upload(bucketName, uniqueFileName, inputStream,
-    //          ObjectMetadata.builder()
-    //                     .contentType(multipartFile.getContentType())
-    //                         .build());
-    //     return uniqueFileName;
-    // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
-    // public String uploadFile(MultipartFile multipartFile, String dirName) throws IOException {
 
 
-    //     String originalFileName = multipartFile.getOriginalFilename();
 
-    //     String uuid = UUID.randomUUID().toString();
-    //     // mkr dir
-    //     String filePrefix = dirName.isEmpty() ? "" : dirName + "/";
-    //     String uniqueFileName = filePrefix + uuid + "_" + originalFileName;
 
-    //     // upload S3 
-    //     InputStream inputStream = multipartFile.getInputStream();
 
-    //     s3Template.upload(bucketName, uniqueFileName, inputStream,
-    //          ObjectMetadata.builder()
-    //                     .contentType(multipartFile.getContentType())
-    //                         .build());
-    //     return uniqueFileName;
+
+
+
+
+
+
+
+
+
+
+
+
+
     
-    // }
+
     
     public String uploadFile(MultipartFile multipartFile, String dirName) throws IOException {
 
@@ -70,7 +70,7 @@ public class AwsS3Service {
     String filePrefix = dirName.isEmpty() ? "" : dirName;
     String uniqueFileName = filePrefix + uuid + "_" + originalFileName;
 
-    // upload S3 
+
     InputStream inputStream = multipartFile.getInputStream();
 
 
@@ -86,7 +86,7 @@ public class AwsS3Service {
         s3Template.deleteObject(bucketName, fileName);
     }
 
-    // bring File WholeName if you need.... use this...
+
     public String getFileUrl(String fileName) throws IOException {
         return s3Template.download(bucketName, fileName).getURL().toString();
     }

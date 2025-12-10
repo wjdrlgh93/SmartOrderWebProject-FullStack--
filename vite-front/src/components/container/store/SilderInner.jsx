@@ -54,7 +54,7 @@ const SilderInner = forwardRef(({ children, silderInterval = 2000 }, ref) => {
 
         window.addEventListener('resize', updateSliderWidth);
 
-        // 청소
+
         return () => {
             window.removeEventListener('resize', updateSliderWidth);
         };
@@ -76,7 +76,7 @@ const SilderInner = forwardRef(({ children, silderInterval = 2000 }, ref) => {
             inner.style.transition = `transform ${transitionDuration}`;
             inner.style.transform = `translateX(-${sliderWidth * currentIndex}px)`;
 
-            // 마지막 복사본에 도달하면 0.6초 뒤에 순식간에 처음으로 이동
+
             setTimeout(() => {
                 inner.style.transition = 'none';
                 inner.style.transform = 'translateX(0px)';

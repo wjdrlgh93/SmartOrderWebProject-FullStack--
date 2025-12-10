@@ -17,13 +17,13 @@ const MyCrewLeftContainer = () => {
             withCredentials: true
           }
         );
-        // console.log(loginMemberId)
-        // console.log(res.data.crew.memberId)
+
+
         setCrewLeader(res.data.crew.memberId)
 
       } catch (error) {
         if (error.response) {
-          // console.log("백엔드 응답:", error.response.data)
+
           
           const data = error.response.data
       

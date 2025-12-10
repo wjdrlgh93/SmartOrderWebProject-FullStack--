@@ -13,7 +13,7 @@ const toCrewRouter = () => {
   return (
     [
         {
-            // crew/
+
             path:'',
             element: <Navigate replace to={'index'} />
         },

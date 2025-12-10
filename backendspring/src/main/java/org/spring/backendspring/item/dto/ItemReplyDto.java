@@ -32,9 +32,9 @@ public class ItemReplyDto {
 
     private String content;
 
-    // item_tb
+
     private Long itemId;
-    // member_tb
+
     private Long memberId;
 
 

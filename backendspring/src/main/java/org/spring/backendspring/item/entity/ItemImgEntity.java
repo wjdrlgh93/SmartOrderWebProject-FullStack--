@@ -36,7 +36,7 @@ public class ItemImgEntity extends BasicTime {
     @Column(nullable = false)
     private String newName;
 
-    // N:1
+
     @ManyToOne
     @JoinColumn(name = "item_id")
     private ItemEntity itemEntity;

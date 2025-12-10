@@ -44,7 +44,7 @@ public class PagedResponse<T> {
         this.blockSize = blockSize;
     }
 
-    // ✅ Page<T>만 넘기면 바로 페이징 정보 채우는 생성자
+
     public static <T> PagedResponse<T> of(Page<T> page) {
         int blockSize = 5;
         int currentPage = page.getNumber() + 1;

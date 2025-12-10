@@ -25,14 +25,14 @@ public class MyCrewJoinRequestController {
     private final CrewJoinRequestService crewJoinRequestService;
 
 
-    //해당 크루 가입신청한 멤버
-    // @GetMapping({"", "/"})
-    // public ResponseEntity<?> myCrewJoinRequestList(@PathVariable("crewId") Long crewId) {
-    //     List<CrewJoinRequestDto> myCrewJoinRequestDtoList = crewJoinRequestService.myCrewJoinList(crewId);
-    //     Map<String, Object> myCrewjoinRequestMap = new HashMap<>();
-    //     myCrewjoinRequestMap.put("myCrewJoinList", myCrewJoinRequestDtoList);
-    //     return ResponseEntity.status(HttpStatus.OK).body(myCrewjoinRequestMap);
-    // }
+
+
+
+
+
+
+
+
     
     @GetMapping({"", "/"})
     public ResponseEntity<?> myCrewJoinRequestList(@PathVariable("crewId") Long crewId,
@@ -59,10 +59,10 @@ public class MyCrewJoinRequestController {
         return ResponseEntity.status(HttpStatus.OK).body(myCrewjoinRequestMap);
     }
 
-    //크루 가입 승인
+
     @PostMapping("/approved")
     public ResponseEntity<?> myCrewJoinRequestApproved(
-            //            @PathVariable("crewId") Long crewId,
+
             @RequestBody CrewJoinRequestDto joinDto,
             @AuthenticationPrincipal MyUserDetails myUserDetails) {
         Long memberId = myUserDetails.getMemberEntity().getId();
@@ -70,10 +70,10 @@ public class MyCrewJoinRequestController {
         return ResponseEntity.ok("승인 완료");
     }
 
-    //크루 가입 승인거절
+
     @PostMapping("/rejected")
     public ResponseEntity<?> myCrewJoinRequestRejected(
-//            @PathVariable("crewId") Long crewId,
+
             @RequestBody CrewJoinRequestDto joinDto,
             @AuthenticationPrincipal MyUserDetails myUserDetails) {
         Long memberId = myUserDetails.getMemberEntity().getId();

@@ -21,7 +21,7 @@ public class PaymentItemDto {
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
 
-    // Entity → DTO 변환
+
     public static PaymentItemDto fromEntity(PaymentItemEntity entity) {
         if (entity == null) return null;
 
@@ -37,7 +37,7 @@ public class PaymentItemDto {
                 .build();
     }
 
-    // DTO → Entity 변환
+
     public PaymentItemEntity toEntity() {
         return PaymentItemEntity.builder()
                 .id(this.id)

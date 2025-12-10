@@ -11,14 +11,14 @@ const PaymentListPage = () => {
   const [keyword, setKeyword] = useState("");
   const pageSize = 8;
   
-  //모달 상태 추가
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPayment, setSelectedPayment] = useState(null); 
 
-  //임시 배송 상태 데이터 (실제 데이터에 'deliveryStatus' 필드가 없다고 가정)
+
   const mockDeliveryStatuses = ["배송 완료", "운송 중", "출고 준비", "주문 완료", "배송 완료", "운송 중", "출고 준비", "주문 완료"];
   
-  //모달 열기/닫기 핸들러
+
   const handleOpenModal = (payment) => {
     setSelectedPayment(payment);
     setIsModalOpen(true);
@@ -36,10 +36,10 @@ const PaymentListPage = () => {
       const data = await getPaymentsByPage(page, pageSize, keyword);
       console.log("결제 조회 데이터:", data);
 
-      //서버 데이터에 임시 배송 상태 추가
+
       const processedPayments = (data.content || []).map((payment, index) => ({
         ...payment,
-        // 실제 백엔드 필드로 대체해야 합니다.
+
         deliveryStatus: mockDeliveryStatuses[index % mockDeliveryStatuses.length], 
       }));
 
@@ -58,12 +58,12 @@ const PaymentListPage = () => {
     }
   };
 
-  // 페이지 변경이나 초기 로딩 시 호출
+
   useEffect(() => {
     fetchPayments();
   }, [currentPage]);
 
-  // 검색 제출
+
   const handleSearch = (e) => {
     e.preventDefault();
     setCurrentPage(0); // 검색 시 첫 페이지로 이동
@@ -133,7 +133,7 @@ const PaymentListPage = () => {
                 <h4>주문 상세</h4>
                 <ul className="payment_itemList">
                     {items.map((item, index) => (
-                        // item.paymentItemId 대신 index 사용 (안정적인 key가 있다면 사용 권장)
+
                         <li key={item.id || index}> 
                             <span>{item.title || "-"}</span>
                             <span className="itemPrice">{(item.price || 0).toLocaleString()}원</span>

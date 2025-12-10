@@ -8,16 +8,16 @@ const MyCrewJoinRequestContainer = () => {
 
   const { crewId } = useParams();
   const [myCrewJoinRequestList, setMyCrewJoinRequestList] = useState([]);
-  //검색 카테고리?
+
   const [subject, setSubject] = useState("");
-  //검색어
+
   const [search, setSearch] = useState("");
 
   const [nowPage, setNowPage] = useState();
   const [startPage, setStartPage] = useState();
   const [endPage, setEndPage] = useState();
   const [totalPages, setTotalPages] = useState();
-  // 크루가입요청 리스트
+
   const MyCrewjoinRequest = async (pageParam) => {
     try {
       const res = await axios.get(`/api/mycrew/${crewId}/joinRequest`, {
@@ -44,7 +44,7 @@ const MyCrewJoinRequestContainer = () => {
   };
 
   const onSearchClick = () => {
-    // 항상 0페이지부터 다시 검색
+
     MyCrewjoinRequest(0);
   };
 
@@ -52,7 +52,7 @@ const MyCrewJoinRequestContainer = () => {
     MyCrewjoinRequest();
   }, []);
 
-  //크루가입승인
+
   const onJoinApproved = async (joinReq) => {
     console.log(joinReq);
     try {
@@ -82,7 +82,7 @@ const MyCrewJoinRequestContainer = () => {
     }
     MyCrewjoinRequest(0);
   };
-  //크루가입거절
+
   const onJoinRejected = async (joinReq) => {
     try {
       const res = await axios.post(

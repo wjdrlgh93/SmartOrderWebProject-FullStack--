@@ -31,12 +31,12 @@ public class CartEntity extends BasicTime{
 
     private Long memberId;
 
-    // 1:N
+
     @OneToMany(mappedBy = "cartEntity", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     @JsonIgnore
     private List<CartItemEntity> cartItemEntities = new ArrayList<>();
 
-     //DTO 변환 메서드 추가 
+
     public CartDto toDto() {
         return CartDto.builder()
                 .cartId(this.id)

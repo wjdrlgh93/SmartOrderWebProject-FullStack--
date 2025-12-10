@@ -39,11 +39,11 @@ public class MyCrewBotService {
     private final RabbitTemplate rabbitTemplate;
     private final Komoran komoran = new Komoran(DEFAULT_MODEL.FULL);
 
-    //형태소 분석 오류 해결 
+
     private String komoranGoText(String komoranText) {
         if (komoranText == null) return "";
     
-        // 시간 표현들 미리 정리
+
         komoranText = komoranText.replace("이번 주", "이번주");
         komoranText = komoranText.replace("저번 주", "저번주");
         komoranText = komoranText.replace("다음 주", "다음주");
@@ -59,28 +59,28 @@ public class MyCrewBotService {
     public void sendCrewBot(BotMessageDto botMessageDto) {
         Long crewId = botMessageDto.getCrewId();
         Long memberId = botMessageDto.getMemberId();
-        //사용자가 보낸 택스트 
+
         String komoranText = botMessageDto.getText() ;
 
-        //위에 메서드
+
         String komoranGoGoText = komoranGoText(komoranText);
 
-        //코모란
+
         KomoranResult komoranResult = komoran.analyze(komoranGoGoText);
         List<Token> tokens = komoranResult.getTokenList();
 
-        //라우딩키인데 사실 별 의미는 없음 crew.#임 구독을 {crewId}.{memberId}로 해서
+
         String routingKey = "crew." + crewId + "." + memberId;
 
-        //봇 메시지
+
         String text = "";
 
-        //기간설정,데이터찾기를 위한 선언 미리 하기
+
         LocalDate dateToday = LocalDate.now();
         LocalDateTime dateStart;
         LocalDateTime dateEnd;
         
-        //if로 체크 하기위한 참 거짓
+
         boolean hi = false; //인사
         boolean me = false; //나 본인
         boolean today = false; //오늘
@@ -91,44 +91,44 @@ public class MyCrewBotService {
         boolean thisCount = false;// 몇개 몇번
         boolean thisNext = false;// 다음
 
-        //문자열 빌더
+
         StringBuilder sb = new StringBuilder();
 
         for (Token token : tokens) {
             String botMsgNnp = token.getMorph();
             log.info("====={}=====", botMsgNnp);
             
-            // 초기 접속했을때나 인사
+
             if (List.of("안녕", "하이", "헬로", "hello","hellow", "ㅎㅇ").contains(botMsgNnp)) hi = true;
 
-            // 나, 본인
+
             if (List.of("내", "나", "본인").contains(botMsgNnp)) me = true;
 
-            //시간
+
             if (botMsgNnp.equals("오늘")) today = true;
-            // if (botMsgNnp.equals("이번")) botThis = true;
+
             if (List.of("이번주", "금주", "이번").contains(botMsgNnp)) thisWeek = true;
             if (botMsgNnp.equals("이번달")) thisMonth = true;
             if (List.of("다음", "다음번").contains(botMsgNnp)) thisNext = true;
 
-            //정보
+
             if (List.of("런","런닝", "일정", "스케줄").contains(botMsgNnp)) runSchedule = true;
             if (List.of("글", "게시글", "게시물").contains(botMsgNnp)) board = true;
 
-            //카운트
+
             if (List.of("몇개", "몇번", "몇").contains(botMsgNnp)) thisCount = true;
         }
-        // ========================================
-        //            ex) 인사, 초기
-        // ========================================
+
+
+
         if (hi) {
             text =  "어서오세요!" + botMessageDto.getMemberNickName() 
             + "님 궁금한 정보 있으시면 물어봐주세요 🚀" + "\n" ;
 
         }  
-        // ========================================
-        //            ex) 내 이번주 런닝
-        // ========================================
+
+
+
             else if (me && thisCount && runSchedule) {
                 Long runCount ;
                 if (today) {
@@ -158,9 +158,9 @@ public class MyCrewBotService {
                 }
                 text = sb.toString();
             } 
-        // ========================================
-        //            ex) 내 다음 런닝 , 내 런닝
-        // ======================================== 
+
+
+
             else if (me && runSchedule) {
                 LocalDateTime now = LocalDateTime.now();
                 if (thisNext) {
@@ -203,25 +203,25 @@ public class MyCrewBotService {
                 text = sb.toString();
                 
             } 
-        // ========================================
-        //          ex) 오늘 이번주 이번달 런닝 
-        // ======================================== 
+
+
+
             else if (runSchedule) { // 기간별 런닝일정
                 
                 List<CrewRunEntity> dateRunList = List.of();
 
                 if (today) { //오늘
-                    //시간대 설정    
+
                     dateStart = dateToday.atStartOfDay();
                     dateEnd = dateToday.plusDays(1).atStartOfDay();
-                    //일정 리스트
+
                     dateRunList =
                     crewRunRepository.findByCrewEntityIdAndStartAtBetween(crewId, dateStart, dateEnd);
                     sb.append("오늘 런닝 일정은 총" +
                         dateRunList.size() + "개 있습니다" + "\n"+"\n") ;
 
                 } else if (thisWeek) { //이번주
-                     //시간대 설정    
+
                     LocalDate firstDayOfWeek = dateToday.with(DayOfWeek.MONDAY);   // 이번 주 월요일
                     dateStart = firstDayOfWeek.atStartOfDay();      // 이번 주 월요일 0시
                     dateEnd = firstDayOfWeek
@@ -239,7 +239,7 @@ public class MyCrewBotService {
                                 .plusMonths(1)             // 다음 달 1일
                                 .atStartOfDay();           // 다음 달 1일 0시
     
-                    //일정 리스트
+
                     dateRunList =
                     crewRunRepository.findByCrewEntityIdAndStartAtBetween(crewId, dateStart, dateEnd);
                     sb.append("이번달 런닝 일정은 총" +

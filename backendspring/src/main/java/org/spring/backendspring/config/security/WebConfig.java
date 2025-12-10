@@ -10,7 +10,6 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        // 🔥 http://localhost:8088/uploadImg/파일명 으로 접근 가능하게 하는 설정
         registry.addResourceHandler("/upload/**")
                 .addResourceLocations("file:///E:/full/upload/",
                         "file:///C:/full/upload/",

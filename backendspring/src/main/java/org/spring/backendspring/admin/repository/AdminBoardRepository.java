@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface AdminBoardRepository extends JpaRepository<BoardEntity, Long> {
 
-    // search 용도
+
     Page<BoardEntity> findByTitleContainingIgnoreCaseOrContentContainingIgnoreCase(
             String titleKeyword,
             String contentKeyword,

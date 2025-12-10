@@ -6,7 +6,7 @@ const KAKAO_MAP_APP_KEY = import.meta.env.VITE_KAKAO_MAP_APP_KEY;
 
 const DEFAULT_CITY_WEATHER = "Seoul";
 
-// --- Kakao Maps SDK 로드 함수 ---
+
 const loadKakaoMapScript = (appkey) => {
     return new Promise((resolve) => {
         if (window.kakao && window.kakao.maps) {
@@ -20,7 +20,7 @@ const loadKakaoMapScript = (appkey) => {
     });
 };
 
-// --- WeatherAdminFragment 컴포넌트 (날씨 및 지도) ---
+
 const WeatherAdminFragment = ({ kakaoMapAppKey }) => {
     const [cityData, setCityData] = useState({ 
         name: DEFAULT_CITY_WEATHER, 
@@ -159,9 +159,9 @@ const WeatherAdminFragment = ({ kakaoMapAppKey }) => {
     );
 };
 
-// --- MarathonApiPage 컴포넌트 (메인) ---
+
 const MarathonApiPage = () => {
-// ... (나머지 로직은 변경 없음)
+
     const [marathons, setMarathons] = useState([]);
     const [page, setPage] = useState(0); 
     const [size] = useState(10); 
@@ -174,7 +174,7 @@ const MarathonApiPage = () => {
     const fetchMarathons = useCallback((pageNumber, search) => {
         setLoading(true);
         
-        // 쿼리 파라미터 구성
+
         let url = `/api/marathons?page=${pageNumber}&size=${size}`;
         if (search) {
             url += `&searchTerm=${encodeURIComponent(search)}`;
@@ -198,18 +198,18 @@ const MarathonApiPage = () => {
             });
     }, [size]); 
 
-    // 검색어 입력 핸들러
+
     const handleSearchChange = (e) => {
         setSearchTerm(e.target.value);
     };
 
-    // 검색 버튼 클릭 핸들러
+
     const handleSearchSubmit = () => {
         setPage(0);
         setCurrentSearch(searchTerm); 
     };
 
-    // 페이지 변경 핸들러
+
     const handlePageChange = (newPage) => {
         if (newPage >= 0 && newPage < totalPages) {
             setPage(newPage);

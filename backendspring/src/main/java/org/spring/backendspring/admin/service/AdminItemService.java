@@ -12,8 +12,6 @@ public interface AdminItemService {
 
     void insertItem(ItemDto itemDto, MultipartFile itemFile, Long memberId);
 
-    // ItemDto updateItem(Long id, ItemDto updatedDto, MultipartFile itemFile, Long memberId);
-    // ItemDto updateItem(Long itemId, ItemDto dto, MultipartFile newFile );
     void update(ItemDto itemDto) throws IOException;
 
     

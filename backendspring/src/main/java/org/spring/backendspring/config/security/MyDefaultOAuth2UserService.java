@@ -58,7 +58,7 @@ public class MyDefaultOAuth2UserService extends DefaultOAuth2UserService {
             userName = (String) properties.get("nickname");
         }
 
-        // 있으면 로그인 처리
+
         Optional<MemberEntity> memberEntity = memberRepository.findByUserEmail(userEmail);
 
         if (memberEntity.isPresent()) {
@@ -68,9 +68,9 @@ public class MyDefaultOAuth2UserService extends DefaultOAuth2UserService {
             return new MyUserDetails(memberEntity.get());
         }
 
-        // 없으면 가입
+
         userPw = passwordEncoder.encode(UUID.randomUUID().toString());
-        // 소셜 로그인은 임시값을 넣어줍니다.
+
         MemberEntity socialEntity = MemberMapper.toSocialEntity(userEmail, userName, userPw);
         memberRepository.save(socialEntity);
         return new MyUserDetails(socialEntity, oAuth2User.getAttributes());

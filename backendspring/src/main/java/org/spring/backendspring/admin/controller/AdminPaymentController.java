@@ -28,7 +28,6 @@ public class AdminPaymentController {
             @RequestParam(name = "page", defaultValue = "0") int page,
             @RequestParam(name = "size", defaultValue = "10") int size) {
 
-        // 서비스에서 페이징 처리된 결제 목록을 가져 온다
         PagedResponse<PaymentDto> paymentList = adminPaymentService.getAllPayments(keyword, page, size);
 
         return ResponseEntity.ok(paymentList);

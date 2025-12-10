@@ -8,6 +8,6 @@ import lombok.Setter;
 @Setter
 @Builder
 public class WeeklySalesDto {
-    private long[] thisWeek;  // 월~일 7개
-    private long[] lastWeek;  // 월~일 7개
+    private long[] thisWeek;  
+    private long[] lastWeek;  
 }

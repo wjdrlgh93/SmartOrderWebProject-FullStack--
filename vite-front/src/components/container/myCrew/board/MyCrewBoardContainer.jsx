@@ -20,7 +20,7 @@ const MyCrewBoardContainer = () => {
   const [keyword, setKeyword] = useState('');
   const [subject, setSubject] = useState('전체')
 
-  // 페이지 유지
+
   const [searchParams, setSearchParams] = useSearchParams()
   const [page, setPage] = useState(() => {
     const p = parseInt(searchParams.get('page'))

@@ -21,7 +21,7 @@ const ShopNutritionContainer = () => {
 
   const fetchData = async (page) => {
 
-    // const response = await axios.get("http://localhost:8088/api/shop");
+
     const response = await axios.get(`http://localhost:8088/api/shop/nutrition?page=${page}`);
     const data = response.data;
     console.log(`[LOG] 페이지 ${page + 1}의 데이터를 요청합니다.`);
@@ -31,7 +31,7 @@ const ShopNutritionContainer = () => {
 
         setItems(data.content || []);
 
-        // 페이지 정보 계산 및 업데이트
+
         const totalPages = data.totalPages;
         const pageNum = data.number;
         const displayPageNum = 5;
@@ -63,7 +63,7 @@ const ShopNutritionContainer = () => {
     pageNumbers.push(i);
   }
   const handlePageClick = (page) => {
-    // 페이지 변경 요청 시 스크롤을 맨 위로 이동 (사용자 경험 개선)
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setCurrentPage(page);
   }

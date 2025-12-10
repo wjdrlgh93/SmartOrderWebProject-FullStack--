@@ -13,22 +13,22 @@ const toBoardRouter = () => {
   return (
    [
     {
-    // crew/
+
         path:'',
         element: <Navigate replace to={'index'} />
     },
     {
-        // boardList
+
         path:'index',
         element: <Suspense fallback={Loading}><BoardList/></Suspense>
     },
     {
-        // boardWrite 
+
         path:'newPost',
         element: <Suspense fallback={Loading}><BoardWrite/></Suspense>
     },
     {
-        // board/detail
+
         path:'detail/:id',
         element: <Suspense fallback={Loading}><BoardDetail/></Suspense>
 

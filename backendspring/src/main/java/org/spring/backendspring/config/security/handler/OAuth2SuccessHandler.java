@@ -45,7 +45,7 @@ public class OAuth2SuccessHandler implements AuthenticationSuccessHandler {
 
 
         MemberDto memberDto = memberService.findByUserEmail(email);
-        // jwt 토큰 발급
+
         String accessToken = jwtUtil.generateAccessToken(memberDto);
         String refreshToken = jwtUtil.generateRefreshToken(memberDto);
 

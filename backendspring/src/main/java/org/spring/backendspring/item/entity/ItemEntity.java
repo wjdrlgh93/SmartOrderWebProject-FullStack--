@@ -51,12 +51,12 @@ public class ItemEntity extends BasicTime {
     private int itemSize;
     private int attachFile;
 
-    // N:1 
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private MemberEntity memberEntity;
 
-    // 1:N
+
     @OneToMany(mappedBy = "itemEntity",
             fetch = FetchType.LAZY,
             cascade = CascadeType.REMOVE)
@@ -74,9 +74,9 @@ public class ItemEntity extends BasicTime {
     private List<ItemReplyEntity> itemReplyEntities;
 
 
-    // toEntity 
+
     public static ItemEntity toItemEntity(ItemDto itemDto) {
-        //builder()
+
         int attachFileValue = (itemDto.getNewFileName() != null &&
                 !itemDto.getNewFileName().isEmpty()) ? 1 : 0;
 

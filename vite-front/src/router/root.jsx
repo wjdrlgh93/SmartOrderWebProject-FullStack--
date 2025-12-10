@@ -15,7 +15,7 @@ import { toNoticeRouter } from "./toNoticeRouter";
 
 const Loading = <div className="loading">Loading..</div>;
 
-// Layout
+
 const StoreLayout = lazy(() => import(`../layout/StoreLayout`));
 const LoginLayout = lazy(() => import(`../layout/LoginLayout`));
 const MyPageLayout = lazy(() => import(`../layout/MyPageLayout`));
@@ -30,12 +30,12 @@ const PaymentLayout = lazy(() => import(`../layout/PaymentLayout`));
 const MyCrewLayout = lazy(() => import("../layout/MyCrewLayout"));
 const ApiLayout = lazy(() => import("../layout/ApiLayout"));
 
-// Page
+
 const IndexPage = lazy(() => import(`../pages/IndexPage`));
 
 const root = createBrowserRouter([
   {
-    //index
+
     path: "",
     element: (
       <Suspense fallback={Loading}>
@@ -44,7 +44,7 @@ const root = createBrowserRouter([
     ),
   },
   {
-    // Admin
+
     path: "admin",
     element: (
       <Suspense fallback={Loading}>
@@ -54,7 +54,7 @@ const root = createBrowserRouter([
     children: toAdminRouter(),
   },
   {
-    // Auth
+
     path: "auth",
     element: (
       <Suspense fallback={Loading}>
@@ -73,7 +73,7 @@ const root = createBrowserRouter([
     children: toMyPageRouter(),
   },
   {
-    // shop
+
     path: "store",
     element: (
       <Suspense fallback={Loading}>
@@ -83,7 +83,7 @@ const root = createBrowserRouter([
     children: toStoreRouter(),
   },
   {
-    // crew
+
     path: "crew",
     element: (
       <Suspense fallback={Loading}>
@@ -93,7 +93,7 @@ const root = createBrowserRouter([
     children: toCrewRouter(),
   },
   {
-    // board ( Community )
+
     path: "board",
     element: (
       <Suspense fallback={Loading}>
@@ -103,7 +103,7 @@ const root = createBrowserRouter([
     children: toBoardRouter(),
   },
   {
-    // event ( 대회일정 )
+
     path: "notice",
     element: (
       <Suspense fallback={Loading}>
@@ -113,7 +113,7 @@ const root = createBrowserRouter([
     children: toNoticeRouter(),
   },
   {
-    // cart
+
     path: "cart",
     element: (
       <Suspense fallback={Loading}>
@@ -123,7 +123,7 @@ const root = createBrowserRouter([
     children: toCartRouter(),
   },
   {
-    // payment
+
     path: "payment",
     element: (
       <Suspense fallback={Loading}>
@@ -133,7 +133,7 @@ const root = createBrowserRouter([
     children: toPaymentRouter(),
   },
   {
-    // mycrew
+
     path: "mycrew/:crewId",
     element: (
       <Suspense fallback={Loading}>
@@ -143,7 +143,7 @@ const root = createBrowserRouter([
     children: toMyCrewRouter(),
   },
   {
-    // api
+
     path: "open",
     element: (
       <Suspense fallback={Loading}>

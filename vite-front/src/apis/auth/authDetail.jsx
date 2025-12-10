@@ -5,7 +5,7 @@ import jwtAxios from "../util/jwtUtil";
 import { deleteAccessToken } from "../../slices/jwtSlice";
 import { logoutAction } from "../../slices/loginSlice";
 
-// 회원조회
+
 export const authDetailFn = async () => {
   const ACCESS_TOKEN_KEY = localStorage.getItem("accessToken");
   try {
@@ -20,7 +20,7 @@ export const authDetailFn = async () => {
   }
 };
 
-// 회원수정
+
 export const authUpdateFn = async (memberDto, imgFile) => {
   const ACCESS_TOKEN_KEY = localStorage.getItem("accessToken");
   const formData = new FormData();
@@ -48,7 +48,7 @@ export const authUpdateFn = async (memberDto, imgFile) => {
   }
 };
 
-// 회원삭제
+
 export const authDeleteFn = async () => {
   const ACCESS_TOKEN_KEY = localStorage.getItem("accessToken");
   const rs = window.confirm("정말 탈퇴하시겠습니까?");
@@ -70,7 +70,7 @@ export const authDeleteFn = async () => {
   }
 };
 
-// app.jsx 새로고침 일어날때 재로그인 성공 후 memberDetail을 뽑아옵니다.
+
 export const indexUserDetailFn = async (token) => {
   try {
     const res = await jwtAxios.get(`${BACK_BASIC_URL}/api/member/detail`, {

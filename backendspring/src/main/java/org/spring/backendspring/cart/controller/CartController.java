@@ -23,7 +23,6 @@ public class CartController {
     private final CartService cartService;
     private final JWTUtil jwtUtil;
 
-    // JWT 기반 회원 장바구니 조회/생성
     @GetMapping("/me")
     public CartDto getMyCart(@RequestHeader("Authorization") String authHeader) {
         String token = authHeader.replace("Bearer ", "");
@@ -36,7 +35,6 @@ public class CartController {
         return cart.toDto();
     }
 
-    // 장바구니에 아이템 추가
     @PostMapping("/{cartId}/item")
     public CartItemDto addItem(@PathVariable("cartId") Long cartId,
                                @RequestParam("itemId") Long itemId,
@@ -44,14 +42,12 @@ public class CartController {
         return cartService.addItemToCart(cartId, itemId, itemSize).toDto();
     }
 
-    // 장바구니 아이템 삭제
     @DeleteMapping("/item/{cartItemId}")
-    @ResponseStatus(HttpStatus.NO_CONTENT) // ✨ 수정: RESTful 응답 (204 No Content) 적용
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void removeItem(@PathVariable("cartItemId") Long cartItemId) {
         cartService.removeItem(cartItemId);
     }
 
-    // 장바구니 아이템 수량 변경
     @PutMapping("/item/{cartItemId}/quantity")
     public CartItemDto updateItemQuantity(
             @PathVariable("cartItemId") Long cartItemId,
@@ -62,7 +58,6 @@ public class CartController {
         return cartService.updateItemQuantity(cartItemId, quantity).toDto();
     }
 
-    // 장바구니 아이템 페이징 조회 (안정화)
     @GetMapping("/{cartId}/items")
     public PagedResponse<CartItemDto> getCartItems(
             @PathVariable("cartId") Long cartId,

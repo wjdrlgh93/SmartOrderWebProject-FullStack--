@@ -40,15 +40,15 @@ public class RefreshController {
             }
         }
 
-        // refresh 토큰의 정보 검사 (만료, refresh 토큰 맞는지, user 정보 확인)
+
         MemberDto memberDto =
                 refreshService.validateRefreshTokenAndGetMember(refresh);
 
-        // 토큰 저장
+
         String newAccessToken = jwtUtil.generateAccessToken(memberDto);
         String newRefreshToken = jwtUtil.generateRefreshToken(memberDto);
 
-        // uerEmail, refreshToken, 만료시간 저장 (토큰이 이미 있으면 삭제 후 저장)
+
         refreshService.addRefreshEntity(memberDto.getUserEmail(),
                 newRefreshToken, JWTUtil.REFRESH_EXPIRATION_TIME);
 

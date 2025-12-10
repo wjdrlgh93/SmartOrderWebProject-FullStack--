@@ -69,50 +69,50 @@ public class MemberEntity extends BasicTime {
 
     private boolean isDeleted; // 탈퇴한 회원 -> 1
 
-    // Member ↔ Cart (1:1)
-//    @OneToOne(mappedBy = "memberEntity", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-//    private CartEntity cartEntity;
 
-    // Member ↔ ProfileImage (1:N)
+
+
+
+
     @OneToMany(mappedBy = "memberEntity", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<MemberProfileImageEntity> profileImagesList;
 
-    // Member ↔ Orders (1:N)
-//    @OneToMany(mappedBy = "memberEntity", fetch = FetchType.LAZY)
-//    private List<PaymentsEntity> ordersEntityList;
 
-    // Member ↔ Board / BoardComment (1:N)
+
+
+
+
     @OneToMany(mappedBy = "memberEntity", fetch = FetchType.LAZY)
     private List<BoardEntity> boardEntityList;
 
     @OneToMany(mappedBy = "memberEntity", fetch = FetchType.LAZY)
     private List<BoardReplyEntity> boardCommentEntityList;
 
-    // Member ↔ Crew(개설자) (1:N)
+
     @JsonIgnore
     @OneToMany(mappedBy = "memberEntity", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<CrewEntity> crewEntityList;
 
-     // Member ↔ CrewMember (1:N)
+
      @OneToMany(mappedBy = "memberEntity", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
      private List<CrewMemberEntity> crewMemberEntityList;
 
-    // // Member ↔ CrewCreateRequest / CrewJoinRequest (1:N)
-    // @OneToMany(mappedBy = "memberEntity", fetch = FetchType.LAZY)
-    // private List<CrewCreateRequestEntity> crewCreateRequestEntityList;
-    // @OneToMany(mappedBy = "memberEntity", fetch = FetchType.LAZY)
-    // private List<CrewJoinRequestEntity> crewJoinRequestEntityList;
 
-    // // Member ↔ CrewRun(만든 일정) (1:N)
-    // @OneToMany(mappedBy = "memberEntity", fetch = FetchType.LAZY)
-    // private List<CrewRunEntity> createdCrewRunEntityList;
 
-    // // Member ↔ CrewRunMember(참석) (1:N)
-    // @OneToMany(mappedBy = "memberEntity", fetch = FetchType.LAZY)
-    // private List<CrewRunMemberEntity> crewRunMemberEntityList;
 
-    // Member ↔ Schedule (1:N)
-//    @OneToMany(mappedBy = "memberEntity", fetch = FetchType.LAZY)
-//    private List<ScheduleEntity> scheduleEntityList;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

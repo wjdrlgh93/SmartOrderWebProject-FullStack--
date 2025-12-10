@@ -45,7 +45,7 @@ public class MemberProfileImageServiceImpl implements MemberProfileImageService 
 
 
         try{
-            // amazonS3.putObject(bucketName, key, file.getInputStream(), null);
+
 
             MemberProfileImageEntity profileImageEntity = MemberProfileImageEntity.builder()
             .oldName(originalName)

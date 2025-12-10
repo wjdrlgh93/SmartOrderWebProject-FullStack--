@@ -10,19 +10,19 @@ import { useSelector } from 'react-redux';
 
 const BoardDetailContainer = () => {
 
-    // JWT
+ 
     const accessToken = useSelector(state => state.jwtSlice.accessToken);
     const memberId = useSelector(state => state.loginSlice.id);
     const nickName = useSelector(state => state.loginSlice.nickName);
 
 
-    // boards 상태를 빈 객체로 초기화합니다.
+
     const [boards, setBoards] = useState({});
     const [content, setContent] = useState('');
     const [isUpdating, setIsUpdating] = useState(false);
 
 
-    // Editing
+   
     const [editingReplyId, setEditingReplyId] = useState(null);
     const [editingContent, setEditingContent] = useState('');
 
@@ -33,7 +33,7 @@ const BoardDetailContainer = () => {
         totalPages: 0,
         totalElements: 0,
         last: true,
-        first: true, // 누락된 'first' 속성 복원
+        first: true, 
     });
     const { id } = useParams();
     const navigate = useNavigate();
@@ -41,7 +41,6 @@ const BoardDetailContainer = () => {
 
     const REPLY_BASE_URL = 'http://localhost:8088/api/reply';
     const API_BASE_URL = 'http://localhost:8088/api/board';
-    // const IMAGE_BASE_URL = 'http://localhost:8088/upload/';
 
 
     const formatDate = (dateString) => {
@@ -63,14 +62,13 @@ const BoardDetailContainer = () => {
 
         if (response.data) {
             setBoards(response.data);
-            // 게시글 로드 성공 후, 댓글 목록 초기 로드 (1페이지)
             fetchReplies(response.data.id, 0, pageInfo.size);
         } else {
             console.log("게시물 데이터가 존재하지 않음.")
         }
     };
 
-    // 댓글 목록을 불러오는 함수 (페이징 적용)
+
     const fetchReplies = async (boardId, page = 0, size = 10) => {
         if (!boardId) return;
 
@@ -82,7 +80,7 @@ const BoardDetailContainer = () => {
                     withCredentials: true,
                 });
 
-            // 데이터와 페이지 정보 업데이트
+
             console.log("리스폰스 >>" + response);
             setReplies(response.data.content);
             setPageInfo({
@@ -114,17 +112,13 @@ const BoardDetailContainer = () => {
             return;
         }
         try {
-            // axios.delete를 사용하여 DELETE 요청을 보냅니다.( 나 이 게시물 번호를 삭제하고 싶어요~ )
+
             const response = await jwtAxios.delete(`${API_BASE_URL}/detail/${boards.id}`,
                 {
                     headers: {
-                        Authorization: `Bearer ${accessToken}` // 인증 헤더
+                        Authorization: `Bearer ${accessToken}` 
                     },
-                    withCredentials: true, // 자격 증명 포함
-                    // 만약 백엔드에서 삭제 권한 확인을 위해 쿼리 파라미터를 요구한다면:
-                    // params: {
-                    //     memberId: boards.memberId 
-                    // }
+                    withCredentials: true, 
                 });
 
             if (response.status === 200) {
@@ -133,7 +127,7 @@ const BoardDetailContainer = () => {
             } else if (response.status === 404) {
                 alert('삭제할 게시글을 찾을 수 없습니다.');
             } else {
-                // 서버에서 200/404 외의 상태 코드를 반환할 경우를 대비
+
                 throw new Error(`삭제 실패: ${response.statusText}`);
             }
         } catch (error) {
@@ -161,7 +155,7 @@ const BoardDetailContainer = () => {
             id: replyId,
             boardId: boards.id,
             content: editingContent.trim(),
-            memberId: memberId // 권한 확인을 위해 현재 로그인된 사용자 ID 전송
+            memberId: memberId 
         };
         console.log("전송할 댓글 수정 데이터:", updatedReplyData);
         try {
@@ -170,8 +164,7 @@ const BoardDetailContainer = () => {
             if (response.status === 200) {
                 alert('댓글이 성공적으로 수정되었습니다.');
                 
-                handleReplyEditCancel(); // 수정 모드 종료
-                // 현재 페이지의 댓글 목록을 갱신합니다.
+                handleReplyEditCancel();
                 fetchReplies(boards.id, pageInfo.page, pageInfo.size);
             } else {
                 throw new Error("댓글 수정 요청 실패");
@@ -180,14 +173,14 @@ const BoardDetailContainer = () => {
         } catch (error) {
             console.error('댓글 수정 중 오류 발생:', error);
             const errorMessage = error.response?.data || '댓글 수정 중 오류가 발생했습니다.';
-            alert(errorMessage); // 백엔드에서 던진 권한 에러 메시지 등을 사용자에게 표시
+            alert(errorMessage);
         } finally {
             setIsUpdating(false);
         }
 
     }
 
-    // Editing Reply Section
+   
     const handleReplyEditCancel = () => {
         setEditingReplyId(null);
         setEditingContent('');
@@ -197,10 +190,7 @@ const BoardDetailContainer = () => {
         if (!window.confirm('정말로 이 댓글을 삭제하시겠습니까?')) {
             return;
         }
-        // if (!reply.memberId === replyMemberId) {
-        //     alert('댓글 삭제 권한이 없습니다. (작성자만 삭제 가능) :: handleReplyDelete');
-        //     return;
-        // }
+   
         try {
             const response = await jwtAxios.delete(`${REPLY_BASE_URL}/deleteReply/${replyId}`,
                 {
@@ -208,15 +198,15 @@ const BoardDetailContainer = () => {
                         Authorization: `Bearer ${accessToken}`
                     },
                     params: {
-                        // 3. 삭제 권한 확인을 위한 현재 사용자 ID를 쿼리 파라미터로 전송
+                      
                         memberId: memberId
                     },
-                    withCredentials: true, // 4. 자격 증명 포함 설정
+                    withCredentials: true,
                 });
 
             if (response.status === 200 || response.status === 204) {
                 alert('댓글이 성공적으로 삭제되었습니다.');
-                // 댓글 삭제 후 현재 페이지의 댓글 목록을 갱신합니다.
+              
                 fetchReplies(boards.id, pageInfo.page, pageInfo.size);
             } else {
                 throw new Error("댓글 삭제 요청 실패");
@@ -224,7 +214,7 @@ const BoardDetailContainer = () => {
         } catch (error) {
             console.error('댓글 삭제 중 오류 발생:', error);
             const errorMessage = error.response?.data?.message || '댓글 삭제 중 오류가 발생했습니다.';
-            alert(errorMessage); // 백엔드에서 던진 권한 에러 메시지 등을 사용자에게 표시
+            alert(errorMessage); 
         }
 
     }
@@ -301,9 +291,7 @@ const BoardDetailContainer = () => {
                             boards.boardImgDtos.map((imgDto) => (
                           
                                 <img
-                                    // bring File by NewName Field
                                     key={imgDto.id || imgDto.newName}
-                                    // src={`${IMAGE_BASE_URL}${imgDto.newName}`}
                                     src={boards.fileUrl}
                                     alt={imgDto.oldName}
                                     style={{ maxWidth: '100%', height: 'auto', display: 'block', margin: '10px 0' }}
@@ -313,10 +301,9 @@ const BoardDetailContainer = () => {
                         )}
                     </div>
 
-                    {/* 댓글 섹션 */}
                     <div className="boardDetail-reply">
 
-                        {/* 댓글 입력 폼 */}
+
                         <form onSubmit={handleReplySubmit}>
                             <textarea name="reply" id="reply"
                                 rows="4" required
@@ -328,7 +315,6 @@ const BoardDetailContainer = () => {
                         </form>
 
 
-                        {/* 댓글 목록 표시 */}
                         <div className="reply-list">
                             <h5>댓글 ({pageInfo.totalElements})</h5>
                             {replies.length > 0 ? (
@@ -340,14 +326,14 @@ const BoardDetailContainer = () => {
                                             <span className="reply-key-createtime">{formatDate(reply.createTime)}</span>
                                         </div>
                                         <p className="reply-key-content">{reply.content}</p>
-                                        {/* 해당 댓글의 버튼이 눌려 ID가 상태에 저장되었을 때만 폼 표시 */}
+        
                                         {reply.id === editingReplyId && (
 
 
                                             <div className="reply-edit-form">
                                                 {console.log(reply)}
                                                 {console.log('editingReplyId >>' + editingReplyId)}
-                                                {/* {console.log(editingReplyId)} */}
+               
                                                 <textarea
                                                     value={editingContent}
                                                     onChange={(e) => setEditingContent(e.target.value)}
@@ -365,7 +351,7 @@ const BoardDetailContainer = () => {
                                                 </div>
                                             </div>
                                         )}
-                                        { /*conditional rendering below here */}
+
                                         {!isUpdating && (
                                             <>
                                             {reply.memberId === memberId && (
@@ -373,7 +359,6 @@ const BoardDetailContainer = () => {
                                                     {console.log(reply)}
                                                     <button onClick={() => handleReplyUpdate(reply.id, reply.content)}>
                                                         수정 </button>
-                                                    { /* reply.id -> send delete request. */}
                                                     <button onClick={() => handleReplyDelete(reply.id)}>
                                                         삭제 </button>
                                                 </div>
@@ -415,9 +400,6 @@ const BoardDetailContainer = () => {
                     }
 
                 </div>
-
-                {/* 게시글 수정/삭제 버튼 */}
-                { /*conditional rendering below here */}
                 {boards.memberId === memberId && (
                     <div className="boardDetail-act">
                         <button onClick={() => handleUpdatePost(boards.id)}>게시글 수정</button>

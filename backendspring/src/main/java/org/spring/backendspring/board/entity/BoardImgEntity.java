@@ -46,10 +46,7 @@ public class BoardImgEntity extends BasicTime{
     @Column(nullable = false)
     private String oldName;
 
-    // createTime
-    // updateTime
 
-    // N:1 
     @ManyToOne
     @Fetch(FetchMode.JOIN)
     @JoinColumn(name = "board_id")

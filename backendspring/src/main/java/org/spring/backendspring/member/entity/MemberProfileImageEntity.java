@@ -37,7 +37,7 @@ public class MemberProfileImageEntity {
 
     private String oldName; // 원본 파일명
 
-    // N:1
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     @JsonIgnore

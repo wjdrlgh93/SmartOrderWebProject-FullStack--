@@ -25,14 +25,14 @@ public class WeatherController {
 
     @GetMapping("/search/{q}")
     public ResponseEntity<?> search(@PathVariable("q") String q) {
-        //URL
+
         String apiURL = "http://api.openweathermap.org/data/2.5/weather?q=" + q + "&appid=" + key;
-        //Header
+
         Map<String, String> requestHeaders = new HashMap<>();
         requestHeaders.put("Content-type", "application/json");
         String responseBody= OpenApiUtil.get(apiURL,requestHeaders);
         System.out.println(responseBody+" responseBody");
-        // JSON -> JAVA 변경 -> DTO에추가 -> Entity -> DB저장
+
         weatherService.insertWeather(responseBody);
 
         Map<String,String> weather=new HashMap<>();

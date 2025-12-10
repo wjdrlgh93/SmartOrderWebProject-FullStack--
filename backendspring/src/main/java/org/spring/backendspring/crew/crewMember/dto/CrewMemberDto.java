@@ -25,7 +25,7 @@ public class CrewMemberDto extends BasicTime {
     private Long crewId;
     private Long memberId;
 
-//    private CrewEntity crewEntity;
+
     private String crewName;
     private String description;
     private String district;
@@ -37,7 +37,7 @@ public class CrewMemberDto extends BasicTime {
 
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
-    // mycrew 목록 위한 이미지
+
     private List<String> crewImages;
     private List<String> fileUrl;
     private List<String> memberImages;
@@ -54,7 +54,7 @@ public class CrewMemberDto extends BasicTime {
                     .stream().map(MemberProfileImageEntity::getNewName)
                     .toList();
         int members = crewMemberEntity.getCrewEntity().getCrewMemberEntities().size();
-        //보이고 싶은 정보 추가
+
         return CrewMemberDto.builder()
                 .id(crewMemberEntity.getId())
                 .crewId(crewMemberEntity.getCrewEntity().getId())

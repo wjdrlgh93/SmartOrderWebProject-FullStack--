@@ -32,10 +32,10 @@ const MyCrewChatContainer = () => {
     crewInfo()
   }, [crewId])
 
-  // 채팅 입장
+
   const enterChat = async () => {
     if (!stompRef.current?.connected) return;
-    // 최근 대화 300개 불러오기
+
     try {
       const res = await jwtAxios.get(`/api/mycrew/${crewId}/chat/recent?limit=300`,
         {
@@ -48,18 +48,18 @@ const MyCrewChatContainer = () => {
         console.log("대화 로드 실패", err)
     }
 
-    // 구독 따단
+
     subscriptionRef.current = stompRef.current.subscribe(
       `/topic/chat/crew/${crewId}`, (payload) => {
         const msg = JSON.parse(payload.body)
         setMessages(prev => {
-          // 중복 방지
+
           if (prev.some(m => m.id && m.id === msg.id)) return prev
           return [...prev, msg]
         })
       }
     )
-    // 입장 메시지 딴
+
     stompRef.current.publish({
       destination: `/app/chat/crew/${crewId}/enter`,
       body: JSON.stringify({
@@ -71,7 +71,7 @@ const MyCrewChatContainer = () => {
     setIsEntered(true)
   }
 
-  // 채팅 퇴장
+
   const leaveChat = () => {
     if (!stompRef.current?.connected || !isEntered) return;
     stompRef.current.publish({
@@ -81,7 +81,7 @@ const MyCrewChatContainer = () => {
         senderId: senderId,
       })
     })
-    // 구독 끝
+
     subscriptionRef.current?.unsubscribe()
     subscriptionRef.current = null
     setIsLeaved(true)
@@ -90,7 +90,7 @@ const MyCrewChatContainer = () => {
   }
 
   useEffect(() => {
-    // stomp 연결
+
     const socket = new SockJS("http://localhost:8088/ws")
     const stomp = new Client({
       webSocketFactory: () => socket,
@@ -108,7 +108,7 @@ const MyCrewChatContainer = () => {
 
 
     return () => {
-      // 페이지 이동, 언마운트, 새로고침
+
       if (stompRef.current?.connected || isLeaved) {
         stompRef.current.publish({
           destination: `/app/chat/crew/${crewId}/leave`,
@@ -134,7 +134,7 @@ const MyCrewChatContainer = () => {
       message: input.trim(),
       type: "CHAT"
     }
-    // 전송
+
     stompRef.current?.publish({
       destination: `/app/chat/crew/${crewId}`,
       body: JSON.stringify(payload)
@@ -149,7 +149,7 @@ const MyCrewChatContainer = () => {
 
   const messageType = (msg, index) => {
     const prev = messages[index - 1]
-    // 메시지 합체
+
     const isSameSender = 
       prev &&
       prev.type === "CHAT" &&

@@ -79,16 +79,16 @@ public class CrewCreateRequestServiceImpl implements CrewCreateRequestService {
 
         crewMemberRepository.save(leader);
 
-        // RabbitMQ 큐 생성 - 바인딩
-        // String queueName = "chat.queue.crew" + crewEntity.getId();
-        // String routingKey = "chat.key.crew" + crewEntity.getId();
-        // Queue queue = new Queue(queueName, true);
-        // rabbitAdmin.declareQueue(queue);
-        // rabbitAdmin.declareBinding(BindingBuilder.bind(queue).to(topicExchange).with(routingKey));
 
-        // 알림 if wanted
-        // String message = crewEntity.getName() + "크루 신청이 승인되었습니다.";
-        // rabbitTemplate.convertAndSend(topicExchange.getName(), routingKey, message);
+
+
+
+
+
+
+
+
+
 
     }
 

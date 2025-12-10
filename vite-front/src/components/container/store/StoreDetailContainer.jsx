@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import "../../../css/store/storeDetail.css";
 
 const ShopDetailContainer = () => {
-  // JWT
+
   const accessToken = useSelector((state) => state.jwtSlice.accessToken);
   const memberId = useSelector((state) => state.loginSlice.id);
   const nickName = useSelector((state) => state.loginSlice.nickName);
@@ -16,12 +16,12 @@ const ShopDetailContainer = () => {
   const [content, setContent] = useState("");
   const [replies, setReplies] = useState([]);
 
-  // Editing
+
   const [editingReplyId, setEditingReplyId] = useState(null);
   const [editingContent, setEditingContent] = useState("");
 
   const [pageInfo, setPageInfo] = useState({
-    // 페이지네이션 정보 상태 (first: true 추가)
+
     page: 0,
     size: 10,
     totalPages: 0,
@@ -91,15 +91,15 @@ const ShopDetailContainer = () => {
       fetchReplies(item.id, newPage, pageInfo.size);
     }
   };
-  // const handleUpdatePost = (itemId) => {
-  //     navigate(`/store/update/${itemId}`);
-  // }
+
+
+
 
   const handleReplyUpdate = async (replyId, currentContent) => {
     setEditingReplyId(replyId);
     setEditingContent(currentContent);
   };
-  // Editing Reply Section
+
   const handleReplyEditCancel = () => {
     setEditingReplyId(null);
     setEditingContent("");
@@ -131,7 +131,7 @@ const ShopDetailContainer = () => {
       if (response.status === 200) {
         alert("댓글이 성공적으로 수정되었습니다.");
         handleReplyEditCancel(); // 수정 모드 종료
-        // 현재 페이지의 댓글 목록을 갱신합니다.
+
         fetchReplies(item.id, pageInfo.page, pageInfo.size);
       } else {
         throw new Error("댓글 수정 요청 실패");
@@ -168,7 +168,7 @@ const ShopDetailContainer = () => {
 
       if (response.status === 200 || response.status === 204) {
         alert("댓글이 성공적으로 삭제되었습니다.");
-        // 댓글 삭제 후 현재 페이지의 댓글 목록을 갱신합니다.
+
         fetchReplies(item.id, pageInfo.page, pageInfo.size);
       } else {
         throw new Error("댓글 삭제 요청 실패");
@@ -219,7 +219,7 @@ const ShopDetailContainer = () => {
     }
   };
 
-  // 장바구니 담기 함수 추가
+
   const handleAddToCart = () => {
     const product = {
       id: item.id,
@@ -249,7 +249,7 @@ const ShopDetailContainer = () => {
           {item.itemImgDtos && item.itemImgDtos.length > 0 ? (
             item.itemImgDtos.map((imgDto) => (
               <img
-                // bring File by NewName Field
+
                 key={imgDto.id || imgDto.newName}
                 src={item.fileUrl}
                 alt={imgDto.oldName}

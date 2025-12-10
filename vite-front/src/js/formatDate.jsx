@@ -1,6 +1,6 @@
-// 날짜를 이쁘게 변환해줌
-// 2025. 11. 19. 오후 12:05
-// 필요하신분 사용하십쇼
+
+
+
 export const formatDate = (dateStr) => {
   const d = new Date(dateStr);
   return d.toLocaleString("ko-KR", {
@@ -12,7 +12,7 @@ export const formatDate = (dateStr) => {
   });
 };
 
-// 12000 -> 12,000 콤마 붙여줌
+
 export const formattedPrice = (num) => {
   const price = new Intl.NumberFormat("ko-KR").format(num);
   return price;

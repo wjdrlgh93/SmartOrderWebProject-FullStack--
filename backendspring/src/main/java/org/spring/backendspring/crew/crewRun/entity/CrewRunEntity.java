@@ -31,8 +31,8 @@ public class CrewRunEntity extends BasicTime {
     @Column(name = "end_at", nullable = false)
     private LocalDateTime endAt; // 종료 일시
 
-//    @Column(name = "all_day")
-//    private Boolean allDay; // 종일 여부
+
+
 
     private String place; // 모임 장소 텍스트
 

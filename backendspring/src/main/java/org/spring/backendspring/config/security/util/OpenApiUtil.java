@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class OpenApiUtil {
 
-    // 데이터를 get
+
     public static String get(String apiUrl, Map<String, String> requestHeaders){
         HttpURLConnection con = connect(apiUrl);
         try {

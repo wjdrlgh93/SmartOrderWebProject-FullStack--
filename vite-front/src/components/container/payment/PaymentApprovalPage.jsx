@@ -15,17 +15,17 @@ const PaymentApprovalPage = () => {
       return;
     }
 
-    // 백엔드 승인 API 호출
+
     axios
       .get(`http://localhost:8088/api/payments/approval/${paymentId}/${productPrice}/${memberId}`, {
         params: { pg_token: pgToken, productName }
       })
       .then(() => {
-        // 성공 시 성공 페이지로 이동
+
         navigate("/payment/success");
       })
       .catch(() => {
-        // 실패 시 실패 페이지로 이동
+
         navigate("/payment/fail");
       });
   }, [paymentId, productPrice, memberId, pgToken, productName, navigate]);

@@ -23,7 +23,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ItemServiceImpl implements ItemService {
 
-    // Bean Injection
+
     private final ItemRepository itemRepository;
     private final ItemImgRepository imgRepository;
     private final AwsS3Service awsS3Service;
@@ -32,7 +32,7 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public Page<ItemDto> pagingSearchItemList(Pageable pageable, String subject, String search) {
 
-        // init 
+
         Page<ItemEntity> itemEntities = null;
 
         if (subject == null || search == null || search.equals("")) {
@@ -62,7 +62,7 @@ public class ItemServiceImpl implements ItemService {
 
     }
 
-    // category Paging
+
     @Override
     public Page<ItemDto> getItemsByCategory(Pageable pageable, String category, String subject, String search) {
 
@@ -96,7 +96,7 @@ public class ItemServiceImpl implements ItemService {
         return itemDto;
     }
 
-    // this method for Show recentlyItem.
+
     @Override
     public List<ItemDto> getRecentItem() {
         List<ItemEntity> recentlyentities = itemRepository.findTop2ByOrderByCreateTimeDesc();

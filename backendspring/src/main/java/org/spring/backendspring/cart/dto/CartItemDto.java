@@ -21,14 +21,14 @@ public class CartItemDto {
     private Long itemId;       // DB 연관용
     private int itemSize;
 
-    // Item 정보 포함
+
     private String itemTitle;
     private int itemPrice;
     private String itemImage; // S3 URL 또는 newFileName
 
     private List<ItemImgDto> itemImgDtos;
 
-    // Entity → DTO 변환
+
     public static CartItemDto fromEntity(CartItemEntity entity) {
         if (entity == null) return null;
 
@@ -56,7 +56,7 @@ public class CartItemDto {
                 .build();
     }
 
-    // DTO → Entity 변환
+
     public CartItemEntity toEntity() {
         CartItemEntity entity = CartItemEntity.builder()
                 .cartItemId(this.cartItemId)

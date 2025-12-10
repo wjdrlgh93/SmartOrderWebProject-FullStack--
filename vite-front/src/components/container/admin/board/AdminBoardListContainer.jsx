@@ -23,7 +23,7 @@ const AdminBoardListContainer = () => {
   const navigate = useNavigate();
   const accessToken = useSelector((state) => state.jwtSlice.accessToken);
 
-  // 검색
+
   const handleSearch = () => {
     if (!searchText.trim()) {
       alert("검색어를 입력하세요");
@@ -64,9 +64,9 @@ const AdminBoardListContainer = () => {
     }
   };
 
-  // useEffect(() => {
-  //   fetchBoards(keyword);
-  // }, [keyword]);
+
+
+
 
   useEffect(() => {
     fetchBoards();

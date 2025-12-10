@@ -61,9 +61,9 @@ public class MyCrewChatRestController {
     } 
                                      
                                             
-    // @GetMapping("/participants")
-    // public CrewChatParticipantsDto getCount(@PathVariable Long crewId) {
-    //     int count = crewChatService.getActiveCount(crewId);
-    //     return new CrewChatParticipantsDto(count);
-    // }
+
+
+
+
+
 }

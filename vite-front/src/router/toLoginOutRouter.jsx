@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 
 const Loading = <div className="loading">Loading...</div>;
 
-// Page
+
 const JoinMemberPage = lazy(() =>
   import("../components/container/auth/AuthJoinContainer")
 );
@@ -17,12 +17,12 @@ const OAuthSuccessPage = lazy(() =>
 export const toLoginOutRouter = () => {
   return [
     {
-      // auth
+
       path: "",
       element: <Navigate replace to={"login"} />,
     },
     {
-      // auth/login
+
       path: "login",
       element: (
         <Suspense fallback={Loading}>

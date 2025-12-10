@@ -42,7 +42,7 @@ const AdminMemberListContainer = () => {
     setCurrentPage(page);
   };
 
-  // 날짜 이쁘게 변환
+
   const formatDate = (dateStr) => {
     const d = new Date(dateStr);
     return d.toLocaleString("ko-KR", {

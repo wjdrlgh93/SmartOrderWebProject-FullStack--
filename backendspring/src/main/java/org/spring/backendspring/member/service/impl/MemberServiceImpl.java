@@ -82,7 +82,7 @@ public class MemberServiceImpl implements MemberService {
         }
     }
 
-    // 개인(본인) 회원 조회
+
     @Override
     public MemberDto findById(Long id) throws IOException {
         MemberDto memberDto = memberRepository.findById(id)

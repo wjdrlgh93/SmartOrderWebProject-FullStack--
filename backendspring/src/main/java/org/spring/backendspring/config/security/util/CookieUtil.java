@@ -5,7 +5,7 @@ import jakarta.servlet.http.Cookie;
 
 public class CookieUtil {
 
-    // 쿠키 생성
+
     public static Cookie createCookie(String key, String value) {
         Cookie cookie = new Cookie(key, value);
         cookie.setMaxAge(24 * 60 * 60);
@@ -16,7 +16,7 @@ public class CookieUtil {
         return cookie;
     }
 
-    // 쿠키 삭제
+
     public static Cookie deleteCookie(String name) {
         Cookie cookie = new Cookie(name, null);
         cookie.setHttpOnly(true);

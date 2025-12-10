@@ -27,7 +27,7 @@ const DeliveryStatusModal = ({ payment, onClose }) => {
     (stage) => stage.status === currentStatus
   );
 
-  // 임시 상세 시간 정보
+
   const getMockDetails = (status) => {
     switch (status) {
       case paymentStatus.PENDING:

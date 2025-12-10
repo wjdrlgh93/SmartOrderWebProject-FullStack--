@@ -8,7 +8,7 @@ import "../../../css/board/boardUpdate.css"
 
 
 const BoardUpdateContainer = () => {
-  // JWT
+
   const accessToken = useSelector(state => state.jwtSlice.accessToken);
   const memberId = useSelector(state => state.loginSlice.id);
   const nickName = useSelector(state => state.loginSlice.nickName);
@@ -66,14 +66,14 @@ const BoardUpdateContainer = () => {
                     withCredentials: true,
         });
       alert(`${boards.id}번 게시물이 수정되었습니다`);
-      navigate(`/board/detail/${boards.id}`); // 수정된 게시글 상세 페이지로 이동
+      navigate(`/board/detail/${boards.id}`);
 
     } catch (error) {
       console.error("게시물등록 실패!", error);
       alert("글쓰기 실패");
 
       if (error.response && error.response.data) {
-        alert("수정 실패: " + error.response.data); // 서버 오류 메시지 출력 ("수정 권한이 없습니다." 등)
+        alert("수정 실패: " + error.response.data); 
       } else {
         alert("게시물 수정 중 알 수 없는 오류가 발생했습니다.");
       }
@@ -81,18 +81,16 @@ const BoardUpdateContainer = () => {
   };
 
 
-  // Data Fetching
+
   const fetchData = useCallback(async () => {
 
-    // there is NO Token ... Send Login...=>
     if (!accessToken) {
       navigate("/auth/login");
       return;
     }
 
     try {
-      // id from parameter
-      // GET /api/board/update/{id} Call
+
       const response = await jwtAxios.get(`${API_BASE_URL}/update/${id}`,
         {
           headers: { Authorization: `Bearer ${accessToken}` },
@@ -104,7 +102,7 @@ const BoardUpdateContainer = () => {
       
 
 
-      // Set into Data <- Bring Data
+
       setBoards(data);
       console.log(data);
       console.log("서버 응답 데이터 타입:", typeof data); 
@@ -151,9 +149,9 @@ const BoardUpdateContainer = () => {
                {boards.boardImgDtos && boards.boardImgDtos.length > 0 && (
                             boards.boardImgDtos.map((imgDto) => (
                                 <img
-                                    // bring File by NewName Field
+
                                     key={imgDto.id || imgDto.newName}
-                                    // src={`${IMAGE_BASE_URL}${imgDto.newName}`}
+
                                     src={boards.fileUrl}
                                     alt={imgDto.oldName}
                                     style={{ maxWidth: '100%', height: 'auto', display: 'block', margin: '10px 0' }}

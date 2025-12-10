@@ -101,7 +101,7 @@ public class CrewController {
         return ResponseEntity.ok(response);
     }
 
-    //CrewsController 없애면서 CrewController 로 옮겨주세요 axios 프론트 주소도,,ㅎㅎ
+
     @PostMapping("/joinRequest")
     public ResponseEntity<?> crewJoinRequests(
             @RequestBody CrewJoinRequestDto joinDto){
@@ -120,7 +120,7 @@ public class CrewController {
               throw new IllegalArgumentException("본인 크루 리스트는 본인만 조회 가능");
           }
 
-        //  List<CrewDto> mycrewList = crewService.myCrewList(memberId);
+
          List<CrewMemberDto> mycrewList = crewMemberService.myCrewList(memberId);
         
          return ResponseEntity.ok(mycrewList);

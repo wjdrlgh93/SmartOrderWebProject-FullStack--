@@ -24,22 +24,22 @@ import org.springframework.stereotype.Component;
 @Component
 public class JWTUtil {
 
-    // 만료시간
+
     public static final long ACCESS_EXPIRATION_TIME = 1000 * 60 * 30;
     public static final long REFRESH_EXPIRATION_TIME = 14 * 24 * 60 * 60 * 1000;
 
-    // 임시 관리자 비밀키
-    // yml에서 가져오는걸 추천
+
+
     public final SecretKey SECRET_KEY;
 
     public JWTUtil(@Value("${security.jwt.key}") String key) {
         this.SECRET_KEY = Keys.hmacShaKeyFor(key.getBytes(StandardCharsets.UTF_8));
     }
 
-    // 토큰 생성
+
     public String generateToken(Map<String, Object> claims, long min) {
         try {
-            // JWT 파싱 및 검증
+
             return Jwts.builder()
                     .claim("id", claims.get("id"))
                     .claim("userEmail", claims.get("userEmail")) // 페이로드 설정 (사용자 정보)
@@ -55,7 +55,7 @@ public class JWTUtil {
         }
     }
 
-    // accessToken 생성
+
     public String generateAccessToken(MemberDto member) {
         Map<String, Object> claims = new HashMap<>();
         claims.put("id", member.getId());
@@ -66,7 +66,7 @@ public class JWTUtil {
         return generateToken(claims, ACCESS_EXPIRATION_TIME);
     }
 
-    // refreshToken 생성
+
     public String generateRefreshToken(MemberDto member) {
         Map<String, Object> claims = new HashMap<>();
         claims.put("userEmail", member.getUserEmail());
@@ -75,14 +75,14 @@ public class JWTUtil {
         return generateToken(claims, REFRESH_EXPIRATION_TIME);
     }
 
-    // 토큰 만료시간 검증
+
     public Boolean isExpired(String token) {
         return Jwts.parser().verifyWith(SECRET_KEY).build()
                 .parseSignedClaims(token).getPayload().getExpiration()
                 .before(new Date());
     }
 
-    // JWT 토큰 검증 및 클레임(사용자 정보) 반환
+
     public Map<String, Object> validateToken(String token) {
         try {
             return Jwts.parser()
@@ -90,7 +90,7 @@ public class JWTUtil {
                     .build()
                     .parseClaimsJws(token)
                     .getBody();
-            // JWT 예외처리
+
         } catch (ExpiredJwtException e) {
             throw new CustomJWTException("accessToken Expired"); // 만료된 토큰
         } catch (MalformedJwtException e) {
@@ -104,7 +104,7 @@ public class JWTUtil {
         }
     }
 
-    // 토큰 타입 확인 (access, refresh)
+
     public String getCategory(String token) {
         return Jwts.parser().verifyWith(SECRET_KEY)
                 .build()
@@ -113,14 +113,14 @@ public class JWTUtil {
                 .get("tokenType", String.class);
     }
 
-    // error 응답 json 변환
-    // private void sendErrorResponse(HttpServletResponse response,
-    //                                int status,
-    //                                Map<String, String> body) throws IOException {
-    //     response.setStatus(status);
-    //     response.setContentType("application/json;charset=UTF-8");
-    //     String msg = new Gson().toJson(body);
-    //     response.getWriter().write(msg);
-    // }
+
+
+
+
+
+
+
+
+
 
 }

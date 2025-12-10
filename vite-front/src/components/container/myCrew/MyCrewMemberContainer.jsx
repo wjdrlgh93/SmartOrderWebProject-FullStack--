@@ -12,11 +12,11 @@ const MyCrewMemberContainer = () => {
   const [ detailOpen, setDetailOpen] = useState(false);
   const [ detailData, setDetailData] = useState(null);
 
-  //검색 카테고리?
+
   const [subject, setSubject] = useState('')
-  //검색어
+
   const [search, setSearch] = useState('') 
-  //페이징
+
   const [nowPage, setNowPage] = useState()
   const [startPage, setStartPage] = useState()
   const [endPage, setEndPage] = useState()
@@ -24,7 +24,7 @@ const MyCrewMemberContainer = () => {
 
 
  
-  // 보이고 싶은 정보 상의 후 dto 추가
+
   const onMyCrewMemberList = async(pageParam) =>{
     try {
       const res = await jwtAxios.get(`/api/mycrew/${crewId}/member`,
@@ -39,7 +39,7 @@ const MyCrewMemberContainer = () => {
           "Content-Type": "application/json" 
         } 
       })
-      // console.log(res.data.crewMember)
+
       setMyCrewMemberList(res.data.crewMember.content)
       setNowPage(res.data.nowPage)
       setStartPage(res.data.startPage)
@@ -48,7 +48,7 @@ const MyCrewMemberContainer = () => {
       
     } catch (error) {
       if (error.response) {
-        // console.log("백엔드 응답:", error.response.data)
+
         const data = error.response.data    
         const msg = data?.message || "알 수 없는 오류가 발생했습니다."
         alert(msg)
@@ -57,7 +57,7 @@ const MyCrewMemberContainer = () => {
   }
 
   const onSearchClick = () => {
-    // 항상 0페이지부터 다시 검색
+
     onMyCrewMemberList(0);
   };
 
@@ -68,7 +68,7 @@ const MyCrewMemberContainer = () => {
   const onCrewMemberDetail = async (crewMember) => {
     try {
       const crewMemberId = crewMember.memberId
-      // console.log(crewMemberId)
+
       const res = await jwtAxios.get(`/api/mycrew/${crewId}/member/detail/${crewMemberId}`,
         { headers: { 
           "Authorization": `Bearer ${accessToken}`,
@@ -76,12 +76,12 @@ const MyCrewMemberContainer = () => {
         } 
       }
       )
-      // console.log(res.data.crewMember)
+
       setDetailData(res.data.crewMember)
       setDetailOpen(true)
     } catch (error) {
       if (error.response) {
-        // console.log("백엔드 응답:", error.response.data)
+
         const data = error.response.data    
         const msg = data?.message || "알 수 없는 오류가 발생했습니다."
         alert(msg)
@@ -93,7 +93,7 @@ const MyCrewMemberContainer = () => {
   const onCrewMemberDelete = async (crewMember) => {
     try {
       const crewMemberTbId = crewMember.id
-      // console.log(crewMemberTbId)
+
       const res = await jwtAxios.get(`/api/mycrew/${crewId}/member/delete/${crewMemberTbId}`,
         { headers: { 
           "Authorization": `Bearer ${accessToken}`,
@@ -101,13 +101,13 @@ const MyCrewMemberContainer = () => {
         } 
       }
       )
-      // console.log(res.data)
+
       alert(res.data)
       
       alert("내크루원 삭제 성공")
     } catch (error) {
       if (error.response) {
-        // console.log("백엔드 응답:", error.response.data)
+
         const data = error.response.data    
         const msg = data?.message || "알 수 없는 오류가 발생했습니다."
         alert(msg)

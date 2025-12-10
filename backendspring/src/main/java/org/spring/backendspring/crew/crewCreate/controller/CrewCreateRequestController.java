@@ -35,7 +35,7 @@ public class CrewCreateRequestController {
         }
 
         Long loginUserId = userDetails.getMemberId();
-        // crewCreateRequestDto.setMemberId(memberId);
+
         createRequestService.createRequest(crewCreateRequestDto, loginUserId);
         crewCreateRequestDto.setMemberId(loginUserId);
 

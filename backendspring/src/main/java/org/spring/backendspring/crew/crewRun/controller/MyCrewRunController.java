@@ -18,7 +18,7 @@ public class MyCrewRunController {
 
     private final CrewRunService crewRunService;
 
-    //크루 런닝 스케줄
+
     @GetMapping({"","/"})
     public ResponseEntity<?> myCrewRun(@PathVariable("crewId") Long crewId){
         List<CrewRunDto> crewRunList = crewRunService.findCrewRunList(crewId);
@@ -27,7 +27,7 @@ public class MyCrewRunController {
         return ResponseEntity.status(HttpStatus.OK).body(crewRunListMap);
     }
 
-    //크루 런닝 스케줄 생성
+
     @PostMapping("/create")
     public ResponseEntity<?> crewRunCreate(@RequestBody CrewRunDto runDto){
         CrewRunDto crewRunDto = crewRunService.crewRunCreate(runDto);
@@ -36,7 +36,7 @@ public class MyCrewRunController {
         return ResponseEntity.status(HttpStatus.OK).body(crewRunMap);
     }
 
-    //크루 런닝 스케줄 수정
+
     @PostMapping("/update")
     public ResponseEntity<?> crewRunUpdate(@RequestBody CrewRunDto runDto){
         CrewRunDto crewRunDto = crewRunService.crewRunUpdate(runDto);
@@ -45,7 +45,7 @@ public class MyCrewRunController {
         return ResponseEntity.status(HttpStatus.OK).body(crewRunMap);
     }
 
-    //크루 런닝 스케줄 상세보기
+
     @GetMapping("/detail/{runId}")
     public ResponseEntity<?> crewRunDetails(@PathVariable("crewId") Long crewId,
                                                @PathVariable("runId") Long runId){
@@ -55,7 +55,7 @@ public class MyCrewRunController {
         return ResponseEntity.status(HttpStatus.OK).body(crewRunDetail);
     }
 
-    //크루 런닝 스케줄 삭제
+
     @DeleteMapping("delete/{runId}")
     public ResponseEntity<?> crewRunDelete(@PathVariable("crewId") Long crewId,
                                            @PathVariable("runId") Long runId){

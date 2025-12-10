@@ -54,7 +54,7 @@ public class CrewRunServiceImpl implements CrewRunService {
         LocalDateTime startAt = runDto.getStartAt();
         LocalDateTime endAt   = runDto.getEndAt();
 
-        // ====== 시간 검증 ======
+
         if (startAt == null || endAt == null) {
             throw new CustomException(ErrorCode.RUN_TIME_REQUIRED);
         }
@@ -70,17 +70,17 @@ public class CrewRunServiceImpl implements CrewRunService {
         if (!endAt.isAfter(startAt)) { // endAt <= startAt
             throw new CustomException(ErrorCode.RUN_END_NOT_AFTER_START);
         }
-        // ====== 시간 검증 끝 ======
 
-        // 회원 맞냐?
+
+
         MemberEntity memberEntity = memberRepository.findById(memberId)
                 .orElseThrow(() -> new CustomException(ErrorCode.USER_NOT_FOUND));
 
-        // 크루 있냐?
+
         CrewEntity crewEntity = crewRepository.findById(crewId)
                 .orElseThrow(() -> new CustomException(ErrorCode.CREW_NOT_FOUND));
 
-        // 크루원 맞냐?
+
         crewMemberRepository.findByCrewEntityIdAndMemberEntityId(crewId, memberId)
                 .orElseThrow(() -> new CustomException(ErrorCode.CREW_MEMBER_NOT_FOUND));
 
@@ -107,19 +107,19 @@ public class CrewRunServiceImpl implements CrewRunService {
         Long memberId = runDto.getMemberId();
         Long runId = runDto.getId();
 
-        // 스케줄 있는지
+
         crewRunRepository.findById(runId)
                 .orElseThrow(() -> new CustomException(ErrorCode.CREW_RUN_NOT_FOUND));
 
-        // 회원 맞냐?
+
         MemberEntity memberEntity = memberRepository.findById(memberId)
                 .orElseThrow(() -> new CustomException(ErrorCode.USER_NOT_FOUND));
 
-        // 크루 있냐?
+
         CrewEntity crewEntity = crewRepository.findById(crewId)
                 .orElseThrow(() -> new CustomException(ErrorCode.CREW_NOT_FOUND));
 
-        // 크루원 맞냐?
+
         crewMemberRepository.findByCrewEntityIdAndMemberEntityId(crewId, memberId)
                 .orElseThrow(() -> new CustomException(ErrorCode.CREW_MEMBER_NOT_FOUND));
 
@@ -143,7 +143,7 @@ public class CrewRunServiceImpl implements CrewRunService {
 
     @Override
     public void crewRunDelete(Long crewId, Long runId) {
-        // 필요하면 여기서도 "없는 스케줄 삭제" 예외 처리 가능
+
         crewRunRepository.deleteByCrewEntityIdAndId(crewId, runId);
     }
 }

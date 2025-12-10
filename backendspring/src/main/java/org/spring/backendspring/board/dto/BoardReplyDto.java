@@ -28,16 +28,12 @@ public class BoardReplyDto {
     private String content;
 
 
-    // createTime 
     private LocalDateTime createTime;
-    // updateTime 
     private LocalDateTime upDateTime;
 
 
-    // N:1 
     private BoardEntity boardEntity;
 
-    // N:1
     private MemberEntity memberEntity;
 
 
@@ -46,8 +42,6 @@ public class BoardReplyDto {
         return BoardReplyDto.builder()
                             .id(boardReplyEntity.getId())
                             .content(boardReplyEntity.getContent())
-                            // .boardEntity(boardReplyEntity.getBoardEntity())
-                            // .memberEntity(boardReplyEntity.getMemberEntity())
                             .boardId(boardReplyEntity.getBoardEntity().getId())
                             .memberId(boardReplyEntity.getMemberEntity().getId())
                             .createTime(boardReplyEntity.getCreateTime())

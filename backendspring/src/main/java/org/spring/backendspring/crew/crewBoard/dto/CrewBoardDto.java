@@ -34,7 +34,7 @@ public class CrewBoardDto {
 
     private CrewEntity crewEntity; // 소속 크루
 
-//    private MemberEntity memberEntity; // 작성자
+
 
     private List<CrewBoardCommentEntity> crewBoardCommentEntities; // 댓글
 
@@ -78,9 +78,9 @@ public class CrewBoardDto {
                 .crewId(entity.getCrewEntity().getId())
                 .crewName(entity.getCrewEntity().getName())
                 .memberId(entity.getMemberEntity().getId())
-//                .memberEntity(memberEntity)
+
                 .memberNickName(entity.getMemberEntity().getNickName())
-                // .crewBoardCommentEntities(entity.getCrewBoardCommentEntities())
+
                 .originalFileName(originalFileName)
                 .newFileName(newFileName)
                 .comments(comments)
@@ -104,8 +104,8 @@ public class CrewBoardDto {
                 .crewName(entity.getCrewEntity().getName())
                 .memberId(entity.getMemberEntity().getId())
                 .memberNickName(entity.getMemberEntity().getNickName())
-                // .crewBoardCommentEntities(entity.getCrewBoardCommentEntities())
-                // .crewBoardImageEntities(entity.getCrewBoardImageEntities())
+
+
                 .originalFileName(originalFileName)
                 .newFileName(newFileName)
                 .createTime(entity.getCreateTime())

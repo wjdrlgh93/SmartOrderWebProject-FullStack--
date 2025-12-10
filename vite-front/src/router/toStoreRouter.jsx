@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom'
 
 const Loading = <div className='loading'>Loading...</div>
 
-// Containiner
+
 const StoreAcc = lazy(()=> import('../components/container/store/StoreAccessoryContainer'))
 const StoreCloth = lazy(()=> import('../components/container/store/StoreClothContainer'))
 const StoreEqip = lazy(()=> import('../components/container/store/StoreEquipmentContainer'))
@@ -17,18 +17,18 @@ const toStoreRouter = () => {
   return (
     [
         {
-            // Store/
+
             path:'',
             element: <Navigate replace to={'index'} />
         
         },
         {
-          // StoreFront
+
             path: 'index',
             element: <Suspense fallback={Loading}><StoreMain/></Suspense>
         },
         {
-                // board/detail
+
             path:'detail/:id',
             element: <Suspense fallback={Loading}><StoreDetail/></Suspense>
         

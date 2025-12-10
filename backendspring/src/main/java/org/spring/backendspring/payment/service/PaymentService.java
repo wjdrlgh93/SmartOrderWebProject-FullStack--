@@ -22,7 +22,7 @@ public interface PaymentService {
 
     void paymentApproval(String pgToken, Long paymentId, Long productPrice, String productName, Long memberId);
 
-    // ⭐️ [수정된 부분] PaymentServiceImpl과 시그니처를 일치시킵니다.
+
     String pgRequest(String pg, PaymentDto paymentDto); 
 
     String getJsonDb();

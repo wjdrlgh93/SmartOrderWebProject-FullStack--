@@ -24,18 +24,18 @@ const CrewDetailContainer = () => {
     fetchCrewDetail(crewId);
   }, [crewId]);
   
-  // 크루 가입 데이터
+
   const crewJoinRequestData = {
     crewRequestId: crewId,
     memberRequestId: loginMemberId,
     message: "",
   }
 
-  // 모달, 데이터 상태관리
+
   const [ joinRequestData, setJoinRequestData ] = useState(crewJoinRequestData)
   const [ joinRequestModal, setJoinRequestModal ] = useState(false)
 
-  // input 데이터로 변환
+
   const onInputChange = async (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -44,7 +44,7 @@ const CrewDetailContainer = () => {
     setJoinRequestData({ ...joinRequestData, [name]: value });
   }
 
-  // 가입 함수
+
   const onJoinRequest = async () => {
     if (!loginMemberId) {
       alert("로그인이 필요합니다.")
@@ -64,13 +64,13 @@ const CrewDetailContainer = () => {
   }  
 
   return (
-    // <CrewDetailLayout>
+
       <div className="crewDetailHome">
         <div className="crewDetailHome-con">
           <div className="crewDetailImage">
           {crew.newFileName?.length > 0 ? (
               <img
-                // src={`http://localhost:8088/upload/${crew.newFileName[0]}`}
+
                 src={crew.fileUrl[0]}
                 alt={`${crew.name} 이미지`}
                 className='crewImage'
@@ -109,7 +109,7 @@ const CrewDetailContainer = () => {
               />
             )}
       </div>
-    // </CrewDetailLayout>
+
   );
 }
 

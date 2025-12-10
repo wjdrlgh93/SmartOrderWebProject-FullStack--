@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface AdminCrewRepository extends JpaRepository<CrewEntity, Long> {
 
-    // search 용도
+
     Page<CrewEntity> findByNameContainingIgnoreCase(String nameKeyword, Pageable pageable);
 
     @Query("SELECT COUNT(c) FROM CrewEntity c")

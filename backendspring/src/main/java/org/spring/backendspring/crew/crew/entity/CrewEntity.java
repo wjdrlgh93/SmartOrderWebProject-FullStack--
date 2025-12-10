@@ -46,24 +46,24 @@ public class CrewEntity extends BasicTime {
     @JoinColumn(name = "member_id")
     private MemberEntity memberEntity; // 개설자
 
-    // Crew 1:N CrewImage
+
     @OneToMany(mappedBy = "crewEntity", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<CrewImageEntity> crewImageEntities;
 
-    // Crew 1:N CrewMember
+
     @OneToMany(mappedBy = "crewEntity", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<CrewMemberEntity> crewMemberEntities;
 
-    // Crew 1:N CrewJoinRequest
+
     @JsonIgnore
     @OneToMany(mappedBy = "crewEntity", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<CrewJoinRequestEntity> crewJoinRequestEntities;
 
-    // Crew 1:N CrewRun
+
     @OneToMany(mappedBy = "crewEntity", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<CrewRunEntity> crewRunEntities;
 
-    // Crew 1:N CrewBoard
+
     @OneToMany(mappedBy = "crewEntity", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<CrewBoardEntity> crewBoardEntities;
 
@@ -76,7 +76,7 @@ public class CrewEntity extends BasicTime {
                 .memberEntity(dto.getMemberEntity())
                 .crewImageEntities(dto.getCrewImageEntities())
                 .crewMemberEntities(dto.getCrewMemberEntities())
-//                .crewJoinRequestEntities(dto.getCrewJoinRequestEntities())
+
                 .crewRunEntities(dto.getCrewRunEntities())
                 .crewBoardEntities(dto.getCrewBoardEntities())
                 .build();
@@ -91,7 +91,7 @@ public class CrewEntity extends BasicTime {
                 .memberEntity(dto.getMemberEntity())
                 .crewImageEntities(dto.getCrewImageEntities())
                 .crewMemberEntities(dto.getCrewMemberEntities())
-//                .crewJoinRequestEntities(dto.getCrewJoinRequestEntities())
+
                 .crewRunEntities(dto.getCrewRunEntities())
                 .crewBoardEntities(dto.getCrewBoardEntities())
                 .build();

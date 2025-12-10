@@ -54,13 +54,13 @@ public class BoardEntity extends BasicTime {
     private String attatchFileLink;
     private int hit;
 
-    // N:1
+  
     @ManyToOne
     @Fetch(FetchMode.JOIN)
     @JoinColumn(name ="member_id")
     private MemberEntity memberEntity;
 
-    // 1:N
+
     @OneToMany( mappedBy = "boardEntity",
         fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<BoardReplyEntity> boardReplyEntities;
@@ -72,9 +72,7 @@ public class BoardEntity extends BasicTime {
 
     
 
-    // toEntity
     public static BoardEntity toBoardEntity(BoardDto boardDto ) {
-        // builder()
         int attachFileValue = boardDto.getBoardFile() != null && 
                                 !boardDto.getBoardFile().isEmpty() ? 1:0;
         
@@ -90,7 +88,6 @@ public class BoardEntity extends BasicTime {
                         .build();
     }
 
-    // noticeDto -> BoardEntity
     public static BoardEntity toNoticeEntity(NoticeBoardDto noticeBoardDto) {
         return BoardEntity.builder()
                 .id(noticeBoardDto.getId())
@@ -104,7 +101,6 @@ public class BoardEntity extends BasicTime {
                 .build();
     }
 
-    // notice 수정 (제목, 내용만)
     public static BoardEntity toUpdateNoticeEntity(NoticeBoardDto noticeBoardDto,
                                                    BoardEntity boardEntity) {
         boardEntity.setTitle(noticeBoardDto.getTitle());

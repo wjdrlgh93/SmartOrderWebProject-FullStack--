@@ -12,7 +12,7 @@ public class CheckoutController {
 
     private final CheckoutService checkoutService;
 
-    // POST /api/checkout/{cartId}?paymentAddr=...&paymentMethod=...
+
     @PostMapping("/{cartId}")
     public PaymentEntity checkoutCart(
             @PathVariable("cartId") Long cartId, 

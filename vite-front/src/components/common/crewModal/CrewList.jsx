@@ -12,7 +12,7 @@ const CrewList = ({children}) => {
 
     const API_BASE_URL = 'http://localhost:8088/api/crew';
 
-     // JWT
+   
     const accessToken = useSelector(state => state.jwtSlice.accessToken);
     const memberId = useSelector(state => state.loginSlice.id);
 
@@ -54,10 +54,10 @@ const CrewList = ({children}) => {
                         textAlign: 'center', 
                         opacity: 1, 
                         visibility: 'visible',
-                        // .modal-box-crew의 위치 지정 속성을 무력화
+
                         position: 'static', 
                         transform: 'none',
-                        color: '#333' // 배경색에 따라 글자색 조정
+                        color: '#333' 
                     }}
                 >
                     <Link to="/crew/index">

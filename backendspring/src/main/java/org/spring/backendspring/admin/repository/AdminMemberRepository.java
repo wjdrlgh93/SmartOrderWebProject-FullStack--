@@ -10,7 +10,7 @@ import org.springframework.data.util.Streamable;
 
 public interface AdminMemberRepository extends JpaRepository<MemberEntity, Long> {
 
-    // search 용도
+
     Page<MemberEntity> findByUserEmailContainingIgnoreCaseOrNickNameContainingIgnoreCase(
             String emailKeyword,
             String nickKeyword,

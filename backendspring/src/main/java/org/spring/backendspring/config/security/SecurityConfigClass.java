@@ -49,7 +49,7 @@ public class SecurityConfigClass {
                                            MemberService memberService) throws Exception {
 
         http.csrf(AbstractHttpConfigurer::disable);
-        // cors 설정 -> 프론트(React)와의 연동을 위해 Cors 허용
+
         http.cors(cors -> cors.configurationSource(corsConfigurationSource()));
 
         http.authorizeHttpRequests(authorize -> {
@@ -72,7 +72,7 @@ public class SecurityConfigClass {
                     .requestMatchers("/api/member/**").permitAll()
                     .requestMatchers("/login", "/logout", "/api/**", "/index").permitAll()
                     .requestMatchers("/marathons").permitAll()
-                      // swagger 
+
                     .requestMatchers("/swagger-ui/**").permitAll()
                     .requestMatchers("/v3/api-docs/**").permitAll()
 
@@ -88,10 +88,10 @@ public class SecurityConfigClass {
                     }
                 }));
 
-        // jwt는 세션 사용 X
+
         http.sessionManagement(session ->
                 session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-        //  jwt 사용 -> form 로그인 비활성화
+
         http.formLogin(AbstractHttpConfigurer::disable);
 
         CustomLoginFilter customLoginFilter =
@@ -103,12 +103,12 @@ public class SecurityConfigClass {
         http.addFilterAt(customLoginFilter, UsernamePasswordAuthenticationFilter.class);
         http.addFilterBefore(new CustomLogoutFilter(refreshService), LogoutFilter.class);
 
-        // JWT 꿘한 에러 -> 사용자에게 반환 -> 스프링 기본 인증 예외 처리
+
         http.exceptionHandling(config ->
                 config.accessDeniedHandler(new CustomAccessDeniedHandler())
         );
 
-        // OAuth2 설정
+
         http.oauth2Login(oauth2 ->
                 oauth2.userInfoEndpoint(info ->
                                 info.userService(myDefaultOAuth2UserService()))
@@ -123,11 +123,11 @@ public class SecurityConfigClass {
         return http.build();
     }
 
-    // Cors 설정
+
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        // 프론트(리액트) 임시 허용
+
         configuration.setAllowedOriginPatterns(Arrays.asList(
                 "http://localhost:8088",
                 "http://localhost:3000",
@@ -139,16 +139,16 @@ public class SecurityConfigClass {
         ));
 
         configuration.setAllowedMethods(Arrays.asList("HEAD", "GET", "POST", "PUT", "DELETE"));
-        // 임시로 모든 헤더 요청 허용
+
         configuration.setAllowedHeaders(Arrays.asList("*"));
-        // 쿠카나 인증정보가 포함된 요청 허용(JWT)
+
         configuration.setAllowCredentials(true);
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
 
-    // 로그인 정보
+
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration)
             throws Exception {

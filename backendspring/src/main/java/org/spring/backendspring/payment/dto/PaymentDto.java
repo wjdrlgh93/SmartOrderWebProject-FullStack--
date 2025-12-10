@@ -20,7 +20,7 @@ public class PaymentDto {
     private Long paymentId;
     private Long memberId;
     
-    // ⭐️ [추가] 수령인 정보 필드
+
     private String paymentReceiver;
     private String paymentPhone; 
     
@@ -37,7 +37,7 @@ public class PaymentDto {
     private Integer isSucceeded;
     private LocalDateTime createTime;
 
-    // 결제 상품 목록 (Request/Response 시 사용)
+
     private List<PaymentItemDto> paymentItems; 
 
     public PaymentEntity toEntity() {
@@ -45,7 +45,7 @@ public class PaymentDto {
                 .paymentId(this.paymentId)
                 .memberId(this.memberId)
                 
-                // ⭐️ [매핑] DTO -> Entity 매핑
+
                 .paymentReceiver(this.paymentReceiver)
                 .paymentPhone(this.paymentPhone)
                 
@@ -64,7 +64,7 @@ public class PaymentDto {
     }
 
     public static PaymentDto fromEntity(PaymentEntity entity) {
-        // PaymentItemEntity를 PaymentItemDto로 변환
+
         List<PaymentItemDto> itemDtos = entity.getPaymentItemEntities().stream()
                 .map(PaymentItemDto::fromEntity)
                 .collect(Collectors.toList());
@@ -73,7 +73,7 @@ public class PaymentDto {
                 .paymentId(entity.getPaymentId())
                 .memberId(entity.getMemberId())
                 
-                // ⭐️ [매핑] Entity -> DTO 매핑
+
                 .paymentReceiver(entity.getPaymentReceiver())
                 .paymentPhone(entity.getPaymentPhone())
                 

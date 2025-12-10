@@ -26,7 +26,7 @@ const AdminCrewAllowContainer = () => {
     REJECTED: "거절",
   };
 
-  // 검색
+
   const crewReqeustFn = async () => {
     const res = await newCrewCreateRequestFn(currentPage, search);
     const pendingRs = res.data.content.some((el) =>

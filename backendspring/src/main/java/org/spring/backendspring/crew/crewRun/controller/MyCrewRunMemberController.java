@@ -23,7 +23,7 @@ public class MyCrewRunMemberController {
 
 
 
-    //크루 런닝 스케줄 참가자
+
     @GetMapping({"","/"})
     public ResponseEntity<?> myCrewRunMember(
             @PathVariable("crewId") Long crewId,
@@ -49,10 +49,10 @@ public class MyCrewRunMemberController {
         return ResponseEntity.status(HttpStatus.OK).body(crewRunMemberListMap);
     }
 
-    //크루 런닝 참가
+
     @PostMapping("/{memberId}/yes")
     public ResponseEntity<?> myCrewRunMemberYes(
-//            @PathVariable("crewId") Long crewId,
+
                                             @PathVariable("runId") Long runId,
                                             @PathVariable("memberId") Long memberId
     ){
@@ -60,10 +60,10 @@ public class MyCrewRunMemberController {
         return ResponseEntity.ok("참가완료");
     }
 
-    //참가 취소
+
     @DeleteMapping("/{memberId}/no")
     public ResponseEntity<?> myCrewRunMemberNo(
-//            @PathVariable("crewId") Long crewId,
+
                                            @PathVariable("runId") Long runId,
                                            @PathVariable("memberId") Long memberId){
         crewRunMemberService.deleteCrewMemberRun(runId,memberId);

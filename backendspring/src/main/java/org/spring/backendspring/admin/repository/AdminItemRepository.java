@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AdminItemRepository extends JpaRepository<ItemEntity, Long> {
 
-    // search 용도
+ 
     Page<ItemEntity> findByItemTitleContainingIgnoreCaseOrItemDetailContainingIgnoreCase(
             String titleKeyword,
             String detailKeyword,

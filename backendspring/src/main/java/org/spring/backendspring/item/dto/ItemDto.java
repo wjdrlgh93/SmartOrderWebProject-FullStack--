@@ -59,7 +59,7 @@ public class ItemDto {
     private List<CartItemEntity> itemListEntities;
     private List<ItemReplyEntity> itemReplyEntities;
 
-    // toDTO
+
     public static ItemDto toItemDto ( ItemEntity itemEntity){
 
         String newFileName = null;

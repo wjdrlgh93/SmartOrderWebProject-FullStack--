@@ -28,7 +28,7 @@ public class CartItemEntity {
     @JoinColumn(name = "item_id") 
     private ItemEntity itemEntity;
 
-    // DTO 변환
+
     public CartItemDto toDto() {
         String image = null;
         if (itemEntity != null && itemEntity.getItemImgEntities() != null

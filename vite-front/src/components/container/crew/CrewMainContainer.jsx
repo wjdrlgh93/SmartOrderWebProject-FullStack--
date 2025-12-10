@@ -23,7 +23,7 @@ const CrewMainContainer = () => {
   const [keyword, setKeyword] = useState("");
   const [subject, setSubject] = useState("전체");
 
-  // 페이지 유지
+
   const [searchParams, setSearchParams] = useSearchParams();
   const [page, setPage] = useState(() => {
     const p = parseInt(searchParams.get("page"));
@@ -70,7 +70,7 @@ const CrewMainContainer = () => {
     allCrewList(0);
   };
 
-  // 본인이 가입한 크루 조회
+
   useEffect(() => {
     jwtAxios
       .get(`/api/mycrew/list`, {
@@ -96,7 +96,7 @@ const CrewMainContainer = () => {
               <h1 className="crewListH1">내 크루 목록</h1>
               <ul className="crewListUl">
                 {myCrewList.map((crew) => {
-                  // const images = crew.crewImages || [];
+
                   const images = crew.fileUrl || [];
                   console.log(images)
                   return (
@@ -159,7 +159,7 @@ const CrewMainContainer = () => {
             ) : (
             <ul className="crewListUl">
               {crewList.map((crew) => {
-                // const images = crew.newFileName || [];
+
                 const images = crew.fileUrl || [];
                 console.log(images)
                 return (

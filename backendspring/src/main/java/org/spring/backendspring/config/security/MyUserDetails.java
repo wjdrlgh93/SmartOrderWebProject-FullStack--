@@ -39,19 +39,19 @@ public class MyUserDetails implements UserDetails, OAuth2User {
         return authorities;
     }
 
-    // 소셜 로그인 정보
+
     @Override
     public Map<String, Object> getAttributes() {
         return getAttributes;
     }
 
-    // 비밀번호
+
     @Override
     public String getPassword() {
         return memberEntity.getUserPassword();
     }
 
-    // 이메일
+
     @Override
     public String getUsername() {
         return memberEntity.getUserEmail();
@@ -65,7 +65,7 @@ public class MyUserDetails implements UserDetails, OAuth2User {
         return memberEntity.getNickName();
     }
 
-    // 소셜 이름
+
     @Override
     public String getName() {
         return memberEntity.getUserName();

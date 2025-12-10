@@ -8,7 +8,7 @@ import { logoutFn } from "../auth/logout";
 const jwtAxios = axios.create();
 let isLoggingOut = false;
 
-// ----------- 리프레시 토큰을 불러와서 액세스 토큰 갱신 -----------
+
 const refreshTokenFn = async () => {
   try {
     const res = await axios.post(
@@ -31,12 +31,12 @@ const refreshTokenFn = async () => {
   }
 };
 
-// ----------- before request 요청 인터셉터 -----------
+
 const beforeReq = (config) => {
   console.log("before request....");
   const accessToken = localStorage.getItem("accessToken");
 
-  // header에 access 토큰이 없으면 로그인 안되어있는걸로 간주
+
   if (!accessToken) {
     console.log("Member Not Found");
 
@@ -48,19 +48,19 @@ const beforeReq = (config) => {
   return config;
 };
 
-// ----------- fail request 요청 실패 인터셉터 -----------
+
 const requestFail = (err) => {
   console.log("Request error...");
   return Promise.reject(err);
 };
 
-// ----------- before return response 응답 인터셉터 -----------
+
 const beforeRes = async (res) => {
   console.log("before return response....");
   return res;
 };
 
-// ----------- response fail -----------
+
 const responseFail = async (err) => {
   console.log("response fail error....");
 
@@ -90,10 +90,10 @@ const responseFail = async (err) => {
   return Promise.reject(err);
 };
 
-// 요청 인터셉터(beforeReq): 요청을 보내기 전에 엑세스 토큰을 Authorization 헤더에 추가
+
 jwtAxios.interceptors.request.use(beforeReq, requestFail);
 
-// 응답 인터셉터(beforeReq): 응답이 오면 엑세스 토큰이 만료되었는지 확인하고, 만료된 경우 자동으로 토큰을 갱신하여 원래의 요청을 재시도
+
 jwtAxios.interceptors.response.use(beforeRes, responseFail);
 
 export default jwtAxios;

@@ -45,18 +45,18 @@ public class ItemController {
 
     }
 
-    // URL: http://localhost:8088/api/shop/detail/{id}
+
     @GetMapping("/detail/{id}")
     public ResponseEntity<?> getBoardDetail(@PathVariable("id") Long id) throws IOException {
 
-        // Bring Id(Long id ) = > item ID 
-        // BoardDto boardDto = boardService.boardDetail(id);
+
+
         ItemDto itemDto = itemService.itemDetail(id);
 
         return ResponseEntity.ok(itemDto);
     }
 
-    // item for Category
+
 
     @GetMapping("/shoes")
     public ResponseEntity<Page<ItemDto>> itemShoesList(

@@ -11,8 +11,8 @@ public interface ItemReplyService {
     Long insertReply(ItemReplyDto itemReplyDto);
 
     Page<ItemReplyDto> getReplyPage(Long itemId, Pageable pageable);
-    // U
+
     void update(ItemReplyDto itemReplyDto) throws IOException;
-    // D
+
     void deleteReply(Long replyId, Long memberId);
 }

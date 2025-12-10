@@ -9,7 +9,7 @@ import "../../../css/board/boardWrite.css"
 
 
 const BoardWriteContainer = () => {
-  // JWT
+  
   const accessToken = useSelector(state => state.jwtSlice.accessToken);
   const memberId = useSelector(state => state.loginSlice.id);
   const nickName = useSelector(state => state.loginSlice.nickName);
@@ -31,7 +31,7 @@ const BoardWriteContainer = () => {
   }), [memberId, nickName]);
 
   const [boards, setBoards] = useState(getInitialBoardState);
-  // const [boards, setBoards] = useState([]);
+
 
 
 
@@ -70,7 +70,7 @@ const BoardWriteContainer = () => {
       console.error("게시물등록 실패!", error.response);
       alert("글쓰기 실패");
       if (error.response && error.response.data) {
-        alert("수정 실패: " + error.response.data); // 서버 오류 메시지 출력 ("수정 권한이 없습니다." 등)
+        alert("수정 실패: " + error.response.data); 
       } else {
         alert("게시물 수정 중 알 수 없는 오류가 발생했습니다.");
       }
@@ -80,7 +80,7 @@ const BoardWriteContainer = () => {
 
 
   const fetchData = async () => {
-    // there is NO Token ... Send Login...=>
+
     if (!accessToken) {
       navigate("/auth/login");
       return;
@@ -100,14 +100,6 @@ const BoardWriteContainer = () => {
         console.log("서버 응답 데이터 타입:", typeof data);
         console.log("서버 응답 데이터 내용:", data);
 
-        // Set into Data <- Bring Data
-        // setBoards({
-        //   id: data.id,
-        //   title: data.title,
-        //   content: data.content,
-        //   memberNickName: data.memberNickName
-
-        // });
         setBoards(data);
 
         console.log(response.data)

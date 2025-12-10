@@ -19,7 +19,7 @@ public interface ItemRepository extends JpaRepository<ItemEntity, Long> {
 
     public Page<ItemEntity> findByCategoryAndItemTitleContaining(Pageable pageable, String search, String subject, String search1);
 
-    // for latest item..
+
     List<ItemEntity> findTop2ByOrderByCreateTimeDesc();
 
 }

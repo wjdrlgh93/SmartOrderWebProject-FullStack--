@@ -10,9 +10,9 @@ import { BrowserRouter } from 'react-router'
 axios.defaults.withCredentials = true // 쿠키 허용
 
 createRoot(document.getElementById('root')).render(
-  // <StrictMode>
+
     <Provider store={store}>
       <App />
     </Provider>
-  // </StrictMode> 
+
 )

@@ -23,7 +23,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-// 아이디와 비밀번호 기반의 데이터를 Form 데이터로 전송을 받아 '인증'을 담당하는 필터 역할의 클래스입니다.
+
 @Log4j2
 @RequiredArgsConstructor
 public class CustomLoginFilter extends UsernamePasswordAuthenticationFilter {
@@ -32,7 +32,7 @@ public class CustomLoginFilter extends UsernamePasswordAuthenticationFilter {
     private final JWTUtil jwtUtil;
     private final RefreshService refreshService;
 
-    // 로그인 userEmail, userPw 가져옵니다.
+
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request,
                                                 HttpServletResponse response) {
@@ -54,7 +54,7 @@ public class CustomLoginFilter extends UsernamePasswordAuthenticationFilter {
         }
     }
 
-    // 성공시 accessToken, refreshToken 발급
+
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
                                             Authentication authResult) throws IOException, ServletException {
@@ -85,14 +85,14 @@ public class CustomLoginFilter extends UsernamePasswordAuthenticationFilter {
         String accessToken = jwtUtil.generateAccessToken(member);
         String refreshToken = jwtUtil.generateRefreshToken(member);
 
-        // refresh DB 저장
+
         refreshService.addRefreshEntity(userEmail, refreshToken, JWTUtil.REFRESH_EXPIRATION_TIME);
 
-        // refreshToken을 httpOnly 쿠키에 담는다.
+
         Cookie refreshCookie = CookieUtil.createCookie("refreshToken", refreshToken);
         response.addCookie(refreshCookie);
 
-        // 응답 DTO에 저장
+
         AuthResponse authResponse = AuthResponse.builder()
                 .id(id)
                 .accessToken(accessToken)
@@ -101,7 +101,7 @@ public class CustomLoginFilter extends UsernamePasswordAuthenticationFilter {
                 .role(normalized)
                 .build();
 
-        // AccessToken은 헤더에 담아서 프론트로 전송
+
         response.setHeader("Authorization", "Bearer " + accessToken);
         response.setStatus(HttpServletResponse.SC_OK);
         response.setContentType("application/json");
@@ -114,7 +114,7 @@ public class CustomLoginFilter extends UsernamePasswordAuthenticationFilter {
         log.info("---------------------------------------");
     }
 
-    // 인증 실패 처리
+
     @Override
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response,
                                               AuthenticationException failed) throws IOException, ServletException {

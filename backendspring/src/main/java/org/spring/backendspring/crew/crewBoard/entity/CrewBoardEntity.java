@@ -72,7 +72,7 @@ public class CrewBoardEntity extends BasicTime {
                 .memberEntity(MemberEntity.builder()
                         .id(dto.getMemberId())
                         .build())
-                // .crewBoardCommentEntities(dto.getCrewBoardCommentEntities())
+
                 .crewBoardImageEntities(dto.getCrewBoardImageEntities())
                 .build();
     }

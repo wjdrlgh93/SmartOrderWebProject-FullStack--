@@ -13,7 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 public class MemberMapper {
 
-    // 일반 회원가입
+
     public static MemberEntity toEntity(MemberDto dto,
                                         PasswordEncoder passwordEncoder) {
         return MemberEntity.builder()
@@ -32,7 +32,7 @@ public class MemberMapper {
                 .build();
     }
 
-    // 회원 불러오기
+
     public static MemberDto toDto(MemberEntity entity) {
         MemberDto.MemberDtoBuilder memberDtoBuilder = MemberDto.builder()
                 .id(entity.getId())
@@ -71,7 +71,7 @@ public class MemberMapper {
         return memberDtoBuilder.build();
     }
 
-    // 회원 update
+
     public static MemberEntity toUpdateEntity(MemberDto memberDto,
                                               MemberEntity memberEntity) {
         return MemberEntity.builder()
@@ -90,7 +90,7 @@ public class MemberMapper {
                 .build();
     }
 
-    // 회원 list
+
     public static MemberDto toDtoList(MemberEntity entity) {
         return MemberDto.builder()
                 .id(entity.getId())
@@ -108,9 +108,9 @@ public class MemberMapper {
                 .build();
     }
 
-    // admin 회원 업데이트
-    // MemberEntity 새 객체 만들어서 기존 memberEntity 다 정보 넣고
-    // 수정된 memberDto 넣는게 너무 비효율적인거 같아서 set 사용했아요
+
+
+
     public static MemberEntity toAdminMemberUpdate(AdminMemberDto memberDto,
                                                    MemberEntity memberEntity) {
         memberEntity.setUserName(memberDto.getUserName());
@@ -122,7 +122,7 @@ public class MemberMapper {
         return memberEntity;
     }
 
-    // 회원 탈퇴 처리
+
     public static MemberEntity toDeleteSet(MemberEntity memberEntity) {
         memberEntity.setDeleted(true);
         memberEntity.setUserName("탈퇴회원");
@@ -133,7 +133,7 @@ public class MemberMapper {
         return memberEntity;
     }
 
-    // 소셜 로그인 처리
+
     public static MemberEntity toSocialEntity(String userEmail,
                                               String userName,
                                               String userPassword) {

@@ -12,7 +12,7 @@ const toMyCrewBoardRouter = () => {
   return (
     [
         {
-            // board/
+
             path:'',
             element: <Navigate replace to={'list'} />
         },

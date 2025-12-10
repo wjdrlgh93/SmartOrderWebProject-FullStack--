@@ -20,7 +20,7 @@ const AdminItemListContainer = () => {
 
   const [searchText, setSearchText] = useState("");
 
-  // 검색 기능
+
   const handleSearch = () => {
     if (!searchText.trim()) {
       alert("검색어를 입력하세요");
@@ -37,7 +37,7 @@ const AdminItemListContainer = () => {
     fetchItems();
   }, [page]);
 
-  //  목록 가져오기
+
   const fetchItems = async (keyword) => {
     try {
       const res = await jwtAxios.get(
@@ -58,12 +58,12 @@ const AdminItemListContainer = () => {
     }
   };
 
-  // 수정 이동
+
   const handleUpdate = (itemId) => {
     navigate(`/admin/itemDetail/${itemId}`);
   };
 
-  //  삭제
+
   const handleDelete = async (itemId) => {
     if (!window.confirm("정말 이 상품을 삭제하시겠습니까?")) return;
 

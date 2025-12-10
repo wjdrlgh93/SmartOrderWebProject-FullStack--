@@ -34,8 +34,8 @@ public class MyCrewChatMessageDto {
                 .crewId(entity.getCrewId())
                 .crewName(entity.getCrewName())
                 .senderId(entity.getSenderId())
-                // .senderNickName(entity.getSenderNickName())
-                // .senderProfileUrl(entity.getSenderProfileUrl())
+
+
                 .message(entity.getMessage())
                 .createTime(entity.getCreateTime())
                 .type(entity.getType())

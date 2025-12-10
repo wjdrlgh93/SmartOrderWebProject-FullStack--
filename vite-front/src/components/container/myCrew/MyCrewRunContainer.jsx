@@ -16,7 +16,7 @@ const MyCrewRunContainer = () => {
 
   const loginMemberId = useSelector((state) => state.loginSlice.id)
 
-  //크루런닝일정 생성 데이터
+
   const crewRunCreateData = {
     crewId: crewId,
     memberId: loginMemberId,
@@ -27,7 +27,7 @@ const MyCrewRunContainer = () => {
     routeHint: "" 
   }
 
-  //크루런닝일정 수정 데이터
+
   const crewRunUpdateeData = {
     id: "",
     crewId: "",
@@ -39,34 +39,34 @@ const MyCrewRunContainer = () => {
     routeHint: "" 
   }
 
-  //런닝 일정 리스트
+
   const [myCrewRunData , setMyCrewRunData] = useState([])
 
-  //일정 추가버튼 add
+
   const [addRunBtnModal, setAddRunBtnModal] = useState(false)
 
-  //일정 날자클릭 add
+
   const [addRunDateModal, setAddRunDateModal] = useState(false)
 
-  //input->change 를 위한
+
   const [createRunData, setCreateRunData ] = useState(crewRunCreateData) //일정 추가
   const [updateRunData, setUpdateRunData ] = useState(crewRunUpdateeData) //일정 수정
 
-  //크루런닝 스케줄 상세보기
+
   const [myCrewRunDetailModal , setMyCrewRunDetailModal] = useState(false)
 
-  //런닝 일정 참가자 리스트
+
   const [myCrewRunMember , setMyCrewRunMember] = useState([])
   const [myCrewRunMemberModal, setMyCrewRunMemberModal] = useState(false)
   
-  //페이징
+
   const [nowPage, setNowPage] = useState()
   const [startPage, setStartPage] = useState()
   const [endPage, setEndPage] = useState()
   const [totalPages, setTotalPages] = useState()
 
 
-  // 크루런닝 일정 리스트
+
   const myCrewRun = async () => {
     try {
       const res = await jwtAxios.get(`/api/mycrew/${crewId}/run`,
@@ -76,8 +76,8 @@ const MyCrewRunContainer = () => {
         } 
       }
       )
-      // console.log(res.data.crewRun)
-      //fullCalendar가 이해 할 수 있는 형태로 변환
+
+
       const crewRunList = res.data.crewRun.map((el)=>({
         id: el.id,
         title: el.title,
@@ -95,7 +95,7 @@ const MyCrewRunContainer = () => {
       
     } catch (error) {
       if (error.response) {
-        // console.log("백엔드 응답:", error.response.data)
+
         const data = error.response.data    
         const msg = data?.message || "알 수 없는 오류가 발생했습니다."
         alert(msg)
@@ -103,20 +103,20 @@ const MyCrewRunContainer = () => {
     }
   }
   
-  //create input을 바꿔주는
+
   const onInputCreateChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    // console.log(name, value);
+
 
     setCreateRunData({ ...createRunData, [name]: value });
   };
 
-  //update input을 바꿔주는
+
   const onInputUpdateChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    // console.log(name, value);
+
 
     setUpdateRunData({ ...updateRunData, [name]: value });
   };
@@ -126,7 +126,7 @@ const MyCrewRunContainer = () => {
   }, [])
 
   
-  //크루런닝 스케줄 만들기
+
   const onMyCrewRunCreate = async () =>{
     
     try {
@@ -138,12 +138,12 @@ const MyCrewRunContainer = () => {
           } 
         }
         )
-        // console.log(res.data.crewRun)
+
         
         alert('런닝스케줄 만들기 성공')
       } catch (error) {
         if (error.response) {
-          // console.log("백엔드 응답:", error.response.data)
+
           const data = error.response.data    
           const msg = data?.message || "알 수 없는 오류가 발생했습니다."
           alert(msg)
@@ -153,7 +153,7 @@ const MyCrewRunContainer = () => {
       setCreateRunData(crewRunCreateData)
       myCrewRun();
   }
-    //크루런닝 스케줄 수정
+
   const onMyCrewRunUpdate =async () =>{
 
     try {
@@ -166,11 +166,11 @@ const MyCrewRunContainer = () => {
       }
 
       )
-      // console.log(res.data)
+
       
     } catch (error) {
       if (error.response) {
-        // console.log("백엔드 응답:", error.response.data)
+
         const data = error.response.data    
         const msg = data?.message || "알 수 없는 오류가 발생했습니다."
         alert(msg)
@@ -182,7 +182,7 @@ const MyCrewRunContainer = () => {
     myCrewRun();   
   }
 
-  // 크루런닝 스케줄 상세보기
+
   const onMyCrewRunDetail = async (info) => {
     const runId = info.event.id
     try {
@@ -193,7 +193,7 @@ const MyCrewRunContainer = () => {
         } 
       }
       )
-      // console.log(res.data)
+
       const detail = res.data.crewRun
       
       setUpdateRunData({
@@ -209,7 +209,7 @@ const MyCrewRunContainer = () => {
       
     } catch (error) {
       if (error.response) {
-        // console.log("백엔드 응답:", error.response.data)
+
         const data = error.response.data    
         const msg = data?.message || "알 수 없는 오류가 발생했습니다."
         alert(msg)
@@ -218,7 +218,7 @@ const MyCrewRunContainer = () => {
     setMyCrewRunDetailModal(true)
   }
   
-  //크루런닝 스케줄 삭제
+
   const onMyCrewRunDelete =async (runId) =>{
   
     try {
@@ -229,12 +229,12 @@ const MyCrewRunContainer = () => {
         } 
       }
       )
-      // console.log(res.data)
+
       
       alert("런닝스케줄 삭제 성공")
     } catch (error) {
       if (error.response) {
-        // console.log("백엔드 응답:", error.response.data)
+
         const data = error.response.data    
         const msg = data?.message || "알 수 없는 오류가 발생했습니다."
         alert(msg)
@@ -245,9 +245,9 @@ const MyCrewRunContainer = () => {
     myCrewRun();  
   }
 
-  // 크루런닝 스케줄 참가자 리스트
+
   const onMyCrewRunMember = async (runId,pageParam) => {
-    // console.log(" onMyCrewRunMember 호출", { runId, pageParam });
+
     try {
       const res = await jwtAxios.get(`/api/mycrew/${crewId}/run/${runId}/member`,
         {
@@ -260,7 +260,7 @@ const MyCrewRunContainer = () => {
           "Content-Type": "application/json" 
         } 
       })
-      // console.log(res.data)
+
       setMyCrewRunMember(res.data.crewRunMember.content)
       setNowPage(res.data.nowPage)
       setStartPage(res.data.startPage)
@@ -268,7 +268,7 @@ const MyCrewRunContainer = () => {
       setTotalPages(res.data.totalPages)
     } catch (error) {
       if (error.response) {
-        // console.log("백엔드 응답:", error.response.data)
+
         const data = error.response.data    
         const msg = data?.message || "알 수 없는 오류가 발생했습니다."
         alert(msg)
@@ -277,7 +277,7 @@ const MyCrewRunContainer = () => {
     setMyCrewRunMemberModal(true)
   }
 
-  //크루런닝 스케줄 참가
+
   const onMyCrewRunMemberYes = async (runId,memberId) => {
     
     try {
@@ -288,12 +288,12 @@ const MyCrewRunContainer = () => {
         } 
       }
       )
-      // console.log(res.data)
+
       
       alert("크루런닝 스케줄 참가 성공")
     } catch (error) {
       if (error.response) {
-        // console.log("백엔드 응답:", error.response.data)
+
         const data = error.response.data    
         const msg = data?.message || "알 수 없는 오류가 발생했습니다."
         alert(msg)
@@ -303,7 +303,7 @@ const MyCrewRunContainer = () => {
     
   }
 
-   //크루런닝 스케줄 참가취소
+
   const onMyCrewRunMemberNo = async (runId,memberId) => {
     
     try {
@@ -314,12 +314,12 @@ const MyCrewRunContainer = () => {
         } 
       }
       )
-      // console.log(res.data)
+
       
       alert("크루런닝 스케줄 참가 취소 성공")
     } catch (error) {
       if (error.response) {
-        // console.log("백엔드 응답:", error.response.data)
+
         const data = error.response.data    
         const msg = data?.message || "알 수 없는 오류가 발생했습니다."
         alert(msg)

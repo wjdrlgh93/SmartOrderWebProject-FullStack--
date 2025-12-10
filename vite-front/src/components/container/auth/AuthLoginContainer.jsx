@@ -56,7 +56,6 @@ const AuthLoginContainer = () => {
 
     try {
       cleanupFunction = initializeThreeScene(container);
-      // if success init
       setIsLoading(false);
     } catch (error) {
       console.error("Three.js init ERROR", error);

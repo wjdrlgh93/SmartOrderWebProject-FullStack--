@@ -45,7 +45,7 @@ public class JWTCheckFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
         String authHeader = request.getHeader("Authorization");
-        // Bearer -> 토큰 앞에 붙는 이름
+
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             filterChain.doFilter(request, response);
             return;
@@ -53,7 +53,7 @@ public class JWTCheckFilter extends OncePerRequestFilter {
 
         try {
             String token = authHeader.substring(7);
-            // 토큰을 통해서 유저의 정보를 뜯음
+
             Map<String, Object> claims = jwtUtil.validateToken(token);
             Long memberId = ((Number) claims.get("id")).longValue();
             String userEmail = (String) claims.get("userEmail");
@@ -75,7 +75,7 @@ public class JWTCheckFilter extends OncePerRequestFilter {
                             myUserDetails.getAuthorities() // ROLE_붙인 권한 반환
                     );
 
-            // 검증 통과 후 시큐리티에 저장
+
             SecurityContextHolder.getContext().setAuthentication(authenticationToken);
             filterChain.doFilter(request, response);
 

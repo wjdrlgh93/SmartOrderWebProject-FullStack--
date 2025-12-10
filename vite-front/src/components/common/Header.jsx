@@ -5,11 +5,11 @@ import HeaderCrewList from "../common/crewModal/CrewList";
 import { Link } from "react-router-dom";
 import LogoutBtn from "./LogoutBtn";
 
-// CSS
+
 import "../../css/common/header.css";
 import BoardModal from "./HeaderModal/BoardModal";
 
-// slice 테스트 확인용으로 작성했습니다.
+
 const Header = () => {
 
   const isLogin = useSelector((state) => state.loginSlice.isLogin);
@@ -22,7 +22,7 @@ const Header = () => {
         <div className="gnb">
           <ul>
             {isLogin ? (
-              // **로그인 상태일 때 메뉴**
+
               <>
                 <LogoutBtn />
                 <li>

@@ -42,7 +42,7 @@ const MyCrewBoardDetailContainer = () => {
     hour12: false
   });
 
-  // 상세 게시글
+
   const fetchBoard = async () => {
     try {
       const res = await axios.get(`/api/mycrew/${crewId}/board/detail/${boardId}`);
@@ -53,7 +53,7 @@ const MyCrewBoardDetailContainer = () => {
     }
   };
 
-  // 댓글 목록
+
   const fetchComments = async () => {
     try {
       const res = await axios.get(`/api/mycrew/${crewId}/board/${boardId}/comment/list`,{

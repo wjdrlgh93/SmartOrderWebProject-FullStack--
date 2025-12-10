@@ -14,10 +14,8 @@ public interface BoardReplyService {
 
     Page<BoardReplyDto> getReplyPage(Long boardId, Pageable pageable);
     
-    // U
     void update(BoardReplyDto boardReplyDto) throws IOException;
     
-    // D
     void deleteReply(Long replyId, Long memberId);
 
 

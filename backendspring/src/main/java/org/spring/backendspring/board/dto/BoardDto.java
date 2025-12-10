@@ -42,12 +42,12 @@ public class BoardDto {
 
     private Long memberId; 
 
-    // this declare for Check Exist File
+
     private int attachFile;
 
-    // createTime
+
     private LocalDateTime createTime;
-    // updateTime 
+
     private LocalDateTime updateTime;
 
     private int replyCount;
@@ -61,20 +61,20 @@ public class BoardDto {
     private String newFileName;
     private String oldFileName;
 
-    // s3 Full URL Field
+
     private String fileUrl;
 
-    // N:1
+
     private MemberEntity memberentity;
 
-    // 1:N
+
     @JsonIgnore
     private List<BoardReplyEntity> boardReplyEntities;
     @JsonIgnore
     private List<BoardImgEntity> boardImgEntities;
 
 
-    // toDto
+
     public static BoardDto toBoardDto( BoardEntity boardEntity) {
         String newFileName = null;
         String oldFileName = null;

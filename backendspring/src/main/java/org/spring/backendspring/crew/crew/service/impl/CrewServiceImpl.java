@@ -64,7 +64,7 @@ public class CrewServiceImpl implements CrewService {
 
         crewDto.setMemberId(member.getId());
 
-        // 크루 기본 정보 수정
+
         crew.setName(crewDto.getName());
         crew.setDescription(crewDto.getDescription());
         crew.setDistrict(crewDto.getDistrict());
@@ -73,7 +73,7 @@ public class CrewServiceImpl implements CrewService {
 
         List<CrewImageEntity> updatedImages = new ArrayList<>();
 
-        // 삭제할 이미지
+
         if (deleteImageName != null && !deleteImageName.isEmpty()) {
             for (String imageName : deleteImageName) {
                 CrewImageEntity imageEntity = crewImageRepository.findByNewName(imageName)
@@ -85,7 +85,7 @@ public class CrewServiceImpl implements CrewService {
 
         updatedImages = crewImageRepository.findByCrewEntity(crew);
 
-        // 새로운 이미지
+
         if (newImages != null && !newImages.isEmpty()) {
             for (MultipartFile image : newImages) {
                 if (!image.isEmpty()) {
@@ -98,17 +98,17 @@ public class CrewServiceImpl implements CrewService {
                     } catch (IOException e) {
                         throw new IllegalArgumentException("S3 파일 업로드 실패", e);
                     }
-                    // UUID uuid = UUID.randomUUID();
-                    // String originalFileName = image.getOriginalFilename();
-                    // String newFileName = uuid + "_" + originalFileName;
 
-                    // String filePath = "E:/full/upload/" + newFileName;
-                    // File file = new File(filePath);
-                    // image.transferTo(file);
+
+
+
+
+
+
                     
-                    // CrewImageEntity imageEntity = CrewImageEntity.toEntity(crew, originalFileName, newFileName);
-                    // CrewImageEntity savedImage = crewImageRepository.save(imageEntity);
-                    // updatedImages.add(savedImage);
+
+
+
                 }
             }
         }
@@ -218,12 +218,12 @@ public class CrewServiceImpl implements CrewService {
         return dto;
     }
 
-    // @Override
-    // public CrewDto findCrew(Long crewId) {
-    //     CrewEntity crewEntity = crewRepository.findById(crewId)
-    //                  .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 크루"));
-    //     return CrewDto.toCrewDto(crewEntity);
-    // }
+
+
+
+
+
+
 
     @Override
     public List<CrewDto> findAllCrew() {

@@ -18,7 +18,7 @@ public class CartDto {
     private Long memberId;
     private List<CartItemDto> items;  // CartItemDto 리스트로 변경
 
-    //  Entity → DTO 변환
+
     public static CartDto fromEntity(CartEntity entity) {
         if (entity == null) return null;
 
@@ -33,7 +33,7 @@ public class CartDto {
                 .build();
     }
 
-    // DTO → Entity 변환
+
     public CartEntity toEntity() {
         CartEntity cart = CartEntity.builder()
                 .id(this.cartId)

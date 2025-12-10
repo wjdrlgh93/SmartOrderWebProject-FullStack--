@@ -27,9 +27,9 @@ public class PaymentController {
     private final PaymentService paymentService;
     private final PaymentResultService paymentResultService;
 
-    // -----------------
-    // CRUD 기본 메서드
-    // -----------------
+
+
+
     @PostMapping
     public PaymentDto create(@RequestBody PaymentDto paymentDto) {
         return PaymentDto.fromEntity(paymentService.createPayment(paymentDto.toEntity()));
@@ -60,13 +60,13 @@ public class PaymentController {
         return "삭제 완료";
     }
 
-    // -----------------
-    // Kakao Pay 관련
-    // -----------------
+
+
+
 
     @GetMapping("/approval/{paymentId}/{productPrice}/{memberId}")
     public ResponseEntity<Void> approval(
-            // ⭐️ 수정: @PathVariable 이름 명시
+
             @PathVariable("paymentId") Long paymentId, 
             @PathVariable("productPrice") Long productPrice,
             @PathVariable("memberId") Long memberId,
@@ -75,7 +75,7 @@ public class PaymentController {
         try {
             paymentService.paymentApproval(pgToken, paymentId, productPrice, productName, memberId);
 
-            // 성공 시 프론트의 /payment/success로 redirect
+
             String redirectUrl = "http://localhost:3000/payment/success" +
                     "?paymentId=" + paymentId +
                     "&productPrice=" + productPrice +
@@ -86,7 +86,7 @@ public class PaymentController {
                     .header("Location", redirectUrl)
                     .build();
         } catch (Exception e) {
-            // 실패 시 프론트의 /payment/fail로 redirect
+
             String failUrl = "http://localhost:3000/payment/fail?paymentId=" + paymentId;
             return ResponseEntity.status(HttpStatus.FOUND)
                     .header("Location", failUrl)
@@ -142,7 +142,7 @@ public class PaymentController {
 
     @GetMapping("/page")
     public PagedResponse<PaymentDto> getPayments(
-            // ⭐️ 수정: @RequestParam 이름 명시
+
             @RequestParam(value = "page", defaultValue = "0") int page,
             @RequestParam(value = "size", defaultValue = "10") int size,
             @RequestParam(value = "keyword", required = false) String keyword) {
@@ -152,7 +152,7 @@ public class PaymentController {
         return PagedResponse.of(dtoPage);
     }
 
-    // 회원의 결제 목록을 가져옵니다.
+
     @GetMapping("/myPayment/{memberId}")
     public ResponseEntity<?> getMemberPaymentList(@PathVariable("memberId") Long memberId,
                                                  @RequestParam(name = "keyword", required = false) String keyword,

@@ -36,13 +36,10 @@ public class BoardImgDto {
     private String newName;
     private String oldName;
 
-    // createTime
     private LocalDateTime createTime;
-    // updateTime
     private LocalDateTime upDateTime;
 
-    // N:1 
-    @JsonIgnore // -> 순환참조문제 
+    @JsonIgnore
     private BoardEntity boardEntity;
 
 

@@ -14,5 +14,4 @@ public interface AdminEventService {
 
     EventDto updateEvent(Long id, EventDto dto);
 
-    void deleteEvent(Long id, String role); // role에 따라 멘트 다르게
 }
