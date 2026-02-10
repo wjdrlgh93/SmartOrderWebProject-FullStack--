@@ -6,6 +6,8 @@ import jwtAxios from '../../../apis/util/jwtUtil';
 import "../../../css/board/boardDetail.css"
 import { useSelector } from 'react-redux';
 
+import DOMPurify from 'dompurify';
+
 
 
 const BoardDetailContainer = () => {
@@ -263,157 +265,138 @@ const BoardDetailContainer = () => {
 
 
     return (
-
-        <div className="upper-boardDetail">
-
-            <div className="boardDetail">
-
-
-                <div className="boardDetail-con-info">
-                    <h2>{boards.title} </h2>
-                    <h5> 작성자 : {boards.memberNickName} </h5>
-                    <h6>조회수 : {boards.hit} </h6>
-                    {/* formatDate 함수를 사용하여 날짜 포맷 적용 */}
-                    <h5>작성일 : {formatDate(boards.createTime)} </h5>
+        <div className="board-wrapper">
+            <div className="board-card">
+                {/* 1. Header Area */}
+                <div className="board-header">
+                    <h2 className="post-title">{boards.title}</h2>
+                    <div className="post-meta">
+                        <span className="author">작성자: {boards.memberNickName}</span>
+                        <span className="divider">|</span>
+                        <span className="date">{formatDate(boards.createTime)}</span>
+                        <span className="divider">|</span>
+                        <span className="views">조회수: {boards.hit}</span>
+                    </div>
                 </div>
 
-                <div className="boardDetail-con">
-                    
-                    {/* 게시글 본문 내용을 표시하는 부분 */}
-                    <p className="boardDetail-content" style={{ whiteSpace: 'pre-wrap', marginBottom: '20px' }}>
-                        {boards.content}
-                    </p>
-                    {console.log(boards)}
-                    <div className="boardDetail-con-image">
+                {/* 2. Content Area */}
+                <div className="board-body">
+                    {/* HTML Content (Quill Editor) */}
+                    <div 
+                        className="post-content ql-editor"
+                        dangerouslySetInnerHTML={{ 
+                            __html: DOMPurify.sanitize(boards.content) 
+                        }}
+                    ></div>
 
-
-                        {boards.boardImgDtos && boards.boardImgDtos.length > 0 && (
-                            boards.boardImgDtos.map((imgDto) => (
-                          
+                    {/* Attached Images */}
+                    {boards.boardImgDtos && boards.boardImgDtos.length > 0 && (
+                        <div className="post-images">
+                            {boards.boardImgDtos.map((imgDto) => (
                                 <img
                                     key={imgDto.id || imgDto.newName}
-                                    src={boards.fileUrl}
+                                    src={boards.fileUrl} // 주의: 실제 구현시 imgDto.fileUrl 등으로 변경 필요할 수 있음
                                     alt={imgDto.oldName}
-                                    style={{ maxWidth: '100%', height: 'auto', display: 'block', margin: '10px 0' }}
+                                    className="attached-img"
                                 />
-                                     
+                            ))}
+                        </div>
+                    )}
+                </div>
+
+                {/* 3. Reply Section */}
+                <div className="reply-section">
+                    <h5 className="reply-count">댓글 <span>{pageInfo.totalElements}</span></h5>
+                    
+                    {/* Reply Form */}
+                    <form className="reply-form" onSubmit={handleReplySubmit}>
+                        <textarea 
+                            value={content}
+                            onChange={(e) => setContent(e.target.value)}
+                            placeholder="소중한 댓글을 남겨주세요."
+                            rows="3"
+                        ></textarea>
+                        <button type="submit" className="btn-reply-submit">등록</button>
+                    </form>
+
+                    {/* Reply List */}
+                    <div className="reply-list">
+                        {replies.length > 0 ? (
+                            replies.map((reply) => (
+                                <div key={reply.id} className="reply-item">
+                                    <div className="reply-header">
+                                        <span className="reply-author">{reply.memberNickName || reply.memberId}</span>
+                                        <span className="reply-date">{formatDate(reply.createTime)}</span>
+                                    </div>
+
+                                    {/* View Mode vs Edit Mode */}
+                                    {editingReplyId === reply.id ? (
+                                        <div className="reply-edit-box">
+                                            <textarea
+                                                value={editingContent}
+                                                onChange={(e) => setEditingContent(e.target.value)}
+                                                rows="3"
+                                            ></textarea>
+                                            <div className="reply-edit-actions">
+                                                <button className="btn-save" onClick={() => handleReplyEditSubmit(reply.id)}>저장</button>
+                                                <button className="btn-cancel" onClick={handleReplyEditCancel}>취소</button>
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <div className="reply-content">
+                                            {reply.content}
+                                        </div>
+                                    )}
+
+                                    {/* Action Buttons (Only for Author) */}
+                                    {reply.memberId === memberId && editingReplyId !== reply.id && (
+                                        <div className="reply-actions">
+                                            <button onClick={() => handleReplyUpdateStart(reply.id, reply.content)}>수정</button>
+                                            <button onClick={() => handleReplyDelete(reply.id)}>삭제</button>
+                                        </div>
+                                    )}
+                                </div>
                             ))
+                        ) : (
+                            <div className="no-replies">등록된 댓글이 없습니다.</div>
                         )}
                     </div>
 
-                    <div className="boardDetail-reply">
+                    {/* Pagination */}
+                    {pageInfo.totalPages > 1 && (
+                        <div className="pagination">
+                            <button 
+                                onClick={() => handlePageChange(pageInfo.page - 1)}
+                                disabled={pageInfo.first}
+                                className="page-btn"
+                            >
+                                &lt; 이전
+                            </button>
+                            <span className="page-info">{pageInfo.page + 1} / {pageInfo.totalPages}</span>
+                            <button 
+                                onClick={() => handlePageChange(pageInfo.page + 1)}
+                                disabled={pageInfo.last}
+                                className="page-btn"
+                            >
+                                다음 &gt;
+                            </button>
+                        </div>
+                    )}
+                </div>
 
-
-                        <form onSubmit={handleReplySubmit}>
-                            <textarea name="reply" id="reply"
-                                rows="4" required
-                                value={content}
-                                onChange={(e) => setContent(e.target.value)}
-                                placeholder='댓글을 입력해주세요..'
-                            ></textarea>
-                            <button type="submit">댓글 등록</button>
-                        </form>
-
-
-                        <div className="reply-list">
-                            <h5>댓글 ({pageInfo.totalElements})</h5>
-                            {replies.length > 0 ? (
-                                replies.map((reply) => (
-                                    <div key={reply.id} className="reply-key">
-
-                                        <div className="reply-key-sub">
-                                            <p><strong>{`작성자 ID: ${reply.memberId}`}</strong></p>
-                                            <span className="reply-key-createtime">{formatDate(reply.createTime)}</span>
-                                        </div>
-                                        <p className="reply-key-content">{reply.content}</p>
-        
-                                        {reply.id === editingReplyId && (
-
-
-                                            <div className="reply-edit-form">
-                                                {console.log(reply)}
-                                                {console.log('editingReplyId >>' + editingReplyId)}
-               
-                                                <textarea
-                                                    value={editingContent}
-                                                    onChange={(e) => setEditingContent(e.target.value)}
-                                                    rows="3"
-                                                ></textarea>
-                                                <div className="reply-edit-buttons">
-                                                    <button
-                                                        onClick={() => handleReplyEditSubmit(reply.id)}>
-                                                        덧글수정
-                                                    </button>
-                                                    <button
-                                                        onClick={handleReplyEditCancel}>
-                                                        덧글수정취소
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        )}
-
-                                        {!isUpdating && (
-                                            <>
-                                            {reply.memberId === memberId && (
-                                                <div className="reply-actions">
-                                                    {console.log(reply)}
-                                                    <button onClick={() => handleReplyUpdate(reply.id, reply.content)}>
-                                                        수정 </button>
-                                                    <button onClick={() => handleReplyDelete(reply.id)}>
-                                                        삭제 </button>
-                                                </div>
-
-                                            )}
-                                         </>
-                                        )}
-                                    </div>
-
-                                ))
-                            ) : (
-                                < p className="reply-key-content-none">등록된 댓글이 없습니다.</p>
-                            )}
+                {/* 4. Board Actions (Edit/Delete) */}
+                {boards.memberId === memberId && (
+                    <div className="board-footer">
+                        <button className="btn-outline" onClick={() => navigate('/board/index')}>목록</button>
+                        <div className="right-actions">
+                            <button className="btn-edit" onClick={() => handleUpdatePost(boards.id)}>수정</button>
+                            <button className="btn-delete" onClick={handleDelete}>삭제</button>
                         </div>
                     </div>
-
-
-                    {
-                        pageInfo.totalPages > 1 && (
-                            <div className="page-button-top">
-                                <button
-                                    onClick={() => handlePageChange(pageInfo.page - 1)}
-                                    disabled={pageInfo.first}
-                                    style={{ padding: '5px 10px', border: '1px solid #ccc', borderRadius: '5px' }}>
-                                    이전
-                                </button>
-                                <span style={{ padding: '5px 10px', background: '#eee', borderRadius: '5px', fontWeight: 'bold' }}>
-                                    {pageInfo.page + 1} / {pageInfo.totalPages}
-                                </span>
-
-                                <button
-                                    onClick={() => handlePageChange(pageInfo.page + 1)}
-                                    disabled={pageInfo.last}
-                                    style={{ padding: '5px 10px', border: '1px solid #ccc', borderRadius: '5px' }}>
-                                    다음
-                                </button>
-                            </div>
-                        )
-                    }
-
-                </div>
-                {boards.memberId === memberId && (
-                    <div className="boardDetail-act">
-                        <button onClick={() => handleUpdatePost(boards.id)}>게시글 수정</button>
-                        <button onClick={handleDelete}>게시글 삭제</button>
-                    </div>
-
                 )}
-
             </div>
-        </div >
+        </div>
+    );
+};
 
-    )
-}
-
-
-
-export default BoardDetailContainer
+export default BoardDetailContainer;

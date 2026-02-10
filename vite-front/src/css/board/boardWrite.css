@@ -1,122 +1,89 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
     
-.boardPost {
-  max-width: 780px;
-  margin: 60px auto;
-  padding: 20px;
-}
+/* boardWrite.css */
 
-.boardPost > h1 {
-  font-size: 28px;
-  text-align: center;
-  margin-bottom: 30px;
-  font-weight: 700;
-  color: #333;
-}
-
-/* 컨테이너 */
 .boardPost-con {
-  background-image: linear-gradient(to top, aliceBlue, #e0e0e0);
-  backdrop-filter: blur(12px);
-  padding: 35px 40px;
-  border-radius: 18px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
-/* 소제목 */
-.boardPost-con h4 {
-  font-size: 22px;
-  margin-bottom: 25px;
-  font-weight: 600;
-  color: #444;
+h4 {
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
+    font-weight: 700;
 }
 
-/* 리스트 정리 */
-.boardPost-con ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.form-group {
+    margin-bottom: 20px;
 }
 
-/* 각 줄 */
-.boardPost-con li {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 22px;
-}
-.boardPost-con li input.last {
-  font-size: 16px; 
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 22px;
-  background: #0e2a96 ;
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
 }
 
-/* 라벨 */
-.boardPost-con label {
-  font-size: 15px;
-  color: #555;
-  margin-bottom: 6px;
-  font-weight: 500;
+.input-title, .input-readonly {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box; /* 패딩 포함 너비 계산 */
 }
 
-/* input + textarea 공통 */
-.boardPost-con input[type="text"],
-.boardPost-con input[type="file"],
-.boardPost-con textarea {
-  font-size: 16px;
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  outline: none;
-  transition: 0.2s;
-  background: #fff;
+.input-readonly {
+    background-color: #f9f9f9;
+    color: #777;
+    border: none;
 }
 
-/* 포커스 효과 */
-.boardPost-con input:focus,
-.boardPost-con textarea:focus {
-  border-color: #6a8bff;
-  box-shadow: 0 0 0 3px rgba(106,139,255,0.2);
+/* 에디터 스타일링 */
+.editor-area {
+    margin-bottom: 60px; /* 툴바와 에디터 높이 고려 */
 }
 
-/* 파일 input */
-.boardPost-con input[type="file"] {
-  padding: 10px;
+/* React Quill 기본 높이 설정 */
+.ql-container {
+    height: 400px; /* 에디터 본문 높이 */
+    font-size: 1rem;
 }
 
-/* 버튼 + 링크 */
-.boardPost-con .last {
-  display: inline-block;
-  padding: 12px 20px;
-  border-radius: 10px;
-  background: #6a8bff;
-  color: #fff !important;
-  font-weight: 600;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  border: none;
-  transition: 0.25s;
-  margin-right: 10px;
+/* 버튼 그룹 */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
 }
 
-/* 버튼 hover */
-.boardPost-con .last:hover {
-  background: #5874e8;
+.btn-submit {
+    background-color: #4f46e5;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
 }
 
-/* 반응형 */
-@media (max-width: 540px) {
-  .boardPost-con {
-    padding: 25px;
-  }
-
-  .boardPost > h1 {
-    font-size: 24px;
-  }
-
-  .boardPost-con h4 {
-    font-size: 20px;
-  }
+.btn-cancel {
+    background-color: #e5e7eb;
+    color: #333;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
 }
+
+.btn-submit:hover { background-color: #4338ca; }
+.btn-cancel:hover { background-color: #d1d5db; }

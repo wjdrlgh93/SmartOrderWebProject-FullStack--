@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/admin/event")
 public class AdminEventController {
 
-    private final AdminEventService adminEventService;
 
+    private final AdminEventService adminEventService;
     
     @PostMapping
     public EventDto create(@RequestBody EventDto dto) {

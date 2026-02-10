@@ -136,123 +136,94 @@ const BoardListContainer = () => {
 
 
 
-  return (
-    <div className="boardList">
-       <div className="boardList-banner">
-        <br /><br />
+ return (
+  <div className="boardList">
+    <div className="boardList-con">
+      <h2>자유게시판</h2>
 
-      </div>
-      <br />
-      <div className="boardList-con">
-     
-        <h2>:: 자유게시판 ::</h2>
-        <br /><br />
-        <div className="searchBox">
-          <form onSubmit={handleSearch} className="board-search-form">
-            <select name="subject" className="subject-select"value={subject} 
-                onChange={handleSubjectChange} >
-                <option value="title">제목</option>
-                <option value="content">내용</option>
-                <option value="nickName">닉네임</option>
-            </select>
-            <input type="text" name="search" value={searchTerm}
-                onChange={handleSearchTermChange} 
-                placeholder="검색어를 입력하세요.." 
-                className="search-input"/>
-            <button type="submit" className="search-button">검색</button>
+      <div className="searchBox">
+        <form onSubmit={handleSearch} className="board-search-form">
+          <select 
+            className="subject-select" 
+            value={subject} 
+            onChange={handleSubjectChange}
+          >
+            <option value="title">제목</option>
+            <option value="content">내용</option>
+            <option value="nickName">닉네임</option>
+          </select>
+          <input 
+            type="text" 
+            value={searchTerm}
+            onChange={handleSearchTermChange} 
+            placeholder="어떤 글을 찾으시나요?" 
+            className="search-input"
+          />
+          <button type="submit" className="search-button">검색</button>
         </form>
-        <br />
-        </div>
-        <table className='board-table'>
-          <thead>
-            <tr>
-              <th scope='col'>ID</th>
-              <th scope='col'>Image</th>
-              <th scope='col'>:: 글제목</th>
-              <th scope='col'>:: 작성자</th>
-              <th scope='col'>:: 조회수</th>
-              <th scope='col'>:: 파일</th>
-            </tr>
-          </thead>
-          <tbody>
-            {console.log(boards)}
+      </div>
 
-            {boards.map(list => (
-              <tr key={list.id}>
-                <td>{list.id}</td>
-
-                <td><img src={list.fileUrl} alt={list.newFileName} style={{ width: '40px', height: '40px', objectFit: 'cover' }}/></td>
-                <td> <Link to={`/board/detail/${list.id}`} className='board-link'>
+      <table className='board-table'>
+        <tbody>
+          {boards.map(list => (
+            <tr key={list.id}>
+              <td width="60px">
+                <img 
+                  src={list.fileUrl || '/images/noimage.jpg'} 
+                  alt="thumbnail" 
+                  style={{ width: '50px', height: '50px', borderRadius: '8px', objectFit: 'cover' }}
+                />
+              </td>
+              <td>
+                <Link to={`/board/detail/${list.id}`} className='board-link'>
                   {list.title}
                 </Link>
-                </td>
-                <td>{list.memberNickName}</td>
-                <td>{list.hit}</td>
-                <td>{list.attachFile}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-
-        <div className="pagenation">
-
-          {pageInfo.startPage > 0 && (
-            <li style={{ margin: '0 5px' }}>
-              <button
-                onClick={() => handlePageClick(pageInfo.startPage - 1)}
-                style={{ padding: '5px 10px', cursor: 'pointer' }}
-              >
-                &laquo; 이전
-              </button>
-            </li>
-          )}
-
-
-          {pageNumbers.map(page => (
-            <li key={page} style={{ margin: '0 5px' }}>
-              <button
-                onClick={() => handlePageClick(page)}
-
-                style={{
-                  padding: '5px 10px',
-                  cursor: 'pointer',
-                  fontWeight: page === pageInfo.currentPage ? 'bold' : 'normal',
-                  backgroundColor: page === pageInfo.currentPage ? '#eee' : 'white'
-                }}
-              >
-                {page + 1} 
-              </button>
-            </li>
+                <div className="member-info">
+                  {list.memberNickName} • 조회 {list.hit} • {list.id}
+                </div>
+              </td>
+              <td align="right" style={{ color: '#94a3b8' }}>
+                {/* 날짜 데이터가 있다면 여기에 배치 */}
+                {list.attachFile ? '📎' : ''}
+              </td>
+            </tr>
           ))}
+        </tbody>
+      </table>
 
+      {/* 페이지네이션 */}
+      <ul className="pagenation">
+        {pageInfo.startPage > 0 && (
+          <li>
+            <button onClick={() => handlePageClick(pageInfo.startPage - 1)}>이전</button>
+          </li>
+        )}
 
-          {pageInfo.endPage < pageInfo.totalPages - 1 && (
-            <li style={{ margin: '0 5px' }}>
-              <button
-                onClick={() => handlePageClick(pageInfo.endPage + 1)}
-                style={{ padding: '5px 10px', cursor: 'pointer' }}
-              >
-                다음 &raquo;
-              </button>
-            </li>
-          )}
+        {pageNumbers.map(page => (
+          <li key={page}>
+            <button
+              onClick={() => handlePageClick(page)}
+              className={page === pageInfo.currentPage ? 'active' : ''}
+            >
+              {page + 1}
+            </button>
+          </li>
+        ))}
 
-     
+        {pageInfo.endPage < pageInfo.totalPages - 1 && (
+          <li>
+            <button onClick={() => handlePageClick(pageInfo.endPage + 1)}>다음</button>
+          </li>
+        )}
+      </ul>
 
-          <br />
-        </div>
-        <div className="boardList-post">
-
-          <Link to="/board/newPost">
-            <h3>글쓰기</h3>
-          </Link>
-        </div>
-        <br /><br /><br />
+      <div className="boardList-post">
+        <Link to="/board/newPost" className="write-btn">
+          새 글 쓰기
+        </Link>
       </div>
-
-
     </div>
-  )
+  </div>
+);
 }
-
 export default BoardListContainer
