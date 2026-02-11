@@ -1,37 +1,42 @@
 import axios from 'axios';
-import React, { useCallback, useEffect, useState, useMemo } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import jwtAxios from '../../../apis/util/jwtUtil';
 import { useSelector } from 'react-redux';
 
-// 1. React Quill 및 스타일 임포트
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css'; // 에디터 스타일
-
 import "../../../css/board/boardWrite.css"
 
+
+
 const BoardWriteContainer = () => {
-  
+  // JWT
   const accessToken = useSelector(state => state.jwtSlice.accessToken);
   const memberId = useSelector(state => state.loginSlice.id);
   const nickName = useSelector(state => state.loginSlice.nickName);
 
+  console.log('Redux에서 가져온 nickName:', nickName);
+  console.log('Redux에서 가져온 memberId:', memberId);
+
   const API_BASE_URL = 'http://localhost:8088/api/board';
+
+
   const { id } = useParams();
 
   const getInitialBoardState = useCallback(() => ({
     id: null,
     memberId: memberId,
     title: '',
-    content: '', // 에디터의 HTML 태그가 포함된 문자열이 들어갑니다.
+    content: '',
     memberNickName: nickName,
   }), [memberId, nickName]);
 
   const [boards, setBoards] = useState(getInitialBoardState);
+  // const [boards, setBoards] = useState([]);
+
+
 
   const navigate = useNavigate();
 
-  // 2. 일반 input 태그 변경 핸들러
   const handleChange = (e) => {
     setBoards({
       ...boards,
@@ -39,48 +44,18 @@ const BoardWriteContainer = () => {
     });
   };
 
-  // 3. 에디터 전용 변경 핸들러 (Quill은 value를 직접 반환함)
-  const handleEditorChange = (value) => {
-    setBoards({
-        ...boards,
-        content: value
-    });
-  };
-
-  // 4. 에디터 툴바 설정 (옵션)
-  const modules = useMemo(() => ({
-    toolbar: [
-      [{ 'header': [1, 2, 3, false] }],
-      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-      [{ 'list': 'ordered'}, { 'list': 'bullet' }, { 'indent': '-1'}, { 'indent': '+1' }],
-      ['link', 'image'],
-      [{ 'align': [] }, { 'color': [] }, { 'background': [] }],          
-      ['clean']
-    ],
-  }), []);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // 유효성 검사: 태그를 제외한 텍스트만 있는지 확인하려면 추가 로직 필요
-    if(boards.content.trim() === '' || boards.content === '<p><br></p>') {
-        alert("내용을 입력해주세요.");
-        return;
-    }
+    console.log("Current boards state on submit:", boards);
 
     const formData = new FormData();
     formData.append('title', boards.title);
-    formData.append('content', boards.content); // HTML 문자열이 전송됨
+    formData.append('content', boards.content);
 
-    // 파일 업로드 처리 (ref 또는 e.target 사용)
-    const boardFile = document.getElementById('boardFile').files[0];
+    const boardFile = e.target.boardFile.files[0];
     if (boardFile) {
       formData.append('boardFile', boardFile);
     }
-
-    // 작성자 정보가 필요하다면 추가 (백엔드 로직에 따라 다름)
-    formData.append('memberId', memberId);
-    formData.append('memberNickName', nickName);
 
     try {
       await jwtAxios.post(`${API_BASE_URL}/write`, formData,
@@ -93,78 +68,116 @@ const BoardWriteContainer = () => {
 
     } catch (error) {
       console.error("게시물등록 실패!", error.response);
-      alert("글쓰기 실패: " + (error.response?.data || "오류 발생"));
+      alert("글쓰기 실패");
+      if (error.response && error.response.data) {
+        alert("수정 실패: " + error.response.data); // 서버 오류 메시지 출력 ("수정 권한이 없습니다." 등)
+      } else {
+        alert("게시물 수정 중 알 수 없는 오류가 발생했습니다.");
+      }
+
     }
   };
 
 
   const fetchData = async () => {
+    // there is NO Token ... Send Login...=>
     if (!accessToken) {
       navigate("/auth/login");
       return;
     }
-    // id가 있을 때만 데이터 로드 (수정 모드 대비)
+    console.log(accessToken)
+
     if (id) {
-       // 기존 로직 유지...
-       // 주의: 수정 모드일 때 백엔드에서 가져온 HTML content를 boards.content에 넣으면
-       // 에디터가 자동으로 그 내용을 보여줍니다.
+      try {
+
+        const response = await jwtAxios.get(`${API_BASE_URL}/newPost`,
+          {
+            headers: { Authorization: `Bearer ${accessToken}` },
+            withCredentials: true,
+          });
+
+        const data = response.data;
+        console.log("서버 응답 데이터 타입:", typeof data);
+        console.log("서버 응답 데이터 내용:", data);
+
+        // Set into Data <- Bring Data
+        // setBoards({
+        //   id: data.id,
+        //   title: data.title,
+        //   content: data.content,
+        //   memberNickName: data.memberNickName
+
+        // });
+        setBoards(data);
+
+        console.log(response.data)
+      } catch (error) {
+
+        console.error("게시물 조회 실패:", error.response);
+        if (error.response) {
+          if (error.response.status === 400) {
+            alert(error.response.data);
+            navigate(`/board/${memberId}`);
+          } else if (error.response.status === 404) {
+            alert("게시글 정보를 찾을 수 없습니다.");
+            navigate("/board");
+          } else {
+            alert("서버 오류로 게시글 정보를 가져오지 못했습니다.");
+          }
+        } else {
+          alert("네트워크 오류가 발생했습니다.");
+        }
+      }
     }
   }
 
   useEffect(() => {
     fetchData();
-  }, [id]); // 의존성 배열 수정
+  }, [fetchData]);
 
   return (
     <div className="boardPost">
       <div className="boardPost-con">
+
+        {console.log(boards)}
+
         <form onSubmit={handleSubmit} encType="multipart/form-data">
-          <h4>:: 게시글 작성 ::</h4>
-          
-          <div className="form-group-row">
-            <label>작성자</label>
-            <input type="text" value={nickName} readOnly className="input-readonly" />
-            {/* memberId는 굳이 보여줄 필요 없다면 hidden으로 처리하거나 생략 */}
-          </div>
+          <h4>:: 게시글작성 ::</h4>
+          <ul>
+            <li className="first_li">
+              <label htmlFor='memberId'>MEMBER_ID::</label>
+              <input type="text" name="memberId" id="memberId" value={memberId} readOnly />
+            </li>
 
-          <div className="form-group">
-            <label htmlFor="title">제목</label>
-            <input 
-                type="text" 
-                name="title" 
-                id="title" 
-                value={boards.title || ''}
-                onChange={handleChange} 
-                required 
-                placeholder="제목을 입력하세요"
-                className="input-title"
-            />
-          </div>
+            <li>
+              <label htmlFor="title">글제목::</label>
+              <input type="text" name="title" id="title" value={boards.title || ''}
+                onChange={handleChange} required />
+            </li><br />
+            <li>
+              <label htmlFor="content">글내용::</label>
+              <textarea name="content" id="content" rows="10" value={boards.content || ''}
+                onChange={handleChange} required></textarea>
+            </li>
 
-          {/* 5. 에디터 영역 */}
-          <div className="form-group editor-area">
-            <label>내용</label>
-            <ReactQuill 
-                theme="snow" 
-                value={boards.content} 
-                onChange={handleEditorChange}
-                modules={modules}
-                placeholder="내용을 입력하세요..."
-                style={{ height: '400px', marginBottom: '50px' }} // 높이 설정 중요
-            />
-          </div>
+            <li>
+              <label htmlFor="nickName">NickName::</label>
+              <input type="text" name="nickName" id="nickName" value={boards.memberNickName} readOnly />
+            </li>
 
-          <div className="form-group">
-            <label htmlFor="boardFile">첨부파일</label>
-            <input type="file" name="boardFile" id="boardFile" className="input-file"/>
-          </div>
+            <li>
+              <label htmlFor="boardFile">FILE</label>
+              <input type="file" name="boardFile" id="boardFile" />
+            </li>
 
-          <div className="button-group">
-             <button type="submit" className="btn-submit">등록하기</button>
-             <button type="button" onClick={() => navigate('/board')} className="btn-cancel">취소</button>
-          </div>
+            <li>
+              <input type="submit" value="글작성" className="last" />
 
+              <a href="/board/index" className="last">게시글목록</a>
+            </li>
+          </ul>
         </form>
+
       </div>
     </div>
   )

@@ -1,7 +1,9 @@
 package org.spring.backendspring.board.service.impl;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.spring.backendspring.board.dto.BoardDto;
 import org.spring.backendspring.board.dto.BoardImgDto;
@@ -21,6 +23,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.RequiredArgsConstructor;
+
+import javax.annotation.processing.Filer;
 
 @Service
 @RequiredArgsConstructor
@@ -61,9 +65,18 @@ public class BoardServiceImpl implements BoardService {
             if (originalFileName == null || originalFileName.isEmpty()) {
                 throw new IllegalArgumentException("업로드된 파일의 원본 파일명이 유효하지 않습니다.");
             }
+            String projectPath = "C:/full/upload/";
+            File folder = new File(projectPath);
+            if (!folder.exists()) {
+                folder.mkdirs();
+            }
+            UUID uuid = UUID.randomUUID();
+            String newFileName = uuid + "_" + originalFileName;
 
+            File saveFile = new File(projectPath, newFileName);
+            boardFile.transferTo(saveFile);
 
-            String newFileName = awsS3Service.uploadFile(boardFile, path);
+//            String newFileName = awsS3Service.uploadFile(boardFile, path);
             boardDto.setAttachFile(1);
 
             BoardEntity boardEntity = BoardEntity.toBoardEntity(boardDto);

@@ -19,6 +19,7 @@ const BoardListContainer = () => {
 
   const API_BASE_URL = 'http://localhost:8088/api/board';
 
+     // JWT
     const accessToken = useSelector(state => state.jwtSlice.accessToken);
     const memberId = useSelector(state => state.loginSlice.id);
     const nickName = useSelector(state => state.loginSlice.nickName);
@@ -46,7 +47,9 @@ const BoardListContainer = () => {
 
      console.log(`[LOG] 페이지 ${page + 1}의 데이터를 요청합니다. 검색 조건: ${subject} / ${search}`);
 
-
+    // this code for BackEnd Controller
+    // const response = await axios.get("http://localhost:8088/api/board");
+    // parameter init
     let params = { 
         page: page,
 
@@ -54,7 +57,9 @@ const BoardListContainer = () => {
         search: search ? search.trim() : null
     };
     try {
-
+      // REQUEST Page Query Parameter :: URL
+      
+      // const response = await jwtAxios.get(`${API_BASE_URL}?page=${page}`, 
       const response = await jwtAxios.get(API_BASE_URL , 
                {
                     params: params,
@@ -64,8 +69,9 @@ const BoardListContainer = () => {
 
       const data = response.data;
 
+      // data Update
       setBoards(data.content || []);
-
+      // Page Calculate & update 
       const totalPages = data.totalPages;
       const pageNum = data.number;
       const displayPageNum = 5;
@@ -107,17 +113,19 @@ const BoardListContainer = () => {
   }
 
   useEffect(() => {
+        // if compoent loading DONE ... URL has searchWord -> do search
         if (initialSearchTerm) {
             fetchSearchResults(initialSubject, initialSearchTerm, initialPage);
         }
-    }, []); 
+    }, []); // 최초 1회만 실행
 
 
 
+  // search Section /// 
 
-
+  
   const handleSearch = (e) => {
-        e.preventDefault(); 
+        e.preventDefault(); // 기본 폼 제출 동작 방지
         
         if (!searchTerm.trim()) {
             alert("검색어를 입력해 주세요.");
@@ -134,96 +142,141 @@ const BoardListContainer = () => {
     }, []);
 
 
+  // return
 
-
- return (
-  <div className="boardList">
-    <div className="boardList-con">
-      <h2>자유게시판</h2>
-
-      <div className="searchBox">
-        <form onSubmit={handleSearch} className="board-search-form">
-          <select 
-            className="subject-select" 
-            value={subject} 
-            onChange={handleSubjectChange}
-          >
-            <option value="title">제목</option>
-            <option value="content">내용</option>
-            <option value="nickName">닉네임</option>
-          </select>
-          <input 
-            type="text" 
-            value={searchTerm}
-            onChange={handleSearchTermChange} 
-            placeholder="어떤 글을 찾으시나요?" 
-            className="search-input"
-          />
-          <button type="submit" className="search-button">검색</button>
-        </form>
+  return (
+    <div className="boardList">
+       <div className="boardList-banner">
+        <br /><br />
+        {/* <img src="/images/store/swiper/header3.jpg" alt="header" /> */}
+        
       </div>
+      <br />
+      <div className="boardList-con">
+     
+        <h2>:: 자유게시판 ::</h2>
+        <br /><br />
+        <div className="searchBox">
+          <form onSubmit={handleSearch} className="board-search-form">
+            <select name="subject" className="subject-select"value={subject} 
+                onChange={handleSubjectChange} >
+                {/* option value must Math BackEndxcode.... */}
+                <option value="title">제목</option>
+                <option value="content">내용</option>
+                <option value="nickName">닉네임</option>
+            </select>
+            <input type="text" name="search" value={searchTerm}
+                onChange={handleSearchTermChange} // 변경 시 상태 업데이트
+                placeholder="검색어를 입력하세요.." 
+                className="search-input"/>
+            <button type="submit" className="search-button">검색</button>
+        </form>
+        <br />
+        </div>
+        <table className='board-table'>
+          <thead>
+            <tr>
+              <th scope='col'>ID</th>
+              <th scope='col'>Image</th>
+              <th scope='col'>:: 글제목</th>
+              <th scope='col'>:: 작성자</th>
+              <th scope='col'>:: 조회수</th>
+              <th scope='col'>:: 파일</th>
+            </tr>
+          </thead>
+          <tbody>
+            {console.log(boards)}
 
-      <table className='board-table'>
-        <tbody>
-          {boards.map(list => (
-            <tr key={list.id}>
-              <td width="60px">
-                <img 
-                  src={list.fileUrl || '/images/noimage.jpg'} 
-                  alt="thumbnail" 
-                  style={{ width: '50px', height: '50px', borderRadius: '8px', objectFit: 'cover' }}
-                />
-              </td>
-              <td>
-                <Link to={`/board/detail/${list.id}`} className='board-link'>
+            {boards.map(list => (
+              <tr key={list.id}>
+                <td>{list.id}</td>
+                {/* <td>{list.fileUrl}</td> */}
+                <td><img src={list.fileUrl} alt={list.newFileName} style={{ width: '40px', height: '40px', objectFit: 'cover' }}/></td>
+                <td> <Link to={`/board/detail/${list.id}`} className='board-link'>
                   {list.title}
                 </Link>
-                <div className="member-info">
-                  {list.memberNickName} • 조회 {list.hit} • {list.id}
-                </div>
-              </td>
-              <td align="right" style={{ color: '#94a3b8' }}>
-                {/* 날짜 데이터가 있다면 여기에 배치 */}
-                {list.attachFile ? '📎' : ''}
-              </td>
-            </tr>
+                </td>
+                <td>{list.memberNickName}</td>
+                <td>{list.hit}</td>
+                <td>{list.attachFile}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        <div className="pagenation">
+          {/* PREV Page Button*/}
+          {pageInfo.startPage > 0 && (
+            <li style={{ margin: '0 5px' }}>
+              <button
+                onClick={() => handlePageClick(pageInfo.startPage - 1)}
+                style={{ padding: '5px 10px', cursor: 'pointer' }}
+              >
+                &laquo; 이전
+              </button>
+            </li>
+          )}
+
+          {/* Page */}
+          {pageNumbers.map(page => (
+            <li key={page} style={{ margin: '0 5px' }}>
+              <button
+                onClick={() => handlePageClick(page)}
+                // 현재 페이지일 경우 배경색을 회색으로 표시 (뼈대 스타일)
+                style={{
+                  padding: '5px 10px',
+                  cursor: 'pointer',
+                  fontWeight: page === pageInfo.currentPage ? 'bold' : 'normal',
+                  backgroundColor: page === pageInfo.currentPage ? '#eee' : 'white'
+                }}
+              >
+                {page + 1} {/* 사용자에게는 1부터 시작하는 페이지 번호를 보여줌 */}
+              </button>
+            </li>
           ))}
-        </tbody>
-      </table>
 
-      {/* 페이지네이션 */}
-      <ul className="pagenation">
-        {pageInfo.startPage > 0 && (
-          <li>
-            <button onClick={() => handlePageClick(pageInfo.startPage - 1)}>이전</button>
-          </li>
-        )}
+          {/* 다음 (Next) 버튼: 현재 블록의 끝 페이지(endPage)의 다음 페이지로 이동 */}
+          {pageInfo.endPage < pageInfo.totalPages - 1 && (
+            <li style={{ margin: '0 5px' }}>
+              <button
+                onClick={() => handlePageClick(pageInfo.endPage + 1)}
+                style={{ padding: '5px 10px', cursor: 'pointer' }}
+              >
+                다음 &raquo;
+              </button>
+            </li>
+          )}
 
-        {pageNumbers.map(page => (
-          <li key={page}>
-            <button
-              onClick={() => handlePageClick(page)}
-              className={page === pageInfo.currentPage ? 'active' : ''}
-            >
-              {page + 1}
-            </button>
-          </li>
-        ))}
+          {/* EOF Pagenation */}
 
-        {pageInfo.endPage < pageInfo.totalPages - 1 && (
-          <li>
-            <button onClick={() => handlePageClick(pageInfo.endPage + 1)}>다음</button>
-          </li>
-        )}
-      </ul>
+          <br />
+        </div>
+        <div className="boardList-post">
+          {/* this section is temp */}
+          <Link to="/board/newPost">
+            <h3>글쓰기</h3>
+          </Link>
+          {/* { when Loggin 
+            <>
+              <Link to="/board/newPost">
+                <h3>글쓰기</h3>
+              </Link>
+            </>
+            :
+            <>
+              <Link to="/auth">
+                <h3>로그인하세요...</h3>
+              </Link>
+            </>
+          } */}
 
-      <div className="boardList-post">
-        <Link to="/board/newPost" className="write-btn">
-          새 글 쓰기
-        </Link>
+        </div>
+        <br /><br /><br />
       </div>
+
+
     </div>
-  </div>
-);
+  )
 }
+
 export default BoardListContainer

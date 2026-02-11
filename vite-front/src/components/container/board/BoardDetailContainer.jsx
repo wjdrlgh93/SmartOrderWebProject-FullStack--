@@ -23,7 +23,6 @@ const BoardDetailContainer = () => {
     const [content, setContent] = useState('');
     const [isUpdating, setIsUpdating] = useState(false);
 
-
    
     const [editingReplyId, setEditingReplyId] = useState(null);
     const [editingContent, setEditingContent] = useState('');
@@ -99,6 +98,11 @@ const BoardDetailContainer = () => {
             setReplies([]);
         }
     }
+
+    const handleReplyUpdateStart = (replyId, currentContent) => {
+        setEditingReplyId(replyId);             // "이 댓글을 수정창으로 바꿔라!" 명령
+        setEditReplyContent(currentContent); // 입력창에 기존 댓글 내용을 미리 채워줌
+};
 
 
     const handlePageChange = (newPage) => {
@@ -295,7 +299,8 @@ const BoardDetailContainer = () => {
                             {boards.boardImgDtos.map((imgDto) => (
                                 <img
                                     key={imgDto.id || imgDto.newName}
-                                    src={boards.fileUrl} // 주의: 실제 구현시 imgDto.fileUrl 등으로 변경 필요할 수 있음
+                                    // src={boards.fileUrl} // 주의: 실제 구현시 imgDto.fileUrl 등으로 변경 필요할 수 있음
+                                    src={`http://localhost:8088/upload/${imgDto.newName}`}
                                     alt={imgDto.oldName}
                                     className="attached-img"
                                 />
