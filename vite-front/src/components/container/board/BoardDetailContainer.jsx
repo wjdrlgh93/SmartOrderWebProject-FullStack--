@@ -5,6 +5,7 @@ import jwtAxios from '../../../apis/util/jwtUtil';
 
 import "../../../css/board/boardDetail.css"
 import { useSelector } from 'react-redux';
+import { BACK_BASIC_URL } from '../../../apis/commonApis'; 
 
 import DOMPurify from 'dompurify';
 
@@ -300,7 +301,7 @@ const BoardDetailContainer = () => {
                                 <img
                                     key={imgDto.id || imgDto.newName}
                                     // src={boards.fileUrl} // 주의: 실제 구현시 imgDto.fileUrl 등으로 변경 필요할 수 있음
-                                    src={`http://localhost:8088/upload/${imgDto.newName}`}
+                                    src={`${BACK_BASIC_URL}/upload/${imgDto.newName}`}
                                     alt={imgDto.oldName}
                                     className="attached-img"
                                 />
